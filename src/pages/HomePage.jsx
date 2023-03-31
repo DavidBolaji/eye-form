@@ -4,6 +4,23 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getUser } from "../actions/userAction";
+import { saveAs } from "file-saver";
+import * as XLSX from "xlsx";
+
+export const exportToExcel = (user) => {
+  const fileType =
+    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8";
+  const fileName = "data.xlsx";
+
+  const ws = XLSX.utils.json_to_sheet(user);
+  const wb = { Sheets: { data: ws }, SheetNames: ["data"] };
+  const excelBuffer = XLSX.write(wb, {
+    bookType: "xlsx",
+    type: "array",
+  });
+  const excelBlob = new Blob([excelBuffer], { type: fileType });
+  saveAs(excelBlob, fileName);
+};
 
 // const data = [
 //   {
@@ -40,10 +57,12 @@ const HomePage = () => {
       dataIndex: "number",
       key: "number",
       render: (text) => <a>{text}</a>,
+      // responsive: ["md"],
     },
     {
       title: "Action",
       key: "action",
+      // responsive: ["md"],
       render: (_, record) => (
         <Space size="middle">
           <Button
@@ -87,22 +106,26 @@ const HomePage = () => {
     },
   ];
   return (
-    <div className="px-20 max-width-[600px] mt-20">
+    <div className="w-full mt-20 px-5 md:px-20 ">
       <div className="flex w-full justify-end items-center">
-        <Button className="w-[120px]">Download xlsx</Button>
+        <Button className="w-[120px]" onClick={() => exportToExcel(user)}>
+          Download xlsx
+        </Button>
       </div>
       <h2 className="font-bold text-green-800 text-xl mb-2 uppercase">
         All Users
       </h2>
-      <Table
-        columns={columns}
-        dataSource={user}
-        pagination
-        loading={loading}
-        bordered
-        rowKey="_id"
-        size="sm"
-      />
+      <div className="max-width-[280px] md:w-full overflow-y-scroll">
+        <Table
+          columns={columns}
+          dataSource={user}
+          pagination={false}
+          loading={loading}
+          bordered
+          rowKey="_id"
+          size="small"
+        />
+      </div>
     </div>
   );
 };

@@ -8,7 +8,10 @@ import {
   USER_SUCCESS,
 } from "../constants/constants";
 
-export const userReducer = (state = { user: [], curId: null }, action) => {
+export const userReducer = (
+  state = { user: [], curId: null, whatEye: null },
+  action
+) => {
   switch (action.type) {
     case USER_REQUEST:
       return { ...state, loading: true };
@@ -20,10 +23,12 @@ export const userReducer = (state = { user: [], curId: null }, action) => {
         user: action.payload,
       };
     case USER_SAVE_ONE_SUCCESS:
+      console.log(action.payload);
       return {
         loading: false,
-        ...state.user,
+        user: [...state.user],
         curId: action.payload.id,
+        whatEye: action.payload.whatEye,
       };
     case USER_FAILED:
       return { loading: false, error: action.payload };

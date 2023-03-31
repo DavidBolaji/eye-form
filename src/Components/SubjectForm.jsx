@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { memo, useEffect } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useDispatch } from "react-redux";
 import { saveStageOne } from "../actions/userAction";
@@ -91,7 +91,7 @@ const SubjectForm = ({ nextStep, id }) => {
       <Spin />
     </div>
   ) : (
-    <div className="w-full px-[100px] my-[100px]">
+    <div className="w-full md:my-[100px] mt-[100px] md:px-[100px] px-5">
       <h1 className="text-2xl font-bold mb-4 uppercase mt-5">Subject Data</h1>
       <Formik
         initialValues={initialValues}
@@ -387,4 +387,4 @@ const SubjectForm = ({ nextStep, id }) => {
   );
 };
 
-export default SubjectForm;
+export default memo(SubjectForm);

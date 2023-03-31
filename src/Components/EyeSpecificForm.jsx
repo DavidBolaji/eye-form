@@ -1,6 +1,7 @@
-import { Space, Spin } from "antd";
+import { Divider, Space, Spin } from "antd";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import React, { useState } from "react";
+import { memo } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -142,7 +143,7 @@ const EyeSpecificForm = ({ nextStep, id }) => {
   const navigate = useNavigate();
   const onSubmit = (values) => {
     dispatch(saveStageTwo({ ...values, _id: id ? id : curId }));
-    nextStep();
+    navigate("/edit_user/" + curId + "/3");
   };
 
   const onSave = (values) => {
@@ -154,11 +155,15 @@ const EyeSpecificForm = ({ nextStep, id }) => {
       <Spin />
     </div>
   ) : (
-    <div className="w-full px-[100px] my-[100px]">
+    <div className="w-full md:my-[100px] mt-[100px] md:px-[100px] px-5">
       <h1 className="text-2xl font-bold mb-4 uppercase mt-5">
         Eye Spcific Data
       </h1>
-      <Formik initialValues={initialValues} onSubmit={onSubmit}>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={onSubmit}
+        enableReinitialize={true}
+      >
         {({ isSubmitting, values }) => (
           <Form className="space-y-4">
             <div className="flex flex-col">
@@ -294,7 +299,7 @@ const EyeSpecificForm = ({ nextStep, id }) => {
                     className="text-red-500"
                   />
                 </div>
-
+                <Divider />
                 <h3 className="text-lg font-bold mb-4 uppercase mt-5">
                   Procedure related Information
                 </h3>
@@ -370,6 +375,7 @@ const EyeSpecificForm = ({ nextStep, id }) => {
                     className="text-red-500"
                   />
                 </div>
+                <Divider />
 
                 <h3 className="text-lg font-bold mb-4 uppercase mt-5">
                   Post treatment Information
@@ -1014,7 +1020,7 @@ const EyeSpecificForm = ({ nextStep, id }) => {
                     className="text-red-500"
                   />
                 </div>
-
+                <Divider />
                 <h3 className="text-lg font-bold mb-4 uppercase mt-5">
                   Procedure related Information
                 </h3>
@@ -1090,7 +1096,7 @@ const EyeSpecificForm = ({ nextStep, id }) => {
                     className="text-red-500"
                   />
                 </div>
-
+                <Divider />
                 <h3 className="text-lg font-bold mb-4 uppercase mt-5">
                   Procedure related Information
                 </h3>
@@ -1166,7 +1172,7 @@ const EyeSpecificForm = ({ nextStep, id }) => {
                     className="text-red-500"
                   />
                 </div>
-
+                <Divider />
                 <h3 className="text-lg font-bold mb-4 uppercase mt-5">
                   Post treatment Information
                 </h3>
@@ -1704,23 +1710,23 @@ const EyeSpecificForm = ({ nextStep, id }) => {
               </>
             )}
 
-            <div className="flex justify-end ml-auto w-full">
-              <Space>
+            <div className="flex md:justify-end md:ml-auto w-full ">
+              <div className="flex-col md:flex-row w-full">
                 <div
                   onClick={() => onSave(values)}
-                  className="cursor-pointer bg-green-600 text-white p-2 flex items-center justify-center mb-2 rounded-md w-[200px] h-[50px] text-center"
+                  className="cursor-pointer bg-green-600 text-white p-2 flex items-center justify-center mb-2 rounded-md w-full"
                   disabled={isSubmitting}
                 >
                   Save
                 </div>
                 <button
                   type="submit"
-                  className="bg-green-600 text-white p-2 mb-2 rounded-md w-[200px] h-[50px] "
+                  className="bg-green-600 text-white p-2 mb-2 rounded-md w-full  h-[50px] "
                   disabled={isSubmitting}
                 >
                   Next
                 </button>
-              </Space>
+              </div>
             </div>
           </Form>
         )}
@@ -1732,4 +1738,4 @@ const EyeSpecificForm = ({ nextStep, id }) => {
   );
 };
 
-export default EyeSpecificForm;
+export default memo(EyeSpecificForm);

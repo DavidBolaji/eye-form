@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { saveStageTwo } from "../actions/userAction";
 import { useNavigate } from "react-router-dom";
 import { Space, Spin } from "antd";
+import { memo } from "react";
 
 const initialValuesOut = {
   whatEye: "right",
@@ -84,11 +85,15 @@ const FailedForm = ({ previousStep, id }) => {
       <Spin />
     </div>
   ) : (
-    <div className="w-full px-[100px] my-[100px]">
+    <div className="w-full md:my-[100px] mt-[100px] md:px-[100px] px-5">
       <h1 className="text-2xl font-bold mb-4 uppercase mt-5">
         New Treatment Data after Procedure
       </h1>
-      <Formik initialValues={initialValues} onSubmit={onSubmit}>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={onSubmit}
+        enableReinitialize={true}
+      >
         {({ isSubmitting, values }) => (
           <Form className="space-y-4">
             {(values.whatEye === "left" || values.whatEye === "both") && (
@@ -398,4 +403,4 @@ const FailedForm = ({ previousStep, id }) => {
   );
 };
 
-export default FailedForm;
+export default memo(FailedForm);

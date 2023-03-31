@@ -1,6 +1,6 @@
 import { Space, Spin } from "antd";
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import React from "react";
+import React, { memo } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,7 +9,7 @@ import { saveStageTwo } from "../actions/userAction";
 import Axios from "../api/auth";
 
 const initialValuesOut = {
-  whatEye: "",
+  whatEye: "left",
   wasTreatmentAddedL: "",
   wasTreatmentAddedR: "",
   whatTreatmentWasAddedL: "",
@@ -58,9 +58,10 @@ const getStageThree = async (id) => {
   const res = await Axios.get("/user/stageThree/" + id);
   return res.data;
 };
-const NewTreatmentData = ({ nextStep, id }) => {
+const NewTreatmentData = ({ nextStep, id, whatEye }) => {
   const [initialValues, setInitialValues] = useState({});
   const curId = useSelector((state) => state.user.curId);
+
   if (id) {
     useEffect(() => {
       getStageThree(id).then((res) => {
@@ -69,9 +70,10 @@ const NewTreatmentData = ({ nextStep, id }) => {
     }, []);
   } else {
     useEffect(() => {
-      setInitialValues({ ...initialValuesOut });
+      setInitialValues({ ...initialValuesOut, whatEye });
     }, []);
   }
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const onSubmit = (values) => {
@@ -87,11 +89,15 @@ const NewTreatmentData = ({ nextStep, id }) => {
       <Spin />
     </div>
   ) : (
-    <div className="w-full px-[100px] my-[100px]">
+    <div className="w-full md:my-[100px] mt-[100px] md:px-[100px] px-5">
       <h1 className="text-2xl font-bold mb-4 uppercase mt-5">
         New Treatment Data after Procedure
       </h1>
-      <Formik initialValues={initialValues} onSubmit={onSubmit}>
+      <Formik
+        initialValues={{ ...initialValues }}
+        onSubmit={onSubmit}
+        enableReinitialize={true}
+      >
         {({ isSubmitting, values }) => (
           <Form className="space-y-4">
             {(values.whatEye === "left" || values.whatEye === "both") && (
