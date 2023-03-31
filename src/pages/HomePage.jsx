@@ -51,12 +51,24 @@ const HomePage = () => {
   useEffect(() => {
     dispatch(getUser());
   }, []);
+  console.log(userData);
   const columns = [
     {
       title: "Number",
       dataIndex: "number",
       key: "number",
       render: (text) => <a>{text}</a>,
+      filters: user?.map((d) => {
+        return {
+          ...d,
+          text: d.number,
+          value: d.number,
+        };
+      }),
+      // filterMode: "tree",
+      filterSearch: true,
+      width: "30%",
+      onFilter: (value, record) => record.number === value,
       // responsive: ["md"],
     },
     {
@@ -119,9 +131,9 @@ const HomePage = () => {
         <Table
           columns={columns}
           dataSource={user}
-          pagination={false}
           loading={loading}
           bordered
+          pagination={{ pageSize: 10 }}
           rowKey="_id"
           size="small"
         />
