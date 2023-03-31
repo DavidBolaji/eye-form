@@ -23,7 +23,6 @@ export const userReducer = (
         user: action.payload,
       };
     case USER_SAVE_ONE_SUCCESS:
-      console.log(action.payload);
       return {
         loading: false,
         user: [...state.user],

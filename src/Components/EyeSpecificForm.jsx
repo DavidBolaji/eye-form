@@ -1714,14 +1714,14 @@ const EyeSpecificForm = ({ nextStep, id }) => {
               <div className="flex-col md:flex-row w-full">
                 <div
                   onClick={() => onSave(values)}
-                  className="cursor-pointer bg-green-600 text-white p-2 flex items-center justify-center mb-2 rounded-md w-full"
+                  className="cursor-pointer bg-green-600 text-white p-2 flex h-[50px]  items-center justify-center mb-2 rounded-md w-full"
                   disabled={isSubmitting}
                 >
                   Save
                 </div>
                 <button
                   type="submit"
-                  className="bg-green-600 text-white p-2 mb-2 rounded-md w-full  h-[50px] "
+                  className="bg-green-600 text-white p-2 mb-2 rounded-md w-full h-[50px] "
                   disabled={isSubmitting}
                 >
                   Next

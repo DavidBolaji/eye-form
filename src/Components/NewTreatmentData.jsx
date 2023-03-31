@@ -549,11 +549,11 @@ const NewTreatmentData = ({ nextStep, id, whatEye }) => {
               </>
             )}
 
-            <div className="flex justify-end ml-auto w-full">
-              <Space>
+            <div className="flex md:justify-end md:ml-auto w-full ">
+              <div className="flex-col md:flex-row w-full">
                 <div
                   onClick={() => onSave(values)}
-                  className="cursor-pointer bg-green-600 text-white p-2 flex items-center justify-center mb-2 rounded-md w-[200px] h-[50px] text-center"
+                  className="cursor-pointer bg-green-600 text-white p-2 flex items-center justify-center mb-2 rounded-md w-full h-[50px] text-center"
                   disabled={isSubmitting}
                 >
                   Save
@@ -575,13 +575,13 @@ const NewTreatmentData = ({ nextStep, id, whatEye }) => {
                 ) : (
                   <button
                     type="submit"
-                    className="bg-green-600 text-white p-2 mb-2 rounded-md w-[200px] h-[50px] "
+                    className="bg-green-600 text-white p-2 mb-2 rounded-md w-full h-[50px] "
                     // disabled={isSubmitting}
                   >
                     Next
                   </button>
                 )}
-              </Space>
+              </div>
             </div>
           </Form>
         )}
