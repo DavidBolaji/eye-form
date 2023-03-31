@@ -1,7 +1,7 @@
 import { FooterComponent } from "flowbite-react";
 import React from "react";
 import { Outlet } from "react-router-dom";
-import HeaderComponent from "../components/HeaderComponent";
+import HeaderComponent from "../Components/HeaderComponent";
 
 const RootPage = ({ children }) => {
   return (
