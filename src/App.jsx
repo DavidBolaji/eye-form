@@ -1,4 +1,8 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  UNSAFE_useScrollRestoration,
+} from "react-router-dom";
 
 import HomePage from "./pages/HomePage";
 import RootPage from "./pages/RootPage";

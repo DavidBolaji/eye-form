@@ -42,7 +42,7 @@ const EditPage = () => {
         <SubjectForm id={id} />
         <EyeSpecificForm id={id} />
         <NewTreatmentData id={id} />
-        <FailedForm id={id} />
+        {/* <FailedForm id={id} /> */}
       </StepWizard>
     </>
   );

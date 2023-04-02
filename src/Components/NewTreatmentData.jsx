@@ -9,7 +9,7 @@ import { saveStageTwo } from "../actions/userAction";
 import Axios from "../api/auth";
 
 const initialValuesOut = {
-  whatEye: "left",
+  whatEye: "",
   wasTreatmentAddedL: "",
   wasTreatmentAddedR: "",
   whatTreatmentWasAddedL: "",
@@ -31,6 +31,8 @@ const initialValuesOut = {
   iop3MonthsAfterRepeatSLTR: "",
   iopAfter6MonthsAfterRepeatSLTL: "",
   iopAfter6MonthsAfterRepeatSLTR: "",
+  iopAfter12MonthsAfterRepeatSLTL: "",
+  iopAfter12MonthsAfterRepeatSLTR: "",
   complicationsAfterSLTL: "",
   complicationsAfterSLTR: "",
   //   hobbies: [],
@@ -77,8 +79,9 @@ const NewTreatmentData = ({ nextStep, id, whatEye }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const onSubmit = (values) => {
-    dispatch(saveStageTwo({ ...values, _id: id ? id : curId }));
-    nextStep();
+    dispatch(saveStageTwo({ ...values, _id: values._id ? values._id : curId }));
+    // nextStep();
+    navigate("/");
   };
   const onSave = (values) => {
     dispatch(saveStageTwo({ ...values, _id: id ? id : curId }));
@@ -303,6 +306,22 @@ const NewTreatmentData = ({ nextStep, id, whatEye }) => {
                             name="iopAfter6MonthsAfterRepeatSLTL"
                           />
                         </div>
+
+                        <div className="flex flex-col">
+                          <label
+                            className="mb-2 font-bold"
+                            htmlFor="iopAfter6MonthsAfterRepeatSLTL"
+                          >
+                            IOP after 12 months after repeat SLT
+                          </label>
+
+                          <Field
+                            className="border border-gray-400 p-2 rounded-md"
+                            type="number"
+                            id="iopAfter12MonthsAfterRepeatSLTL"
+                            name="iopAfter12MonthsAfterRepeatSLTL"
+                          />
+                        </div>
                         <div className="flex flex-col">
                           <label
                             className="mb-2 font-bold"
@@ -406,7 +425,7 @@ const NewTreatmentData = ({ nextStep, id, whatEye }) => {
                       </label>
 
                       <Field
-                        type="date"
+                        type="month"
                         id="medicalTreatmentMonthR"
                         name="medicalTreatmentMonthR"
                         className="border border-gray-400 p-2 rounded-md"
@@ -527,6 +546,22 @@ const NewTreatmentData = ({ nextStep, id, whatEye }) => {
                             name="iopAfter6MonthsAfterRepeatSLTR"
                           />
                         </div>
+
+                        <div className="flex flex-col">
+                          <label
+                            className="mb-2 font-bold"
+                            htmlFor="iopAfter12MonthsAfterRepeatSLTR"
+                          >
+                            IOP after 12 months after repeat SLT
+                          </label>
+
+                          <Field
+                            className="border border-gray-400 p-2 rounded-md"
+                            type="number"
+                            id="iopAfter12MonthsAfterRepeatSLTR"
+                            name="iopAfter12MonthsAfterRepeatSLTR"
+                          />
+                        </div>
                         <div className="flex flex-col">
                           <label
                             className="mb-2 font-bold"
@@ -567,7 +602,7 @@ const NewTreatmentData = ({ nextStep, id, whatEye }) => {
                   values.wasTreatmentAddedR === "no") ? (
                   <div
                     onClick={() => onSave(values)}
-                    className="cursor-pointer bg-green-600 text-white p-2 flex items-center justify-center mb-2 rounded-md w-[200px] h-[50px] text-center"
+                    className="cursor-pointer w-full bg-green-600 text-white p-2 flex items-center justify-center mb-2 rounded-md h-[50px] text-center"
                     disabled={isSubmitting}
                   >
                     Finish
@@ -578,7 +613,7 @@ const NewTreatmentData = ({ nextStep, id, whatEye }) => {
                     className="bg-green-600 text-white p-2 mb-2 rounded-md w-full h-[50px] "
                     // disabled={isSubmitting}
                   >
-                    Next
+                    Finish
                   </button>
                 )}
               </div>

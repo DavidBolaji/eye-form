@@ -66,16 +66,22 @@ const SubjectForm = ({ nextStep, id }) => {
     useEffect(() => {
       setInitialValues({
         number: Number(""),
+        statusOfPatient: "", // medication/naive patient, on medication and hard washout
+        YOFB: "",
         ethnicity: "",
         ehnicityO: "",
         gender: "",
         travelTime: "",
-        domicile: "",
         education: "",
-        glucoma: "",
-        glucomaO: "",
+        glucoma: "", // remove
+        glucomaO: "", // remove
         hadOfGlaucoma: "",
         relativeWithBlindness: "",
+        historyOfGlucoma: "",
+        historyOfHYPERTENSION: "",
+        BPSYSTOLIC: "",
+        BPDIASTOLIC: "",
+        historyOfDiabetes: "",
         //   hobbies: [],
       });
     }, []);
@@ -83,6 +89,7 @@ const SubjectForm = ({ nextStep, id }) => {
 
   const dispatch = useDispatch();
   const onSubmit = async (values) => {
+    console.log(values);
     dispatch(saveStageOne(values));
     nextStep();
   };
@@ -108,11 +115,54 @@ const SubjectForm = ({ nextStep, id }) => {
                 type="number"
                 id="number"
                 name="number"
-                placeholder="Enter a number"
+                // placeholder="Enter a number"
                 className="border border-gray-400 p-2 rounded-md"
               />
               <ErrorMessage
                 name="number"
+                component="div"
+                className="text-red-500"
+              />
+            </div>
+
+            <div className="flex flex-col">
+              <label htmlFor="statusOfPatient" className="mb-2 font-bold">
+                STATUS OF PATIENT
+              </label>
+              <Field
+                as={"select"}
+                id="statusOfPatient"
+                name="statusOfPatient"
+                className="border border-gray-400 p-2 rounded-md"
+              >
+                <option value=""></option>
+                <option value={"medication naive patient"}>
+                  medication naive patient
+                </option>
+                <option value={"on medication and had washout"}>
+                  on medication and had washout
+                </option>
+              </Field>
+              <ErrorMessage
+                name="statusOfPatient"
+                component="p"
+                className="text-red-500"
+              />
+            </div>
+
+            <div className="flex flex-col">
+              <label htmlFor="YOFB" className="mb-2 font-bold">
+                Year of birth
+              </label>
+              <Field
+                type="text"
+                id="YOFB"
+                name="YOFB"
+                // // placeholder="Enter a number"
+                className="border border-gray-400 p-2 rounded-md"
+              />
+              <ErrorMessage
+                name="YOFB"
                 component="div"
                 className="text-red-500"
               />
@@ -150,7 +200,7 @@ const SubjectForm = ({ nextStep, id }) => {
                   type="text"
                   id="ethnicity"
                   name="ethnicityO"
-                  placeholder="Enter Enthnicity"
+                  // placeholder="Enter Enthnicity"
                   className="border border-gray-400 p-2 rounded-md"
                 />
                 <ErrorMessage
@@ -204,24 +254,6 @@ const SubjectForm = ({ nextStep, id }) => {
               </Field>
               <ErrorMessage
                 name="travelTime"
-                component="p"
-                className="text-red-500"
-              />
-            </div>
-
-            <div className="flex flex-col">
-              <label htmlFor="domicile" className="mb-2 font-bold">
-                Place of Domicile
-              </label>
-              <Field
-                type="text"
-                id="domicile"
-                name="domicile"
-                placeholder="Enter your domicile"
-                className="border border-gray-400 p-2 rounded-md"
-              />
-              <ErrorMessage
-                name="domicile"
                 component="p"
                 className="text-red-500"
               />
@@ -284,7 +316,7 @@ const SubjectForm = ({ nextStep, id }) => {
                   type="text"
                   id="glucoma"
                   name="glucomaO"
-                  placeholder="Enter Enthnicity"
+                  // placeholder="Enter Enthnicity"
                   className="border border-gray-400 p-2 rounded-md"
                 />
                 <ErrorMessage
@@ -364,6 +396,114 @@ const SubjectForm = ({ nextStep, id }) => {
               </Field>
               <ErrorMessage
                 name="relativeWithBlindness"
+                component="p"
+                className="text-red-500"
+              />
+            </div>
+
+            <div className="flex flex-col">
+              <label htmlFor="historyOfHYPERTENSION" className="mb-2 font-bold">
+                History of hypertension
+              </label>
+              <Field
+                as={"select"}
+                id="historyOfHYPERTENSION"
+                name="historyOfHYPERTENSION"
+                className="border border-gray-400 p-2 rounded-md"
+              >
+                <option value=""></option>
+                {hadOfGlaucoma.map((option) => (
+                  <option key={option} value={option}>
+                    {option}
+                  </option>
+                ))}
+              </Field>
+              <ErrorMessage
+                name="historyOfHYPERTENSION"
+                component="p"
+                className="text-red-500"
+              />
+            </div>
+
+            <div className="flex flex-col">
+              <label htmlFor="historyOfGlucoma" className="mb-2 font-bold">
+                History of glucoma
+              </label>
+              <Field
+                as={"select"}
+                id="historyOfGlucoma"
+                name="historyOfGlucoma"
+                className="border border-gray-400 p-2 rounded-md"
+              >
+                <option value=""></option>
+                {hadOfGlaucoma.map((option) => (
+                  <option key={option} value={option}>
+                    {option}
+                  </option>
+                ))}
+              </Field>
+              <ErrorMessage
+                name="hadOfGlaucoma"
+                component="p"
+                className="text-red-500"
+              />
+            </div>
+
+            <div className="flex flex-col">
+              <label htmlFor="number" className="mb-2 font-bold">
+                Blood Pressure (systolic)
+              </label>
+              <Field
+                type="text"
+                id="BPSYSTOLIC"
+                name="BPSYSTOLIC"
+                // // placeholder="Enter Enthnicity"
+                className="border border-gray-400 p-2 rounded-md"
+              />
+              <ErrorMessage
+                name="number"
+                component="BPSYSTOLIC"
+                className="text-red-500"
+              />
+            </div>
+
+            <div className="flex flex-col">
+              <label htmlFor="BPDIASTOLIC" className="mb-2 font-bold">
+                Blood pressure (Diastolic)
+              </label>
+              <Field
+                type="text"
+                id="BPDIASTOLIC"
+                name="BPDIASTOLIC"
+                // placeholder="Enter Enthnicity"
+                className="border border-gray-400 p-2 rounded-md"
+              />
+              <ErrorMessage
+                name="number"
+                component="glucoma"
+                className="text-red-500"
+              />
+            </div>
+
+            <div className="flex flex-col">
+              <label htmlFor="historyOfDiabetes" className="mb-2 font-bold">
+                History of diabetes
+              </label>
+              <Field
+                as={"select"}
+                id="historyOfDiabetes"
+                name="historyOfDiabetes"
+                className="border border-gray-400 p-2 rounded-md"
+              >
+                <option value=""></option>
+                {hadOfGlaucoma.map((option) => (
+                  <option key={option} value={option}>
+                    {option}
+                  </option>
+                ))}
+              </Field>
+              <ErrorMessage
+                name="historyOfDiabetes"
                 component="p"
                 className="text-red-500"
               />

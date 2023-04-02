@@ -21,7 +21,7 @@ const AddPage = () => {
         <SubjectForm id={curId} />
         <EyeSpecificForm id={curId} />
         <NewTreatmentData id={curId} whatEye={whatEye} />
-        <FailedForm id={curId} whatEye={whatEye} />
+        {/* <FailedForm id={curId} whatEye={whatEye} /> */}
       </StepWizard>
     </>
   );

@@ -12,7 +12,25 @@ export const exportToExcel = (user) => {
     "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8";
   const fileName = "data.xlsx";
 
-  const ws = XLSX.utils.json_to_sheet(user);
+  const newUser = user.map((e) => {
+    return {
+      ...e,
+      medicationsBeforeL: JSON.stringify(e.medicationsBeforeL)
+        .replace("[", "")
+        .replace("]", ""),
+      medicationsBeforeR: JSON.stringify(e.medicationsBeforeR)
+        .replace("[", "")
+        .replace("]", ""),
+      medicationsL: JSON.stringify(e.medicationsBeforeL)
+        .replace("[", "")
+        .replace("]", ""),
+      medicationsR: JSON.stringify(e.medicationsR)
+        .replace("[", "")
+        .replace("]", ""),
+    };
+  });
+
+  const ws = XLSX.utils.json_to_sheet(newUser);
   const wb = { Sheets: { data: ws }, SheetNames: ["data"] };
   const excelBuffer = XLSX.write(wb, {
     bookType: "xlsx",
@@ -96,22 +114,6 @@ const HomePage = () => {
             disabled={!(record.wasTreatmentAddedL || record.wasTreatmentAddedR)}
           >
             Stage 3
-          </Button>
-          <Button
-            size="sm"
-            onClick={() => navigate(`edit_user/${record._id}/4`)}
-            disabled={
-              (record.whatEye === "left" &&
-                record.wasTreatmentAddedL === "no") ||
-              (record.whatEye === "right" &&
-                record.wasTreatmentAddedR === "no") ||
-              (record.whatEye === "both" &&
-                record.wasTreatmentAddedL === "no" &&
-                record.wasTreatmentAddedR === "no") ||
-              !(record.treatmentOfferedL || record.treatmentOfferedR)
-            }
-          >
-            Stage 4
           </Button>
         </Space>
       ),
