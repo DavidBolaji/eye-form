@@ -89,7 +89,6 @@ const SubjectForm = ({ nextStep, id }) => {
 
   const dispatch = useDispatch();
   const onSubmit = async (values) => {
-    console.log(values);
     dispatch(saveStageOne(values));
     nextStep();
   };
