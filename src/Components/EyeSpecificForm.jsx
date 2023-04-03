@@ -28,8 +28,7 @@ const initialValuesOut = {
   openessOfQuadrantR: "",
   anteriorChemberActivityprioToProcedureL: "", // new text
   anteriorChemberActivityprioToProcedureR: "", // new text
-  CDRL: "",
-  CDRR: "",
+
   VCDRL: "",
   VCDRR: "",
   HCDRL: "",
@@ -713,7 +712,7 @@ const EyeSpecificForm = ({ nextStep, id }) => {
                       />
                     </div>
 
-                    <div className="flex flex-col">
+                    {/* <div className="flex flex-col">
                       <label htmlFor="CDRL" className="mb-2 font-bold">
                         CDR(Baseline)
                       </label>
@@ -730,7 +729,7 @@ const EyeSpecificForm = ({ nextStep, id }) => {
                         component="p"
                         className="text-red-500"
                       />
-                    </div>
+                    </div> */}
 
                     <div className="flex flex-col">
                       <label htmlFor="VCDRL" className="mb-2 font-bold">
@@ -1578,7 +1577,7 @@ const EyeSpecificForm = ({ nextStep, id }) => {
 
                       <div className="flex flex-col">
                         <label
-                          htmlFor="vaUnaided24HRR"
+                          htmlFor="vaUnaided24HRL"
                           className="mb-2 font-bold"
                         >
                           Visual Acuity unaided
@@ -1586,8 +1585,8 @@ const EyeSpecificForm = ({ nextStep, id }) => {
                         <Field
                           as={"select"}
                           type="text"
-                          id="vaUnaided24HRR"
-                          name="vaUnaided24HRR"
+                          id="vaUnaided24HRL"
+                          name="vaUnaided24HRL"
                           // placeholder="Visual Acuity unaided"
                           className="border border-gray-400 p-2 rounded-md"
                         >
@@ -1599,21 +1598,21 @@ const EyeSpecificForm = ({ nextStep, id }) => {
                           ))}
                         </Field>
                         <ErrorMessage
-                          name="vaUnaided24HRR"
+                          name="vaUnaided24HRL"
                           component="p"
                           className="text-red-500"
                         />
                       </div>
 
                       <div className="flex flex-col">
-                        <label htmlFor="bcVA24HRR" className="mb-2 font-bold">
+                        <label htmlFor="bcVA24HRL" className="mb-2 font-bold">
                           Visual Acuity Best Corrected
                         </label>
                         <Field
                           as={"select"}
                           type="text"
-                          id="bcVA24HRR"
-                          name="bcVA24HRR"
+                          id="bcVA24HRL"
+                          name="bcVA24HRL"
                           // placeholder="Best Corrected Visual Acuity After wash left eye"
                           className="border border-gray-400 p-2 rounded-md"
                         >
@@ -1625,26 +1624,26 @@ const EyeSpecificForm = ({ nextStep, id }) => {
                           ))}
                         </Field>
                         <ErrorMessage
-                          name="bcVA24HRR"
+                          name="bcVA24HRL"
                           component="p"
                           className="text-red-500"
                         />
                       </div>
 
                       <div className="flex flex-col">
-                        <label htmlFor="flare24HRR" className="mb-2 font-bold">
+                        <label htmlFor="flare24HRL" className="mb-2 font-bold">
                           Flare
                         </label>
                         <Field
                           type="text"
-                          id="flare24HRR"
-                          name="flare24HRR"
+                          id="flare24HRL"
+                          name="flare24HRL"
                           // placeholder="flare"
                           className="border border-gray-400 p-2 rounded-md"
                         />
 
                         <ErrorMessage
-                          name="flare24HRR"
+                          name="flare24HRL"
                           component="p"
                           className="text-red-500"
                         />
@@ -3405,7 +3404,7 @@ const EyeSpecificForm = ({ nextStep, id }) => {
                       />
                     </div>
 
-                    <div className="flex flex-col">
+                    {/* <div className="flex flex-col">
                       <label htmlFor="CDRR" className="mb-2 font-bold">
                         CDR(Baseline)
                       </label>
@@ -3422,7 +3421,7 @@ const EyeSpecificForm = ({ nextStep, id }) => {
                         component="p"
                         className="text-red-500"
                       />
-                    </div>
+                    </div> */}
 
                     <div className="flex flex-col">
                       <label htmlFor="VCDRR" className="mb-2 font-bold">
