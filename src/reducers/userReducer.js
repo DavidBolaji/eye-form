@@ -1,5 +1,8 @@
 import {
   USER_ADD,
+  USER_DELETE_FAILED,
+  USER_DELETE_REQUEST,
+  USER_DELETE_SUCCESS,
   USER_FAILED,
   USER_REQUEST,
   USER_SAVE_ONE_FAILED,
@@ -17,6 +20,8 @@ export const userReducer = (
       return { ...state, loading: true };
     case USER_SAVE_ONE_REQUEST:
       return { ...state, loading: true };
+    case USER_DELETE_REQUEST:
+      return { ...state, loading: true };
     case USER_SUCCESS:
       return {
         loading: false,
@@ -29,9 +34,18 @@ export const userReducer = (
         curId: action.payload.id,
         whatEye: action.payload.whatEye,
       };
+    case USER_DELETE_SUCCESS:
+      return {
+        loading: false,
+        user: state.user.filter((e) => e._id !== action.payload.id),
+        curId: null,
+        whatEye: null,
+      };
     case USER_FAILED:
       return { loading: false, error: action.payload };
     case USER_SAVE_ONE_FAILED:
+      return { loading: false, error: action.payload };
+    case USER_DELETE_FAILED:
       return { loading: false, error: action.payload };
     case USER_ADD:
 

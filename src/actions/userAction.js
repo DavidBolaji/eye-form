@@ -1,5 +1,8 @@
 import Axios from "../api/auth";
 import {
+  USER_DELETE_FAILED,
+  USER_DELETE_REQUEST,
+  USER_DELETE_SUCCESS,
   USER_FAILED,
   USER_REQUEST,
   USER_SAVE_ONE_FAILED,
@@ -23,6 +26,30 @@ export const getUser = () => async (dispatch, getState) => {
   } catch (error) {
     dispatch({
       type: USER_FAILED,
+      payload:
+        error?.response?.data?.message && error?.response
+          ? error?.response?.data?.message
+          : error?.message,
+    });
+  }
+};
+
+export const deleteUser = (id) => async (dispatch) => {
+  dispatch({
+    type: USER_DELETE_REQUEST,
+  });
+  console.log(id);
+  try {
+    const res = await Axios.post("/user/delete/" + id);
+    dispatch({
+      type: USER_DELETE_SUCCESS,
+      payload: { id },
+    });
+
+    // localStorage.setItem("user", JSON.stringify(getState().user.user));
+  } catch (error) {
+    dispatch({
+      type: USER_DELETE_FAILED,
       payload:
         error?.response?.data?.message && error?.response
           ? error?.response?.data?.message

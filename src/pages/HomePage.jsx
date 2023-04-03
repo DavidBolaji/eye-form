@@ -3,7 +3,7 @@ import { Button, Space, Table, Tag } from "antd";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getUser } from "../actions/userAction";
+import { deleteUser, getUser } from "../actions/userAction";
 import { saveAs } from "file-saver";
 import * as XLSX from "xlsx";
 
@@ -69,7 +69,6 @@ const HomePage = () => {
   useEffect(() => {
     dispatch(getUser());
   }, []);
-  console.log(userData);
   const columns = [
     {
       title: "Number",
@@ -114,6 +113,14 @@ const HomePage = () => {
             disabled={!(record.wasTreatmentAddedL || record.wasTreatmentAddedR)}
           >
             Stage 3
+          </Button>
+          <Button
+            size="sm"
+            danger
+            onClick={() => dispatch(deleteUser(record._id))}
+            disabled={!(record.wasTreatmentAddedL || record.wasTreatmentAddedR)}
+          >
+            Delete
           </Button>
         </Space>
       ),
