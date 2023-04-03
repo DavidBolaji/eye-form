@@ -118,7 +118,7 @@ const HomePage = () => {
             size="sm"
             danger
             onClick={() => dispatch(deleteUser(record._id))}
-            disabled={!(record.wasTreatmentAddedL || record.wasTreatmentAddedR)}
+            // disabled={!(record.wasTreatmentAddedL || record.wasTreatmentAddedR)}
           >
             Delete
           </Button>
