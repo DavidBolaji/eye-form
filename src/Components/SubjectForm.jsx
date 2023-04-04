@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { saveStageOne } from "../actions/userAction";
 import Axios from "../api/auth";
 import { useState } from "react";
-import { Spin } from "antd";
+import { Spin, message } from "antd";
 
 const ethnicityOptions = ["Hausa", "Igbo", "Yoruba", "Other"];
 const hadOfGlaucoma = ["Yes", "No"];
@@ -89,7 +89,12 @@ const SubjectForm = ({ nextStep, id }) => {
 
   const dispatch = useDispatch();
   const onSubmit = async (values) => {
-    dispatch(saveStageOne(values));
+    if (values.number === "" || !values.number) {
+      return message.error(
+        "Please enter a Serial Number, Number field cannot be empty"
+      );
+    }
+    dispatch(saveStageOne({ ...values, id: values._id }));
     nextStep();
   };
   return Object.keys(initialValues).length < 1 ? (

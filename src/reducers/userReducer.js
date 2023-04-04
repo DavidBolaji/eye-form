@@ -32,7 +32,7 @@ export const userReducer = (
         loading: false,
         user: [...state.user],
         curId: action.payload.id,
-        whatEye: action.payload.whatEye,
+        whatEye: action.payload.whatEye ? action.payload.whatEye : null,
       };
     case USER_DELETE_SUCCESS:
       return {
