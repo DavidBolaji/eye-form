@@ -38,7 +38,6 @@ export const deleteUser = (id) => async (dispatch) => {
   dispatch({
     type: USER_DELETE_REQUEST,
   });
-  console.log(id);
   try {
     const res = await Axios.post("/user/delete/" + id);
     dispatch({
