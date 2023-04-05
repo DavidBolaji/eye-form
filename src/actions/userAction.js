@@ -105,7 +105,6 @@ export const saveStageTwo = (user) => async (dispatch, getState) => {
   dispatch({
     type: USER_SAVE_ONE_REQUEST,
   });
-  console.log(user);
   try {
     const res = await Axios.post("/user/update", user);
     dispatch({
