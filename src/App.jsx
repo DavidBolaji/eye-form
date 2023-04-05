@@ -5,7 +5,7 @@ import AddPage from "./pages/AddPage";
 import EditPage from "./pages/EditPage";
 import "./index.css";
 import LoginPage from "./pages/LoginPage";
-import HomePage from "./pages/Homepage";
+import HomePage from "./pages/HomePage";
 
 const route = createBrowserRouter([
   {
