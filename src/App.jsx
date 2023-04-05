@@ -9,6 +9,10 @@ import HomePage from "./pages/Homepage";
 
 const route = createBrowserRouter([
   {
+    path: "/",
+    element: <LoginPage />,
+  },
+  {
     path: "/dashboard",
     element: <RootPage />,
     children: [
@@ -25,10 +29,6 @@ const route = createBrowserRouter([
         element: <EditPage />,
       },
     ],
-  },
-  {
-    path: "/",
-    element: <LoginPage />,
   },
 ]);
 function App() {
