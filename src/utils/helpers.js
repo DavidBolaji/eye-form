@@ -24,6 +24,8 @@ export const exportToExcel = (user) => {
       historyOfHYPERTENSION: e?.historyOfHYPERTENSION,
       BPSYSTOLIC: e?.BPSYSTOLIC,
       BPDIASTOLIC: e?.BPDIASTOLIC,
+      weight: e?.weight,
+      height: e?.height,
       historyOfDiabetes: e?.historyOfDiabetes,
 
       whatEye: e?.whatEye,
@@ -227,6 +229,12 @@ export const exportToExcel = (user) => {
       PAS2ML: e?.PAS2ML,
       PAS2MR: e?.PAS2MR,
 
+      Gonioscopy2ML: e?.Gonioscopy2ML,
+      Gonioscopy2MR: e?.Gonioscopy2MR,
+
+      openessOfQuadrant2MR: e?.openessOfQuadrant2MR,
+      openessOfQuadrant2ML: e?.openessOfQuadrant2ML,
+
       pigment2ML: e?.pigment2ML,
       pigment2MR: e?.pigment2MR,
 
@@ -269,6 +277,12 @@ export const exportToExcel = (user) => {
       IOPA3ML: e?.IOPA3ML,
       IOPA3MR: e?.IOPA3MR,
 
+      Gonioscopy3ML: e?.Gonioscopy3ML,
+      Gonioscopy3MR: e?.Gonioscopy3MR,
+
+      openessOfQuadrant3MR: e?.openessOfQuadrant3MR,
+      openessOfQuadrant3ML: e?.openessOfQuadrant3ML,
+
       PAS3ML: e?.PAS3ML,
       PAS3MR: e?.PAS3MR,
 
@@ -299,6 +313,12 @@ export const exportToExcel = (user) => {
 
       IOPA6ML: e?.IOPA6ML,
       IOPA6MR: e?.IOPA6MR,
+
+      Gonioscopy6ML: e?.Gonioscopy6ML,
+      Gonioscopy6MR: e?.Gonioscopy6MR,
+
+      openessOfQuadrant6MR: e?.openessOfQuadrant6MR,
+      openessOfQuadrant6ML: e?.openessOfQuadrant6ML,
 
       PAS6ML: e?.PAS6ML,
       PAS6MR: e?.PAS6MR,

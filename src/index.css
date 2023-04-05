@@ -16,3 +16,13 @@ body {
   background-color: #16a34a !important;
   color: #fff;
 }
+
+#hhh {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+#hhh::-webkit-scrollbar {
+  display: none;
+  scrollbar-width: none;
+}

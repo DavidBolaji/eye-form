@@ -82,6 +82,8 @@ const SubjectForm = ({ nextStep, id }) => {
         historyOfHYPERTENSION: "",
         BPSYSTOLIC: "",
         BPDIASTOLIC: "",
+        weight: "",
+        height: "",
         historyOfDiabetes: "",
         //   hobbies: [],
       });
@@ -481,6 +483,42 @@ const SubjectForm = ({ nextStep, id }) => {
                 type="text"
                 id="BPDIASTOLIC"
                 name="BPDIASTOLIC"
+                // placeholder="Enter Enthnicity"
+                className="border border-gray-400 p-2 rounded-md"
+              />
+              <ErrorMessage
+                name="number"
+                component="glucoma"
+                className="text-red-500"
+              />
+            </div>
+
+            <div className="flex flex-col">
+              <label htmlFor="weight" className="mb-2 font-bold">
+                Weight
+              </label>
+              <Field
+                type="text"
+                id="weight"
+                name="weight"
+                // placeholder="Enter Enthnicity"
+                className="border border-gray-400 p-2 rounded-md"
+              />
+              <ErrorMessage
+                name="number"
+                component="glucoma"
+                className="text-red-500"
+              />
+            </div>
+
+            <div className="flex flex-col">
+              <label htmlFor="height" className="mb-2 font-bold">
+                Height (Diastolic)
+              </label>
+              <Field
+                type="text"
+                id="height"
+                name="height"
                 // placeholder="Enter Enthnicity"
                 className="border border-gray-400 p-2 rounded-md"
               />

@@ -69,6 +69,7 @@ const initialValuesOut = {
   IOP4R: "",
   //nEW Position
   // interoccular pressre before procedure(Ihr before)
+
   IOP1HRL: "",
   IOP1HRR: "",
 
@@ -82,6 +83,8 @@ const initialValuesOut = {
   iop15MinR: "",
   iop30minL: "",
   iop30minR: "",
+  iop45minR: "",
+  iop45minL: "",
   iop1HRL: "",
   iop1HRR: "",
   averageEnergyForProcedureL: "", //Number
@@ -200,6 +203,12 @@ const initialValuesOut = {
   PAS2ML: "",
   PAS2MR: "",
 
+  Gonioscopy2ML: "",
+  Gonioscopy2MR: "",
+
+  openessOfQuadrant2MR: "",
+  openessOfQuadrant2ML: "",
+
   pigment2ML: "",
   pigment2MR: "",
 
@@ -241,6 +250,12 @@ const initialValuesOut = {
   IOPA3ML: "",
   IOPA3MR: "",
 
+  Gonioscopy3ML: "",
+  Gonioscopy3MR: "",
+
+  openessOfQuadrant3MR: "",
+  openessOfQuadrant3ML: "",
+
   PAS3ML: "",
   PAS3MR: "",
 
@@ -271,6 +286,12 @@ const initialValuesOut = {
 
   IOPA6ML: "",
   IOPA6MR: "",
+
+  Gonioscopy6ML: "",
+  Gonioscopy6MR: "",
+
+  openessOfQuadrant6MR: "",
+  openessOfQuadrant6ML: "",
 
   PAS6ML: "",
   PAS6MR: "",
@@ -473,6 +494,8 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
       BPSYSTOLIC: previous.BPSYSTOLIC,
       BPDIASTOLIC: previous.BPDIASTOLIC,
       historyOfDiabetes: previous.historyOfDiabetes,
+      weight: previous.weight,
+      height: previous.height,
     };
     dispatch(saveStageTwo({ ...newObj, _id: values._id ? values._id : curId }));
     navigate("/dashboard");
@@ -1196,6 +1219,24 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                         type="number"
                         id="iop30minL"
                         name="iop30minL"
+                        // placeholder="IOP 30MIN"
+                        className="border border-gray-400 p-2 rounded-md"
+                      />
+                      <ErrorMessage
+                        name="iop30minL"
+                        component="div"
+                        className="text-red-500"
+                      />
+                    </div>
+
+                    <div className="flex flex-col">
+                      <label htmlFor="iop45minL" className="mb-2 font-bold">
+                        IOP 45MIN
+                      </label>
+                      <Field
+                        type="number"
+                        id="iop45minL"
+                        name="iop45minL"
                         // placeholder="IOP 30MIN"
                         className="border border-gray-400 p-2 rounded-md"
                       />
@@ -2067,6 +2108,51 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                       Gonioscopy
                       <Divider />
                       <div className="flex flex-col">
+                        <label htmlFor="number" className="mb-2 font-bold">
+                          Gonioscopy
+                        </label>
+                        <Field
+                          type="text"
+                          id="Gonioscopy2ML"
+                          name="Gonioscopy2ML"
+                          // placeholder="Gonioscopy"
+                          className="border border-gray-400 p-2 rounded-md"
+                        />
+                        <ErrorMessage
+                          name="Gonioscopy2ML"
+                          component="div"
+                          className="text-red-500"
+                        />
+                      </div>
+                      <div className="flex flex-col">
+                        <label
+                          htmlFor="openessOfQuadrant2ML"
+                          className="mb-2 font-bold"
+                        >
+                          Openness of the quadrant
+                        </label>
+                        <Field
+                          as={"select"}
+                          type="text"
+                          id="openessOfQuadrant2ML"
+                          name="openessOfQuadrant2ML"
+                          // placeholder="presenting Visual Acuity"
+                          className="border border-gray-400 p-2 rounded-md"
+                        >
+                          <option value=""> </option>
+                          {openessOfQuadrant.map((option) => (
+                            <option key={option} value={option}>
+                              {option}
+                            </option>
+                          ))}
+                        </Field>
+                        <ErrorMessage
+                          name="openessOfQuadrant2ML"
+                          component="p"
+                          className="text-red-500"
+                        />
+                      </div>
+                      <div className="flex flex-col">
                         <label htmlFor="PAS2ML" className="mb-2 font-bold">
                           Any PAS
                         </label>
@@ -2403,6 +2489,51 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                       Gonioscopy
                       <Divider />
                       <div className="flex flex-col">
+                        <label htmlFor="number" className="mb-2 font-bold">
+                          Gonioscopy
+                        </label>
+                        <Field
+                          type="text"
+                          id="Gonioscopy3ML"
+                          name="Gonioscopy3ML"
+                          // placeholder="Gonioscopy"
+                          className="border border-gray-400 p-2 rounded-md"
+                        />
+                        <ErrorMessage
+                          name="Gonioscopy3ML"
+                          component="div"
+                          className="text-red-500"
+                        />
+                      </div>
+                      <div className="flex flex-col">
+                        <label
+                          htmlFor="openessOfQuadrant3ML"
+                          className="mb-2 font-bold"
+                        >
+                          Openness of the quadrant
+                        </label>
+                        <Field
+                          as={"select"}
+                          type="text"
+                          id="openessOfQuadrant3ML"
+                          name="openessOfQuadrant3ML"
+                          // placeholder="presenting Visual Acuity"
+                          className="border border-gray-400 p-2 rounded-md"
+                        >
+                          <option value=""> </option>
+                          {openessOfQuadrant.map((option) => (
+                            <option key={option} value={option}>
+                              {option}
+                            </option>
+                          ))}
+                        </Field>
+                        <ErrorMessage
+                          name="openessOfQuadrant3ML"
+                          component="p"
+                          className="text-red-500"
+                        />
+                      </div>
+                      <div className="flex flex-col">
                         <label htmlFor="PAS3ML" className="mb-2 font-bold">
                           Any PAS
                         </label>
@@ -2624,6 +2755,51 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                       <Divider />
                       Gonioscopy
                       <Divider />
+                      <div className="flex flex-col">
+                        <label htmlFor="number" className="mb-2 font-bold">
+                          Gonioscopy
+                        </label>
+                        <Field
+                          type="text"
+                          id="Gonioscopy6ML"
+                          name="Gonioscopy6ML"
+                          // placeholder="Gonioscopy"
+                          className="border border-gray-400 p-2 rounded-md"
+                        />
+                        <ErrorMessage
+                          name="Gonioscopy6ML"
+                          component="div"
+                          className="text-red-500"
+                        />
+                      </div>
+                      <div className="flex flex-col">
+                        <label
+                          htmlFor="openessOfQuadrant6ML"
+                          className="mb-2 font-bold"
+                        >
+                          Openness of the quadrant
+                        </label>
+                        <Field
+                          as={"select"}
+                          type="text"
+                          id="openessOfQuadrant6ML"
+                          name="openessOfQuadrant6ML"
+                          // placeholder="presenting Visual Acuity"
+                          className="border border-gray-400 p-2 rounded-md"
+                        >
+                          <option value=""> </option>
+                          {openessOfQuadrant.map((option) => (
+                            <option key={option} value={option}>
+                              {option}
+                            </option>
+                          ))}
+                        </Field>
+                        <ErrorMessage
+                          name="openessOfQuadrant6ML"
+                          component="p"
+                          className="text-red-500"
+                        />
+                      </div>
                       <div className="flex flex-col">
                         <label htmlFor="PAS6ML" className="mb-2 font-bold">
                           Any PAS
@@ -3908,6 +4084,24 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                     </div>
 
                     <div className="flex flex-col">
+                      <label htmlFor="iop45minR" className="mb-2 font-bold">
+                        IOP 45MIN
+                      </label>
+                      <Field
+                        type="number"
+                        id="iop45minR"
+                        name="iop45minR"
+                        // placeholder="IOP 45MIN"
+                        className="border border-gray-400 p-2 rounded-md"
+                      />
+                      <ErrorMessage
+                        name="iop45minR"
+                        component="div"
+                        className="text-red-500"
+                      />
+                    </div>
+
+                    <div className="flex flex-col">
                       <label htmlFor="iop1HRR" className="mb-2 font-bold">
                         IOP 1HR
                       </label>
@@ -4768,6 +4962,51 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                       Gonioscopy
                       <Divider />
                       <div className="flex flex-col">
+                        <label htmlFor="number" className="mb-2 font-bold">
+                          Gonioscopy
+                        </label>
+                        <Field
+                          type="text"
+                          id="Gonioscopy2MR"
+                          name="Gonioscopy2MR"
+                          // placeholder="Gonioscopy"
+                          className="border border-gray-400 p-2 rounded-md"
+                        />
+                        <ErrorMessage
+                          name="Gonioscopy2MR"
+                          component="div"
+                          className="text-red-500"
+                        />
+                      </div>
+                      <div className="flex flex-col">
+                        <label
+                          htmlFor="openessOfQuadrant2MR"
+                          className="mb-2 font-bold"
+                        >
+                          Openness of the quadrant
+                        </label>
+                        <Field
+                          as={"select"}
+                          type="text"
+                          id="openessOfQuadrant2MR"
+                          name="openessOfQuadrant2MR"
+                          // placeholder="presenting Visual Acuity"
+                          className="border border-gray-400 p-2 rounded-md"
+                        >
+                          <option value=""> </option>
+                          {openessOfQuadrant.map((option) => (
+                            <option key={option} value={option}>
+                              {option}
+                            </option>
+                          ))}
+                        </Field>
+                        <ErrorMessage
+                          name="openessOfQuadrant2MR"
+                          component="p"
+                          className="text-red-500"
+                        />
+                      </div>
+                      <div className="flex flex-col">
                         <label htmlFor="PAS2MR" className="mb-2 font-bold">
                           Any PAS
                         </label>
@@ -5104,6 +5343,51 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                       Gonioscopy
                       <Divider />
                       <div className="flex flex-col">
+                        <label htmlFor="number" className="mb-2 font-bold">
+                          Gonioscopy
+                        </label>
+                        <Field
+                          type="text"
+                          id="Gonioscopy3MR"
+                          name="Gonioscopy3MR"
+                          // placeholder="Gonioscopy"
+                          className="border border-gray-400 p-2 rounded-md"
+                        />
+                        <ErrorMessage
+                          name="Gonioscopy3MR"
+                          component="div"
+                          className="text-red-500"
+                        />
+                      </div>
+                      <div className="flex flex-col">
+                        <label
+                          htmlFor="openessOfQuadrant3MR"
+                          className="mb-2 font-bold"
+                        >
+                          Openness of the quadrant
+                        </label>
+                        <Field
+                          as={"select"}
+                          type="text"
+                          id="openessOfQuadrant3MR"
+                          name="openessOfQuadrant3MR"
+                          // placeholder="presenting Visual Acuity"
+                          className="border border-gray-400 p-2 rounded-md"
+                        >
+                          <option value=""> </option>
+                          {openessOfQuadrant.map((option) => (
+                            <option key={option} value={option}>
+                              {option}
+                            </option>
+                          ))}
+                        </Field>
+                        <ErrorMessage
+                          name="openessOfQuadrant3MR"
+                          component="p"
+                          className="text-red-500"
+                        />
+                      </div>
+                      <div className="flex flex-col">
                         <label htmlFor="PAS3MR" className="mb-2 font-bold">
                           Any PAS
                         </label>
@@ -5325,6 +5609,51 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                       <Divider />
                       Gonioscopy
                       <Divider />
+                      <div className="flex flex-col">
+                        <label htmlFor="number" className="mb-2 font-bold">
+                          Gonioscopy
+                        </label>
+                        <Field
+                          type="text"
+                          id="Gonioscopy6MR"
+                          name="Gonioscopy6MR"
+                          // placeholder="Gonioscopy"
+                          className="border border-gray-400 p-2 rounded-md"
+                        />
+                        <ErrorMessage
+                          name="Gonioscopy6MR"
+                          component="div"
+                          className="text-red-500"
+                        />
+                      </div>
+                      <div className="flex flex-col">
+                        <label
+                          htmlFor="openessOfQuadrant6MR"
+                          className="mb-2 font-bold"
+                        >
+                          Openness of the quadrant
+                        </label>
+                        <Field
+                          as={"select"}
+                          type="text"
+                          id="openessOfQuadrant6MR"
+                          name="openessOfQuadrant6MR"
+                          // placeholder="presenting Visual Acuity"
+                          className="border border-gray-400 p-2 rounded-md"
+                        >
+                          <option value=""> </option>
+                          {openessOfQuadrant.map((option) => (
+                            <option key={option} value={option}>
+                              {option}
+                            </option>
+                          ))}
+                        </Field>
+                        <ErrorMessage
+                          name="openessOfQuadrant6MR"
+                          component="p"
+                          className="text-red-500"
+                        />
+                      </div>
                       <div className="flex flex-col">
                         <label htmlFor="PAS6MR" className="mb-2 font-bold">
                           Any PAS
