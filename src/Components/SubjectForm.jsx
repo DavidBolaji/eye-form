@@ -5,10 +5,11 @@ import { saveStageOne } from "../actions/userAction";
 import Axios from "../api/auth";
 import { useState } from "react";
 import { Spin, message } from "antd";
+import { useNavigate } from "react-router-dom";
 
 const ethnicityOptions = ["Hausa", "Igbo", "Yoruba", "Other"];
-const hadOfGlaucoma = ["Yes", "No"];
-const relativeWithBlindness = ["Yes", "No"];
+const hadOfGlaucoma = ["Yes", "No", "I don't know"];
+const relativeWithBlindness = ["Yes", "No", "I don't know"];
 const eductionLevel = [
   "None/illetrate",
   "Primary School only",
@@ -88,6 +89,7 @@ const SubjectForm = ({ nextStep, id }) => {
   }
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const onSubmit = async (values) => {
     if (values.number === "" || !values.number) {
       return message.error(
@@ -431,7 +433,7 @@ const SubjectForm = ({ nextStep, id }) => {
 
             <div className="flex flex-col">
               <label htmlFor="historyOfGlucoma" className="mb-2 font-bold">
-                History of glucoma
+                History of glaucoma
               </label>
               <Field
                 as={"select"}

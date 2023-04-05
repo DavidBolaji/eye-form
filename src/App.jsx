@@ -1,18 +1,15 @@
-import {
-  createBrowserRouter,
-  RouterProvider,
-  UNSAFE_useScrollRestoration,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import HomePage from "./pages/HomePage";
 import RootPage from "./pages/RootPage";
 import AddPage from "./pages/AddPage";
 import EditPage from "./pages/EditPage";
 import "./index.css";
+import LoginPage from "./pages/LoginPage";
+import HomePage from "./pages/Homepage";
 
 const route = createBrowserRouter([
   {
-    path: "/",
+    path: "/dashboard",
     element: <RootPage />,
     children: [
       {
@@ -28,6 +25,10 @@ const route = createBrowserRouter([
         element: <EditPage />,
       },
     ],
+  },
+  {
+    path: "/",
+    element: <LoginPage />,
   },
 ]);
 function App() {

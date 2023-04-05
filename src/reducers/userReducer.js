@@ -12,7 +12,7 @@ import {
 } from "../constants/constants";
 
 export const userReducer = (
-  state = { user: [], curId: null, whatEye: null },
+  state = { user: [], curId: null, whatEye: null, prev: {} },
   action
 ) => {
   switch (action.type) {
@@ -31,8 +31,11 @@ export const userReducer = (
       return {
         loading: false,
         user: [...state.user],
-        curId: action.payload.id,
-        whatEye: action.payload.whatEye ? action.payload.whatEye : null,
+        curId: action.payload.data.id,
+        whatEye: action.payload.data.whatEye
+          ? action.payload.data.whatEye
+          : null,
+        prev: action.payload.user,
       };
     case USER_DELETE_SUCCESS:
       return {

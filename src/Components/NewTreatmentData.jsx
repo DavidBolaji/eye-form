@@ -81,7 +81,7 @@ const NewTreatmentData = ({ nextStep, id, whatEye }) => {
   const onSubmit = (values) => {
     dispatch(saveStageTwo({ ...values, _id: values._id ? values._id : curId }));
     // nextStep();
-    navigate("/");
+    navigate("/dashboard");
   };
   const onSave = (values) => {
     dispatch(saveStageTwo({ ...values, _id: id ? id : curId }));

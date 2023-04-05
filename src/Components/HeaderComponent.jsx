@@ -10,12 +10,21 @@ const HeaderComponent = () => {
       {/* <div>LOGO</div> */}
       <div>
         <Space>
-          <Button onClick={() => navigate("/")}>Home</Button>
+          <Button onClick={() => navigate("/dashboard")}>Home</Button>
           <Button
             onClick={() => navigate("add_user")}
             className="bg-green-600 text-white border-0"
           >
             Add User
+          </Button>
+          <Button
+            onClick={() => {
+              localStorage.removeItem("login");
+              navigate("/");
+            }}
+            className="bg-green-600 text-white border-0"
+          >
+            LOGOUT
           </Button>
         </Space>
       </div>

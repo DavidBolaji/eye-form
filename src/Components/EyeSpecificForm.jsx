@@ -74,8 +74,8 @@ const initialValuesOut = {
 
   BIOP: "",
   BIOPR: "",
-  howmanymililetreofwaterwasgiven: "", // new
-  howmanymililetreofwaterwasgivenR: "", // new
+  howmanymililitreofwaterwasgiven: "", // new
+  howmanymililitreofwaterwasgivenR: "", // new
   iop5minL: "", //number
   iop5minR: "", //number
   iop15MinL: "",
@@ -211,8 +211,8 @@ const initialValuesOut = {
 
   BIOP2ML: "",
   BIOPR2MR: "",
-  howmanymililetreofwaterwasgiven2ML: "", // new
-  howmanymililetreofwaterwasgivenR2MR: "", // new
+  howmanymililitreofwaterwasgiven2ML: "", // new
+  howmanymililitreofwaterwasgivenR2MR: "", // new
   iop5minL2ML: "", //number
   iop5minR2MR: "", //number
   iop15MinL2ML: "",
@@ -403,9 +403,10 @@ const getStageTwo = async (id) => {
   return res.data;
 };
 
-const EyeSpecificForm = ({ nextStep, id }) => {
+const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
   const [initialValues, setInitialValues] = useState({});
   const curId = useSelector((state) => state.user.curId);
+  const previous = useSelector((state) => state.user.prev);
   if (id) {
     useEffect(() => {
       getStageTwo(id).then((res) => {
@@ -414,22 +415,67 @@ const EyeSpecificForm = ({ nextStep, id }) => {
     }, []);
   } else {
     useEffect(() => {
-      setInitialValues(initialValuesOut);
+      setInitialValues({ ...initialValuesOut });
     }, []);
   }
+  useEffect(() => {
+    // console.log(initialValues);
+  }, [currentStep, curId]);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const onSubmit = (values) => {
+    const newObj = {
+      ...values,
+
+      number: previous.number,
+      statusOfPatient: previous.statusOfPatient, // medication/naive patient, on medication and hard washout
+      YOFB: previous.YOFB,
+      ethnicity: previous.ethnicity,
+      ehnicityO: previous.ethnicityO,
+      gender: previous.gender,
+      travelTime: previous.travelTime,
+      education: previous.education,
+      glucoma: previous.glucoma,
+      glucomaO: previous.glucomaO,
+      hadOfGlaucoma: previous.hadOfGlaucoma,
+      relativeWithBlindness: previous.relativeWithBlindness,
+      historyOfGlucoma: previous.historyOfGlucoma,
+      historyOfHYPERTENSION: previous.historyOfHYPERTENSION,
+      BPSYSTOLIC: previous.BPSYSTOLIC,
+      BPDIASTOLIC: previous.BPDIASTOLIC,
+      historyOfDiabetes: previous.historyOfDiabetes,
+    };
     // console.log(values._id);
-    dispatch(saveStageTwo({ ...values, _id: values._id ? values._id : curId }));
+    dispatch(saveStageTwo({ ...newObj, _id: values._id ? values._id : curId }));
     // navigate("/edit_user/" + values._id + "/3");
     nextStep();
   };
 
   const onSave = (values) => {
-    dispatch(saveStageTwo({ ...values, _id: values._id }));
-    navigate("/");
+    const newObj = {
+      ...values,
+
+      number: previous.number,
+      statusOfPatient: previous.statusOfPatient, // medication/naive patient, on medication and hard washout
+      YOFB: previous.YOFB,
+      ethnicity: previous.ethnicity,
+      ehnicityO: previous.ethnicityO,
+      gender: previous.gender,
+      travelTime: previous.travelTime,
+      education: previous.education,
+      glucoma: previous.glucoma,
+      glucomaO: previous.glucomaO,
+      hadOfGlaucoma: previous.hadOfGlaucoma,
+      relativeWithBlindness: previous.relativeWithBlindness,
+      historyOfGlucoma: previous.historyOfGlucoma,
+      historyOfHYPERTENSION: previous.historyOfHYPERTENSION,
+      BPSYSTOLIC: previous.BPSYSTOLIC,
+      BPDIASTOLIC: previous.BPDIASTOLIC,
+      historyOfDiabetes: previous.historyOfDiabetes,
+    };
+    dispatch(saveStageTwo({ ...newObj, _id: values._id ? values._id : curId }));
+    navigate("/dashboard");
   };
   return Object.keys(initialValues).length < 1 ? (
     <div className="flex h-screen w-full items-center justify-center">
@@ -438,7 +484,7 @@ const EyeSpecificForm = ({ nextStep, id }) => {
   ) : (
     <div className="w-full md:my-[100px] mt-[100px] md:px-[100px] px-5">
       <h1 className="text-2xl font-bold mb-4 uppercase mt-5">
-        Eye Spcific Data
+        Eye Specific Data
       </h1>
       <Formik
         initialValues={initialValues}
@@ -695,7 +741,7 @@ const EyeSpecificForm = ({ nextStep, id }) => {
                         htmlFor="anteriorChemberActivityprioToProcedureL"
                         className="mb-2 font-bold"
                       >
-                        Anterior Chember Activity prio To Procedure
+                        Anterior Chamber Activity prior To Procedure
                       </label>
                       <Field
                         type="text"
@@ -1087,20 +1133,20 @@ const EyeSpecificForm = ({ nextStep, id }) => {
 
                     <div className="flex flex-col">
                       <label
-                        htmlFor="howmanymililetreofwaterwasgiven"
+                        htmlFor="howmanymililitreofwaterwasgiven"
                         className="mb-2 font-bold"
                       >
-                        how many mililetre of water was given
+                        how many mililitre of water was given
                       </label>
                       <Field
                         type="number"
-                        id="howmanymililetreofwaterwasgiven"
-                        name="howmanymililetreofwaterwasgiven"
-                        // placeholder="how many mililetre of water was given"
+                        id="howmanymililitreofwaterwasgiven"
+                        name="howmanymililitreofwaterwasgiven"
+                        // placeholder="how many mililitre of water was given"
                         className="border border-gray-400 p-2 rounded-md"
                       />
                       <ErrorMessage
-                        name="howmanymililetreofwaterwasgiven"
+                        name="howmanymililitreofwaterwasgiven"
                         component="div"
                         className="text-red-500"
                       />
@@ -1114,7 +1160,7 @@ const EyeSpecificForm = ({ nextStep, id }) => {
                         type="number"
                         id="iop5minL"
                         name="iop5minL"
-                        // placeholder="how many mililetre of water was given"
+                        // placeholder="how many mililitre of water was given"
                         className="border border-gray-400 p-2 rounded-md"
                       />
                       <ErrorMessage
@@ -2129,20 +2175,20 @@ const EyeSpecificForm = ({ nextStep, id }) => {
                       </div>
                       <div className="flex flex-col">
                         <label
-                          htmlFor="howmanymililetreofwaterwasgiven2ML"
+                          htmlFor="howmanymililitreofwaterwasgiven2ML"
                           className="mb-2 font-bold"
                         >
-                          how many mililetre of water was given
+                          how many mililitre of water was given
                         </label>
                         <Field
                           type="number"
-                          id="howmanymililetreofwaterwasgiven2ML"
-                          name="howmanymililetreofwaterwasgiven2ML"
-                          // placeholder="how many mililetre of water was given"
+                          id="howmanymililitreofwaterwasgiven2ML"
+                          name="howmanymililitreofwaterwasgiven2ML"
+                          // placeholder="how many mililitre of water was given"
                           className="border border-gray-400 p-2 rounded-md"
                         />
                         <ErrorMessage
-                          name="howmanymililetreofwaterwasgiven2ML"
+                          name="howmanymililitreofwaterwasgiven2ML"
                           component="div"
                           className="text-red-500"
                         />
@@ -2155,7 +2201,7 @@ const EyeSpecificForm = ({ nextStep, id }) => {
                           type="number"
                           id="iop5minL2ML"
                           name="iop5minL2ML"
-                          // placeholder="how many mililetre of water was given"
+                          // placeholder="how many mililitre of water was given"
                           className="border border-gray-400 p-2 rounded-md"
                         />
                         <ErrorMessage
@@ -3387,7 +3433,7 @@ const EyeSpecificForm = ({ nextStep, id }) => {
                         htmlFor="anteriorChemberActivityprioToProcedureR"
                         className="mb-2 font-bold"
                       >
-                        Anterior Chember Activity prio To Procedure
+                        Anterior Chamber Activity prior To Procedure
                       </label>
                       <Field
                         type="text"
@@ -3680,7 +3726,7 @@ const EyeSpecificForm = ({ nextStep, id }) => {
 
                     <div className="flex flex-col">
                       <label htmlFor="IOP1R" className="mb-2 font-bold">
-                        IOP Prior Left
+                        IOP Prior Right
                       </label>
                       <Field
                         type="number"
@@ -3788,20 +3834,20 @@ const EyeSpecificForm = ({ nextStep, id }) => {
 
                     <div className="flex flex-col">
                       <label
-                        htmlFor="howmanymililetreofwaterwasgivenR"
+                        htmlFor="howmanymililitreofwaterwasgivenR"
                         className="mb-2 font-bold"
                       >
-                        how many mililetre of water was given
+                        how many mililitre of water was given
                       </label>
                       <Field
                         type="number"
-                        id="howmanymililetreofwaterwasgivenR"
-                        name="howmanymililetreofwaterwasgivenR"
-                        // placeholder="how many mililetre of water was given"
+                        id="howmanymililitreofwaterwasgivenR"
+                        name="howmanymililitreofwaterwasgivenR"
+                        // placeholder="how many mililitre of water was given"
                         className="border border-gray-400 p-2 rounded-md"
                       />
                       <ErrorMessage
-                        name="howmanymililetreofwaterwasgivenR"
+                        name="howmanymililitreofwaterwasgivenR"
                         component="div"
                         className="text-red-500"
                       />
@@ -3815,7 +3861,7 @@ const EyeSpecificForm = ({ nextStep, id }) => {
                         type="number"
                         id="iop5minR"
                         name="iop5minR"
-                        // placeholder="how many mililetre of water was given"
+                        // placeholder="how many mililitre of water was given"
                         className="border border-gray-400 p-2 rounded-md"
                       />
                       <ErrorMessage
@@ -4830,20 +4876,20 @@ const EyeSpecificForm = ({ nextStep, id }) => {
                       </div>
                       <div className="flex flex-col">
                         <label
-                          htmlFor="howmanymililetreofwaterwasgivenR2MR"
+                          htmlFor="howmanymililitreofwaterwasgivenR2MR"
                           className="mb-2 font-bold"
                         >
-                          how many mililetre of water was given
+                          how many mililitre of water was given
                         </label>
                         <Field
                           type="number"
-                          id="howmanymililetreofwaterwasgivenR2MR"
-                          name="howmanymililetreofwaterwasgivenR2MR"
-                          // placeholder="how many mililetre of water was given"
+                          id="howmanymililitreofwaterwasgivenR2MR"
+                          name="howmanymililitreofwaterwasgivenR2MR"
+                          // placeholder="how many mililitre of water was given"
                           className="border border-gray-400 p-2 rounded-md"
                         />
                         <ErrorMessage
-                          name="howmanymililetreofwaterwasgivenR2MR"
+                          name="howmanymililitreofwaterwasgivenR2MR"
                           component="div"
                           className="text-red-500"
                         />
@@ -4856,7 +4902,7 @@ const EyeSpecificForm = ({ nextStep, id }) => {
                           type="number"
                           id="iop5minR2MR"
                           name="iop5minR2MR"
-                          // placeholder="how many mililetre of water was given"
+                          // placeholder="how many mililitre of water was given"
                           className="border border-gray-400 p-2 rounded-md"
                         />
                         <ErrorMessage

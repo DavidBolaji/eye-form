@@ -4,41 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { deleteUser, getUser } from "../actions/userAction";
-import { saveAs } from "file-saver";
-import * as XLSX from "xlsx";
 
-export const exportToExcel = (user) => {
-  const fileType =
-    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8";
-  const fileName = "data.xlsx";
-
-  const newUser = user.map((e) => {
-    return {
-      ...e,
-      medicationsBeforeL: JSON.stringify(e.medicationsBeforeL)
-        .replace("[", "")
-        .replace("]", ""),
-      medicationsBeforeR: JSON.stringify(e.medicationsBeforeR)
-        .replace("[", "")
-        .replace("]", ""),
-      medicationsL: JSON.stringify(e.medicationsBeforeL)
-        .replace("[", "")
-        .replace("]", ""),
-      medicationsR: JSON.stringify(e.medicationsR)
-        .replace("[", "")
-        .replace("]", ""),
-    };
-  });
-
-  const ws = XLSX.utils.json_to_sheet(newUser);
-  const wb = { Sheets: { data: ws }, SheetNames: ["data"] };
-  const excelBuffer = XLSX.write(wb, {
-    bookType: "xlsx",
-    type: "array",
-  });
-  const excelBlob = new Blob([excelBuffer], { type: fileType });
-  saveAs(excelBlob, fileName);
-};
+import { exportToExcel } from "../utils/helpers";
 
 // const data = [
 //   {
@@ -67,8 +34,16 @@ const HomePage = () => {
   const userData = useSelector((state) => state.user);
   const { loading, error, user } = userData;
   useEffect(() => {
+    const loggedIn = localStorage.getItem("login")
+      ? JSON.parse(localStorage.getItem("login"))
+      : false;
+    if (!loggedIn) {
+      return navigate("/");
+    }
+
     dispatch(getUser());
   }, []);
+
   const columns = [
     {
       title: "Number",

@@ -80,7 +80,7 @@ export const deleteUser = (id) => async (dispatch) => {
 //     }
 //   };
 
-export const saveStageOne = (user, prop) => async (dispatch, getState) => {
+export const saveStageOne = (user) => async (dispatch) => {
   dispatch({
     type: USER_SAVE_ONE_REQUEST,
   });
@@ -88,7 +88,7 @@ export const saveStageOne = (user, prop) => async (dispatch, getState) => {
     const res = await Axios.post("/user/create", user);
     dispatch({
       type: USER_SAVE_ONE_SUCCESS,
-      payload: res.data,
+      payload: { data: res.data, user: user },
     });
   } catch (error) {
     dispatch({
@@ -105,11 +105,12 @@ export const saveStageTwo = (user) => async (dispatch, getState) => {
   dispatch({
     type: USER_SAVE_ONE_REQUEST,
   });
+  console.log(user);
   try {
     const res = await Axios.post("/user/update", user);
     dispatch({
       type: USER_SAVE_ONE_SUCCESS,
-      payload: res.data,
+      payload: { data: res.data, user: user },
     });
   } catch (error) {
     dispatch({
