@@ -39,6 +39,7 @@ const LoginPage = () => {
             value={email}
             onChange={handleEmailChange}
             className="mb-5"
+            placeholder="Enter email"
           />
 
           <Input
@@ -46,6 +47,7 @@ const LoginPage = () => {
             value={password}
             onChange={handlePasswordChange}
             className="mb-5"
+            placeholder="Enter password"
           />
 
           <Form.Item>
