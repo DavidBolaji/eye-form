@@ -228,6 +228,8 @@ const initialValuesOut = {
   iop15MinR2MR: "",
   iop30minL2ML: "",
   iop30minR2MR: "",
+  iop45min2MR: "",
+  iop45min2ML: "",
   iop1HRL2ML: "",
   iop1HRR2MR: "",
 
@@ -2104,9 +2106,6 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           className="text-red-500"
                         />
                       </div>
-                      <Divider />
-                      Gonioscopy
-                      <Divider />
                       <div className="flex flex-col">
                         <label htmlFor="number" className="mb-2 font-bold">
                           Gonioscopy
@@ -2337,6 +2336,23 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                         />
                       </div>
                       <div className="flex flex-col">
+                        <label htmlFor="iop45min2ML" className="mb-2 font-bold">
+                          IOP 45MIN
+                        </label>
+                        <Field
+                          type="number"
+                          id="iop45min2ML"
+                          name="iop45min2ML"
+                          // placeholder="IOP 30MIN"
+                          className="border border-gray-400 p-2 rounded-md"
+                        />
+                        <ErrorMessage
+                          name="iop45min2ML"
+                          component="div"
+                          className="text-red-500"
+                        />
+                      </div>
+                      <div className="flex flex-col">
                         <label htmlFor="iop1HRL2ML" className="mb-2 font-bold">
                           IOP 1HR
                         </label>
@@ -2485,9 +2501,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           className="text-red-500"
                         />
                       </div>
-                      <Divider />
-                      Gonioscopy
-                      <Divider />
+
                       <div className="flex flex-col">
                         <label htmlFor="number" className="mb-2 font-bold">
                           Gonioscopy
@@ -2752,9 +2766,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           className="text-red-500"
                         />
                       </div>
-                      <Divider />
-                      Gonioscopy
-                      <Divider />
+
                       <div className="flex flex-col">
                         <label htmlFor="number" className="mb-2 font-bold">
                           Gonioscopy
@@ -4958,9 +4970,6 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           className="text-red-500"
                         />
                       </div>
-                      <Divider />
-                      Gonioscopy
-                      <Divider />
                       <div className="flex flex-col">
                         <label htmlFor="number" className="mb-2 font-bold">
                           Gonioscopy
@@ -5191,6 +5200,26 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                         />
                       </div>
                       <div className="flex flex-col">
+                        <label
+                          htmlFor="iop45minR2MR"
+                          className="mb-2 font-bold"
+                        >
+                          IOP 45MIN
+                        </label>
+                        <Field
+                          type="number"
+                          id="iop45min2MR"
+                          name="iop45min2MR"
+                          // placeholder="IOP 30MIN"
+                          className="border border-gray-400 p-2 rounded-md"
+                        />
+                        <ErrorMessage
+                          name="iop45min2MR"
+                          component="div"
+                          className="text-red-500"
+                        />
+                      </div>
+                      <div className="flex flex-col">
                         <label htmlFor="iop1HRR2MR" className="mb-2 font-bold">
                           IOP 1HR
                         </label>
@@ -5339,9 +5368,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           className="text-red-500"
                         />
                       </div>
-                      <Divider />
-                      Gonioscopy
-                      <Divider />
+
                       <div className="flex flex-col">
                         <label htmlFor="number" className="mb-2 font-bold">
                           Gonioscopy
@@ -5606,9 +5633,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           className="text-red-500"
                         />
                       </div>
-                      <Divider />
-                      Gonioscopy
-                      <Divider />
+
                       <div className="flex flex-col">
                         <label htmlFor="number" className="mb-2 font-bold">
                           Gonioscopy

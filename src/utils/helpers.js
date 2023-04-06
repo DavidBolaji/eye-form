@@ -255,6 +255,8 @@ export const exportToExcel = (user) => {
       iop15MinR2MR: e?.iop15MinL2MR,
       iop30minL2ML: e?.iop30minL2ML,
       iop30minR2MR: e?.iop30minL2MR,
+      iop45min2MR: e?.iop45min2MR,
+      iop45min2ML: e?.iop45min2ML,
       iop1HRL2ML: e?.iop1HRL2ML,
       iop1HRR2MR: e?.iop1HRL2MR,
 

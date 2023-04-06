@@ -513,7 +513,7 @@ const SubjectForm = ({ nextStep, id }) => {
 
             <div className="flex flex-col">
               <label htmlFor="height" className="mb-2 font-bold">
-                Height (Diastolic)
+                Height
               </label>
               <Field
                 type="text"
