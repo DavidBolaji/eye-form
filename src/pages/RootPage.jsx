@@ -1,20 +1,20 @@
-import { FooterComponent } from "flowbite-react";
 import React from "react";
 import { Outlet } from "react-router-dom";
 import HeaderComponent from "../Components/HeaderComponent";
-import ScrollToTopOnNavigation from "../Components/ScrollToTopOnNavigation";
-// import { useScrollRestoration } from "react-router-dom";
+import FooterComponent from "../Components/FooterComponent";
 
 const RootPage = ({ children }) => {
   return (
-    <>
-      <HeaderComponent />
-      <main>
-        <ScrollToTopOnNavigation />
+    <div className="h-screen">
+      <header>
+        <HeaderComponent />
+      </header>
+      <main className="mb-0">
+        {/* <ScrollToTopOnNavigation /> */}
         <Outlet />
       </main>
-      {/* <FooterComponent /> */}
-    </>
+      <FooterComponent />
+    </div>
   );
 };
 

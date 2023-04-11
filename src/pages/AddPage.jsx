@@ -16,14 +16,14 @@ const AddPage = () => {
   };
 
   return (
-    <>
+    <div className="">
       <StepWizard initialStep={1} instance={setSW} onStepChange={handleChange}>
         <SubjectForm id={curId} />
         <EyeSpecificForm id={curId} />
         <NewTreatmentData id={curId} whatEye={whatEye} />
         {/* <FailedForm id={curId} whatEye={whatEye} /> */}
       </StepWizard>
-    </>
+    </div>
   );
 };
 

@@ -448,27 +448,36 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const onSubmit = (values) => {
-    const newObj = {
-      ...values,
-
-      number: previous.number,
-      statusOfPatient: previous.statusOfPatient, // medication/naive patient, on medication and hard washout
-      YOFB: previous.YOFB,
-      ethnicity: previous.ethnicity,
-      ehnicityO: previous.ethnicityO,
-      gender: previous.gender,
-      travelTime: previous.travelTime,
-      education: previous.education,
-      glucoma: previous.glucoma,
-      glucomaO: previous.glucomaO,
-      hadOfGlaucoma: previous.hadOfGlaucoma,
-      relativeWithBlindness: previous.relativeWithBlindness,
-      historyOfGlucoma: previous.historyOfGlucoma,
-      historyOfHYPERTENSION: previous.historyOfHYPERTENSION,
-      BPSYSTOLIC: previous.BPSYSTOLIC,
-      BPDIASTOLIC: previous.BPDIASTOLIC,
-      historyOfDiabetes: previous.historyOfDiabetes,
+    const previ = {
+      number: previous?.number,
+      statusOfPatient: previous?.statusOfPatient, // medication/naive patient, on medication and hard washout
+      YOFB: previous?.YOFB,
+      ethnicity: previous?.ethnicity,
+      ehnicityO: previous?.ethnicityO,
+      gender: previous?.gender,
+      travelTime: previous?.travelTime,
+      education: previous?.education,
+      glucoma: previous?.glucoma,
+      glucomaO: previous?.glucomaO,
+      hadOfGlaucoma: previous?.hadOfGlaucoma,
+      relativeWithBlindness: previous?.relativeWithBlindness,
+      historyOfGlucoma: previous?.historyOfGlucoma,
+      historyOfHYPERTENSION: previous?.historyOfHYPERTENSION,
+      BPSYSTOLIC: previous?.BPSYSTOLIC,
+      BPDIASTOLIC: previous?.BPDIASTOLIC,
+      historyOfDiabetes: previous?.historyOfDiabetes,
     };
+    let newObj = {
+      ...values,
+    };
+    if (typeof previous !== "undefined" && Object.keys(previous).length > 0) {
+      newObj = {
+        ...newObj,
+        ...previ,
+      };
+    }
+
+    console.log(newObj);
     // console.log(values._id);
     dispatch(saveStageTwo({ ...newObj, _id: values._id ? values._id : curId }));
     // navigate("/edit_user/" + values._id + "/3");
@@ -476,29 +485,35 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
   };
 
   const onSave = (values) => {
-    const newObj = {
-      ...values,
-
-      number: previous.number,
-      statusOfPatient: previous.statusOfPatient, // medication/naive patient, on medication and hard washout
-      YOFB: previous.YOFB,
-      ethnicity: previous.ethnicity,
-      ehnicityO: previous.ethnicityO,
-      gender: previous.gender,
-      travelTime: previous.travelTime,
-      education: previous.education,
-      glucoma: previous.glucoma,
-      glucomaO: previous.glucomaO,
-      hadOfGlaucoma: previous.hadOfGlaucoma,
-      relativeWithBlindness: previous.relativeWithBlindness,
-      historyOfGlucoma: previous.historyOfGlucoma,
-      historyOfHYPERTENSION: previous.historyOfHYPERTENSION,
-      BPSYSTOLIC: previous.BPSYSTOLIC,
-      BPDIASTOLIC: previous.BPDIASTOLIC,
-      historyOfDiabetes: previous.historyOfDiabetes,
-      weight: previous.weight,
-      height: previous.height,
+    const previ = {
+      number: previous?.number,
+      statusOfPatient: previous?.statusOfPatient, // medication/naive patient, on medication and hard washout
+      YOFB: previous?.YOFB,
+      ethnicity: previous?.ethnicity,
+      ehnicityO: previous?.ethnicityO,
+      gender: previous?.gender,
+      travelTime: previous?.travelTime,
+      education: previous?.education,
+      glucoma: previous?.glucoma,
+      glucomaO: previous?.glucomaO,
+      hadOfGlaucoma: previous?.hadOfGlaucoma,
+      relativeWithBlindness: previous?.relativeWithBlindness,
+      historyOfGlucoma: previous?.historyOfGlucoma,
+      historyOfHYPERTENSION: previous?.historyOfHYPERTENSION,
+      BPSYSTOLIC: previous?.BPSYSTOLIC,
+      BPDIASTOLIC: previous?.BPDIASTOLIC,
+      historyOfDiabetes: previous?.historyOfDiabetes,
     };
+    let newObj = {
+      ...values,
+    };
+    if (typeof previous !== "undefined" && Object.keys(previous).length > 0) {
+      newObj = {
+        ...newObj,
+        ...previ,
+      };
+    }
+
     dispatch(saveStageTwo({ ...newObj, _id: values._id ? values._id : curId }));
     navigate("/dashboard");
   };
@@ -507,7 +522,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
       <Spin />
     </div>
   ) : (
-    <div className="w-full md:my-[100px] mt-[100px] md:px-[100px] px-5">
+    <div className="w-full mt-[100px] md:px-[100px] px-5">
       <h1 className="text-2xl font-bold mb-4 uppercase mt-5">
         Eye Specific Data
       </h1>
@@ -517,8 +532,8 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
         enableReinitialize={true}
       >
         {({ isSubmitting, values }) => (
-          <Form className="space-y-4">
-            <div className="flex flex-col">
+          <Form className="">
+            <div className="flex flex-col bg-white h-20 shadow">
               <label htmlFor="whatEye" className="mb-2 font-bold">
                 What eye
               </label>
@@ -543,7 +558,10 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                 className="text-red-500"
               />
             </div>
-            <div className="flex gap-2 justify-between">
+            <div
+              id="hhh"
+              className="flex gap-2 justify-between flex-row-reverse h-screen overflow-y-scroll"
+            >
               <div className="w-1/2">
                 {(values.whatEye === "left" || values.whatEye === "both") && (
                   <>
@@ -1201,13 +1219,13 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                       </label>
                       <Field
                         type="number"
-                        id="iop15minL"
-                        name="iop15minL"
+                        id="iop15MinL"
+                        name="iop15MinL"
                         // placeholder="IOP 15MIN"
                         className="border border-gray-400 p-2 rounded-md"
                       />
                       <ErrorMessage
-                        name="iop15minL"
+                        name="iop15MinL"
                         component="div"
                         className="text-red-500"
                       />
@@ -1349,7 +1367,8 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                         Any complications during procedure Left
                       </label>
                       <Field
-                        type="number"
+                        type="text"
+                        as="textarea"
                         id="procedureComplicationL"
                         name="procedureComplicationL"
                         // placeholder="Enter a no Of Shots given Left"
@@ -4060,18 +4079,18 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                     </div>
 
                     <div className="flex flex-col">
-                      <label htmlFor="iop15minR" className="mb-2 font-bold">
+                      <label htmlFor="iop15MinR" className="mb-2 font-bold">
                         IOP 15MIN
                       </label>
                       <Field
                         type="number"
-                        id="iop15minR"
-                        name="iop15minR"
+                        id="iop15MinR"
+                        name="iop15MinR"
                         // placeholder="IOP 15MIN"
                         className="border border-gray-400 p-2 rounded-md"
                       />
                       <ErrorMessage
-                        name="iop15minR"
+                        name="iop15MinR"
                         component="div"
                         className="text-red-500"
                       />
@@ -4213,7 +4232,8 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                         Any complications during procedure Right
                       </label>
                       <Field
-                        type="number"
+                        type="text"
+                        as="textarea"
                         id="procedureComplicationR"
                         name="procedureComplicationR"
                         // placeholder="Enter a no Of Shots given Left"
@@ -6266,18 +6286,18 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
               </div>
             </div>
 
-            <div className="flex md:justify-end md:ml-auto w-full ">
+            <div className="mt-20">
               <div className="flex-col md:flex-row w-full">
                 <div
                   onClick={() => onSave(values)}
-                  className="cursor-pointer bg-green-600 text-white p-2 flex h-[50px]  items-center justify-center mb-2 rounded-md w-full"
+                  className="cursor-pointer bg-green-600 text-white p-2 flex h-[50px]  items-center justify-center mb-2 rounded-md"
                   disabled={isSubmitting}
                 >
                   Save
                 </div>
                 <button
                   type="submit"
-                  className="bg-green-600 text-white p-2 mb-2 rounded-md w-full h-[50px] "
+                  className="bg-green-600 w-full text-white p-2 mb-2 rounded-md h-[50px] "
                   disabled={isSubmitting}
                 >
                   Next

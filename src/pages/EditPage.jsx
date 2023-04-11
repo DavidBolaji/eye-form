@@ -33,7 +33,7 @@ const EditPage = () => {
   // }, [SW.NavigationInstance.currentStep]);
 
   return (
-    <>
+    <div className="overflow-hidden">
       <StepWizard
         initialStep={initialStep}
         instance={setSW}
@@ -44,7 +44,7 @@ const EditPage = () => {
         <NewTreatmentData id={id} />
         {/* <FailedForm id={id} /> */}
       </StepWizard>
-    </>
+    </div>
   );
 };
 
