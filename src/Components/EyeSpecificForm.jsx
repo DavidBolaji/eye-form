@@ -949,7 +949,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                             Perimeter
                           </label>
                           <Field
-                            type="number"
+                            type="text"
                             id="perimeterL"
                             name="perimeterL"
                             // placeholder="Enter a no Of Shots given Left"
@@ -1503,7 +1503,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
 
                       <div className="flex flex-col">
                         <label
-                          htmlFor="vaUnaided1HRR"
+                          htmlFor="vaUnaided1HRL"
                           className="mb-2 font-bold"
                         >
                           Visual Acuity unaided
@@ -1511,8 +1511,8 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                         <Field
                           as={"select"}
                           type="text"
-                          id="vaUnaided1HRR"
-                          name="vaUnaided1HRR"
+                          id="vaUnaided1HRL"
+                          name="vaUnaided1HRL"
                           // placeholder="Visual Acuity unaided"
                           className="border border-gray-400 p-2 rounded-md"
                         >
@@ -1524,21 +1524,21 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           ))}
                         </Field>
                         <ErrorMessage
-                          name="vaUnaided1HRR"
+                          name="vaUnaided1HRL"
                           component="p"
                           className="text-red-500"
                         />
                       </div>
 
                       <div className="flex flex-col">
-                        <label htmlFor="bcVA1HRR" className="mb-2 font-bold">
+                        <label htmlFor="bcVA1HRL" className="mb-2 font-bold">
                           Visual Acuity Best Corrected
                         </label>
                         <Field
                           as={"select"}
                           type="text"
-                          id="bcVA1HRR"
-                          name="bcVA1HRR"
+                          id="bcVA1HRL"
+                          name="bcVA1HRL"
                           // placeholder="Best Corrected Visual Acuity After wash left eye"
                           className="border border-gray-400 p-2 rounded-md"
                         >
@@ -1550,117 +1550,117 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           ))}
                         </Field>
                         <ErrorMessage
-                          name="bcVA1HRR"
+                          name="bcVA1HRL"
                           component="p"
                           className="text-red-500"
                         />
                       </div>
 
                       <div className="flex flex-col">
-                        <label htmlFor="flare1HRR" className="mb-2 font-bold">
+                        <label htmlFor="flare1HRL" className="mb-2 font-bold">
                           Flare
                         </label>
                         <Field
                           type="text"
-                          id="flare1HRR"
-                          name="flare1HRR"
+                          id="flare1HRL"
+                          name="flare1HRL"
                           // placeholder="flare"
                           className="border border-gray-400 p-2 rounded-md"
                         />
 
                         <ErrorMessage
-                          name="flare1HRR"
+                          name="flare1HRL"
                           component="p"
                           className="text-red-500"
                         />
                       </div>
 
                       <div className="flex flex-col">
-                        <label htmlFor="cells1HRR" className="mb-2 font-bold">
+                        <label htmlFor="cells1HRL" className="mb-2 font-bold">
                           Cells
                         </label>
                         <Field
                           type="text"
-                          id="cells1HRR"
-                          name="cells1HRR"
+                          id="cells1HRL"
+                          name="cells1HRL"
                           // placeholder="Cells"
                           className="border border-gray-400 p-2 rounded-md"
                         />
 
                         <ErrorMessage
-                          name="cells1HRR"
+                          name="cells1HRL"
                           component="p"
                           className="text-red-500"
                         />
                       </div>
 
                       <div className="flex flex-col">
-                        <label htmlFor="LOCSG1HRR" className="mb-2 font-bold">
+                        <label htmlFor="LOCSG1HRL" className="mb-2 font-bold">
                           LOCS grading
                         </label>
                         <Field
                           type="text"
-                          id="LOCSG1HRR"
-                          name="LOCSG1HRR"
+                          id="LOCSG1HRL"
+                          name="LOCSG1HRL"
                           // placeholder="LOCS grading"
                           className="border border-gray-400 p-2 rounded-md"
                         />
 
                         <ErrorMessage
-                          name="LOCSG1HRR"
+                          name="LOCSG1HRL"
                           component="p"
                           className="text-red-500"
                         />
                       </div>
 
                       <div className="flex flex-col">
-                        <label htmlFor="IOPA1HRR" className="mb-2 font-bold">
+                        <label htmlFor="IOPA1HRL" className="mb-2 font-bold">
                           IOP
                         </label>
                         <Field
                           type="text"
-                          id="IOPA1HRR"
-                          name="IOPA1HRR"
+                          id="IOPA1HRL"
+                          name="IOPA1HRL"
                           // placeholder="IOP"
                           className="border border-gray-400 p-2 rounded-md"
                         />
 
                         <ErrorMessage
-                          name="IOPA1HRR"
+                          name="IOPA1HRL"
                           component="p"
                           className="text-red-500"
                         />
                       </div>
 
                       <div className="flex flex-col">
-                        <label htmlFor="comp1HRR" className="mb-2 font-bold">
+                        <label htmlFor="comp1HRL" className="mb-2 font-bold">
                           complications
                         </label>
                         <Field
                           as="textarea"
                           type="text"
-                          id="comp1HRR"
-                          name="comp1HRR"
+                          id="comp1HRL"
+                          name="comp1HRL"
                           // placeholder="complications"
                           className="border border-gray-400 p-2 rounded-md"
                         />
 
                         <ErrorMessage
-                          name="comp1HRR"
+                          name="comp1HRL"
                           component="p"
                           className="text-red-500"
                         />
                       </div>
 
                       <div className="flex flex-col">
-                        <label htmlFor="BV1HRR" className="mb-2 font-bold">
+                        <label htmlFor="BV1HRL" className="mb-2 font-bold">
                           Bluring of vision
                         </label>
                         <Field
                           as={"select"}
                           type="text"
-                          id="BV1HRR"
-                          name="BV1HRR"
+                          id="BV1HRL"
+                          name="BV1HRL"
                           // placeholder="SLT"
                           className="border border-gray-400 p-2 rounded-md"
                         >
@@ -1669,7 +1669,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           <option value="no">No</option>
                         </Field>
                         <ErrorMessage
-                          name="BV1HRR"
+                          name="BV1HRL"
                           component="p"
                           className="text-red-500"
                         />
@@ -3814,7 +3814,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                             Perimeter
                           </label>
                           <Field
-                            type="number"
+                            type="text"
                             id="perimeterR"
                             name="perimeterR"
                             // placeholder="Enter a no Of Shots given Left"
@@ -4060,7 +4060,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                       />
                     </div>
 
-                    <div className="flex flex-col">
+                    {/* <div className="flex flex-col">
                       <label htmlFor="iop5minR" className="mb-2 font-bold">
                         IOP 5MIN
                       </label>
@@ -4076,7 +4076,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                         component="div"
                         className="text-red-500"
                       />
-                    </div>
+                    </div> */}
 
                     <div className="flex flex-col">
                       <label htmlFor="iop15MinR" className="mb-2 font-bold">
@@ -5162,7 +5162,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           className="text-red-500"
                         />
                       </div>
-                      <div className="flex flex-col">
+                      {/* <div className="flex flex-col">
                         <label htmlFor="iop5minR2MR" className="mb-2 font-bold">
                           IOP 5MIN
                         </label>
@@ -5178,7 +5178,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           component="div"
                           className="text-red-500"
                         />
-                      </div>
+                      </div> */}
                       <div className="flex flex-col">
                         <label
                           htmlFor="iop15MinR2MR"
