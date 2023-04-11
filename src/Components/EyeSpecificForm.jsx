@@ -1195,7 +1195,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                       />
                     </div>
 
-                    <div className="flex flex-col">
+                    {/* <div className="flex flex-col">
                       <label htmlFor="iop5minL" className="mb-2 font-bold">
                         IOP 5MIN
                       </label>
@@ -1211,7 +1211,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                         component="div"
                         className="text-red-500"
                       />
-                    </div>
+                    </div> */}
 
                     <div className="flex flex-col">
                       <label htmlFor="iop15minL" className="mb-2 font-bold">
@@ -2297,7 +2297,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           className="text-red-500"
                         />
                       </div>
-                      <div className="flex flex-col">
+                      {/* <div className="flex flex-col">
                         <label htmlFor="iop5minL2ML" className="mb-2 font-bold">
                           IOP 5MIN
                         </label>
@@ -2313,7 +2313,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           component="div"
                           className="text-red-500"
                         />
-                      </div>
+                      </div> */}
                       <div className="flex flex-col">
                         <label
                           htmlFor="iop15minL2ML"
