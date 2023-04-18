@@ -89,14 +89,14 @@ const HomePage = () => {
           >
             Stage 3
           </Button>
-          <Button
+          {/* <Button
             size="sm"
             danger
             onClick={() => dispatch(deleteUser(record._id))}
             // disabled={!(record.wasTreatmentAddedL || record.wasTreatmentAddedR)}
           >
             Delete
-          </Button>
+          </Button> */}
         </Space>
       ),
     },
