@@ -163,6 +163,18 @@ export const exportToExcel = (user) => {
       BV1HRL: e?.BV1HRL,
       BV1HRR: e?.BV1HRR,
 
+      pigmentationSuperiorL: e?.pigmentationSuperiorL,
+      pigmentationSuperiorR: e?.pigmentationSuperiorR,
+
+      pigmentationInferiorL: e?.pigmentationInferiorL,
+      pigmentationInferiorR: e?.pigmentationInferiorR,
+
+      pigmentationNasalL: e?.pigmentationNasalL,
+      pigmentationNasalR: e?.pigmentationNasalR,
+
+      pigmentationTemporalL: e?.pigmentationTemporalL,
+      pigmentationTemporalR: e?.pigmentationTemporalR,
+
       //24HR
       vaUnaided24HRL: e?.vaUnaided24HRL,
       vaUnaided24HRR: e?.vaUnaided24HRR,
@@ -176,8 +188,8 @@ export const exportToExcel = (user) => {
       cells24HRL: e?.cells24HRL,
       cells24HRR: e?.cells24HRR,
 
-      LOCSG24HRR: e?.LOCSG24HRR,
-      LOCSG24HRL: e?.LOCSG24HRL,
+      // LOCSG24HRR: e?.LOCSG24HRR,
+      // LOCSG24HRL: e?.LOCSG24HRL,
 
       IOPA24HRL: e?.IOPA24HRL,
       IOPA24HRR: e?.IOPA24HRR,
@@ -198,8 +210,8 @@ export const exportToExcel = (user) => {
       cells1ML: e?.cells1ML,
       cells1MR: e?.cells1MR,
 
-      LOCSG1MR: e?.LOCSG1MR,
-      LOCSG1ML: e?.LOCSG1ML,
+      // LOCSG1MR: e?.LOCSG1MR,
+      // LOCSG1ML: e?.LOCSG1ML,
 
       IOPA1ML: e?.IOPA1ML,
       IOPA1MR: e?.IOPA1MR,
@@ -225,6 +237,9 @@ export const exportToExcel = (user) => {
 
       IOPA2ML: e?.IOPA2ML,
       IOPA2MR: e?.IOPA2MR,
+
+      LOCSG2R: e?.LOCSG2R,
+      LOCSG2L: e?.LOCSG2L,
 
       PAS2ML: e?.PAS2ML,
       PAS2MR: e?.PAS2MR,

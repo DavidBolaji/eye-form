@@ -96,6 +96,19 @@ const initialValuesOut = {
   powerUsedR: "",
   noOfQuadrantsTreatedL: "",
   noOfQuadrantsTreatedR: "",
+
+  pigmentationSuperiorL: "",
+  pigmentationSuperiorR: "",
+
+  pigmentationInferiorL: "",
+  pigmentationInferiorR: "",
+
+  pigmentationNasalL: "",
+  pigmentationNasalR: "",
+
+  pigmentationTemporalL: "",
+  pigmentationTemporalR: "",
+
   procedureComplicationL: "",
   procedureComplicationR: "",
 
@@ -150,8 +163,8 @@ const initialValuesOut = {
   cells24HRL: "",
   cells24HRR: "",
 
-  LOCSG24HRR: "",
-  LOCSG24HRL: "",
+  LOCSG2R: "",
+  LOCSG2L: "",
 
   IOPA24HRL: "",
   IOPA24HRR: "",
@@ -683,21 +696,21 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
 
                     <div className="flex flex-col">
                       <label
-                        htmlFor="whatEyeChartWasUsed"
+                        htmlFor="whatEyeChartWasUsedL"
                         className="mb-2 font-bold"
                       >
                         What eye chart was used
                       </label>
                       <Field
                         type="text"
-                        id="whatEyeChartWasUsed"
-                        name="whatEyeChartWasUsed"
+                        id="whatEyeChartWasUsedL"
+                        name="whatEyeChartWasUsedL"
                         // placeholder="What eye chart was useed"
                         className="border border-gray-400 p-2 rounded-md"
                       />
 
                       <ErrorMessage
-                        name="whatEyeChartWasUsed"
+                        name="whatEyeChartWasUsedL"
                         component="p"
                         className="text-red-500"
                       />
@@ -853,6 +866,25 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
 
                       <ErrorMessage
                         name="HCDRL"
+                        component="p"
+                        className="text-red-500"
+                      />
+                    </div>
+
+                    <div className="flex flex-col">
+                      <label htmlFor="LOCSG2L" className="mb-2 font-bold">
+                        LOCS grading
+                      </label>
+                      <Field
+                        type="text"
+                        id="LOCSG2L"
+                        name="LOCSG2L"
+                        // placeholder="LOCS grading"
+                        className="border border-gray-400 p-2 rounded-md"
+                      />
+
+                      <ErrorMessage
+                        name="LOCSG2L"
                         component="p"
                         className="text-red-500"
                       />
@@ -1138,7 +1170,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                       />
                     </div>
 
-                    <div className="flex flex-col">
+                    {/* <div className="flex flex-col">
                       <label htmlFor="number" className="mb-2 font-bold">
                         IOP (1HR)
                       </label>
@@ -1154,7 +1186,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                         component="div"
                         className="text-red-500"
                       />
-                    </div>
+                    </div> */}
 
                     <div className="flex flex-col">
                       <label htmlFor="BIOP" className="mb-2 font-bold">
@@ -1326,7 +1358,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                       />
                     </div>
 
-                    <div className="flex flex-col">
+                    {/* <div className="flex flex-col">
                       <label htmlFor="number" className="mb-2 font-bold">
                         What power was used Left
                       </label>
@@ -1342,7 +1374,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                         component="div"
                         className="text-red-500"
                       />
-                    </div>
+                    </div> */}
 
                     <div className="flex flex-col">
                       <label htmlFor="number" className="mb-2 font-bold">
@@ -1357,6 +1389,90 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                       />
                       <ErrorMessage
                         name="noOfQuadrantsTreatedL"
+                        component="div"
+                        className="text-red-500"
+                      />
+                    </div>
+
+                    <div className="flex flex-col">
+                      <label
+                        htmlFor="pigmentationSuperiorL"
+                        className="mb-2 font-bold"
+                      >
+                        Pigmentation Superior
+                      </label>
+                      <Field
+                        type="text"
+                        id="pigmentationSuperiorL"
+                        name="pigmentationSuperiorL"
+                        // placeholder="Enter a no Of Quadrants treated Left"
+                        className="border border-gray-400 p-2 rounded-md"
+                      />
+                      <ErrorMessage
+                        name="pigmentationSuperiorL"
+                        component="div"
+                        className="text-red-500"
+                      />
+                    </div>
+
+                    <div className="flex flex-col">
+                      <label
+                        htmlFor="pigmentationInferiorL"
+                        className="mb-2 font-bold"
+                      >
+                        Pigmentation Inferior
+                      </label>
+                      <Field
+                        type="text"
+                        id="pigmentationInferiorL"
+                        name="pigmentationInferiorL"
+                        // placeholder="Enter a no Of Quadrants treated Left"
+                        className="border border-gray-400 p-2 rounded-md"
+                      />
+                      <ErrorMessage
+                        name="pigmentationInferiorL"
+                        component="div"
+                        className="text-red-500"
+                      />
+                    </div>
+
+                    <div className="flex flex-col">
+                      <label
+                        htmlFor="pigmentationNasalL"
+                        className="mb-2 font-bold"
+                      >
+                        Pigmentation Nasal
+                      </label>
+                      <Field
+                        type="text"
+                        id="pigmentationNasalL"
+                        name="pigmentationNasalL"
+                        // placeholder="Enter a no Of Quadrants treated Left"
+                        className="border border-gray-400 p-2 rounded-md"
+                      />
+                      <ErrorMessage
+                        name="pigmentationNasalL"
+                        component="div"
+                        className="text-red-500"
+                      />
+                    </div>
+
+                    <div className="flex flex-col">
+                      <label
+                        htmlFor="pigmentationTemporalL"
+                        className="mb-2 font-bold"
+                      >
+                        Pigmentation Temporal
+                      </label>
+                      <Field
+                        type="text"
+                        id="pigmentationTemporalL"
+                        name="pigmentationTemporalL"
+                        // placeholder="Enter a no Of Quadrants treated Left"
+                        className="border border-gray-400 p-2 rounded-md"
+                      />
+                      <ErrorMessage
+                        name="pigmentationTemporalL"
                         component="div"
                         className="text-red-500"
                       />
@@ -1493,6 +1609,26 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                         className="text-red-500"
                       />
                     </div>
+
+                    <div className="flex flex-col">
+                      <label htmlFor="LOCSG1HRL" className="mb-2 font-bold">
+                        LOCS grading
+                      </label>
+                      <Field
+                        type="text"
+                        id="LOCSG1HRL"
+                        name="LOCSG1HRL"
+                        // placeholder="LOCS grading"
+                        className="border border-gray-400 p-2 rounded-md"
+                      />
+
+                      <ErrorMessage
+                        name="LOCSG1HRL"
+                        component="p"
+                        className="text-red-500"
+                      />
+                    </div>
+
                     <Divider />
                     {/* 1hr */}
                     <div>
@@ -1589,25 +1725,6 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
 
                         <ErrorMessage
                           name="cells1HRL"
-                          component="p"
-                          className="text-red-500"
-                        />
-                      </div>
-
-                      <div className="flex flex-col">
-                        <label htmlFor="LOCSG1HRL" className="mb-2 font-bold">
-                          LOCS grading
-                        </label>
-                        <Field
-                          type="text"
-                          id="LOCSG1HRL"
-                          name="LOCSG1HRL"
-                          // placeholder="LOCS grading"
-                          className="border border-gray-400 p-2 rounded-md"
-                        />
-
-                        <ErrorMessage
-                          name="LOCSG1HRL"
                           component="p"
                           className="text-red-500"
                         />
@@ -1777,25 +1894,6 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                       </div>
 
                       <div className="flex flex-col">
-                        <label htmlFor="LOCSG24HRL" className="mb-2 font-bold">
-                          LOCS grading
-                        </label>
-                        <Field
-                          type="text"
-                          id="LOCSG24HRL"
-                          name="LOCSG24HRL"
-                          // placeholder="LOCS grading"
-                          className="border border-gray-400 p-2 rounded-md"
-                        />
-
-                        <ErrorMessage
-                          name="LOCSG24HRL"
-                          component="p"
-                          className="text-red-500"
-                        />
-                      </div>
-
-                      <div className="flex flex-col">
                         <label htmlFor="IOPA24HRL" className="mb-2 font-bold">
                           IOP
                         </label>
@@ -1936,7 +2034,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                         />
                       </div>
 
-                      <div className="flex flex-col">
+                      {/* <div className="flex flex-col">
                         <label htmlFor="LOCSG1ML" className="mb-2 font-bold">
                           LOCS grading
                         </label>
@@ -1953,7 +2051,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           component="p"
                           className="text-red-500"
                         />
-                      </div>
+                      </div> */}
 
                       <div className="flex flex-col">
                         <label htmlFor="IOPA1ML" className="mb-2 font-bold">
@@ -3715,6 +3813,25 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                     </div>
 
                     <div className="flex flex-col">
+                      <label htmlFor="LOCSG2R" className="mb-2 font-bold">
+                        LOCS grading
+                      </label>
+                      <Field
+                        type="text"
+                        id="LOCSG2R"
+                        name="LOCSG2R"
+                        // placeholder="LOCS grading"
+                        className="border border-gray-400 p-2 rounded-md"
+                      />
+
+                      <ErrorMessage
+                        name="LOCSG2R"
+                        component="p"
+                        className="text-red-500"
+                      />
+                    </div>
+
+                    <div className="flex flex-col">
                       <label htmlFor="CVFR" className="mb-2 font-bold">
                         CVF Recent before randomization
                       </label>
@@ -4003,7 +4120,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                       />
                     </div>
 
-                    <div className="flex flex-col">
+                    {/* <div className="flex flex-col">
                       <label htmlFor="IOP1HRR" className="mb-2 font-bold">
                         IOP (1HR)
                       </label>
@@ -4019,7 +4136,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                         component="div"
                         className="text-red-500"
                       />
-                    </div>
+                    </div> */}
 
                     <div className="flex flex-col">
                       <label htmlFor="BIOPR" className="mb-2 font-bold">
@@ -4191,7 +4308,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                       />
                     </div>
 
-                    <div className="flex flex-col">
+                    {/* <div className="flex flex-col">
                       <label htmlFor="powerUsedR" className="mb-2 font-bold">
                         What power was used Right
                       </label>
@@ -4207,7 +4324,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                         component="div"
                         className="text-red-500"
                       />
-                    </div>
+                    </div> */}
 
                     <div className="flex flex-col">
                       <label htmlFor="number" className="mb-2 font-bold">
@@ -4222,6 +4339,90 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                       />
                       <ErrorMessage
                         name="noOfQuadrantsTreatedR"
+                        component="div"
+                        className="text-red-500"
+                      />
+                    </div>
+
+                    <div className="flex flex-col">
+                      <label
+                        htmlFor="pigmentationSuperiorR"
+                        className="mb-2 font-bold"
+                      >
+                        Pigmentation Superior
+                      </label>
+                      <Field
+                        type="text"
+                        id="pigmentationSuperiorR"
+                        name="pigmentationSuperiorR"
+                        // placeholder="Enter a no Of Quadrants treated Left"
+                        className="border border-gray-400 p-2 rounded-md"
+                      />
+                      <ErrorMessage
+                        name="pigmentationSuperiorR"
+                        component="div"
+                        className="text-red-500"
+                      />
+                    </div>
+
+                    <div className="flex flex-col">
+                      <label
+                        htmlFor="pigmentationInferiorR"
+                        className="mb-2 font-bold"
+                      >
+                        Pigmentation Inferior
+                      </label>
+                      <Field
+                        type="text"
+                        id="pigmentationInferiorR"
+                        name="pigmentationInferiorR"
+                        // placeholder="Enter a no Of Quadrants treated Left"
+                        className="border border-gray-400 p-2 rounded-md"
+                      />
+                      <ErrorMessage
+                        name="pigmentationInferiorR"
+                        component="div"
+                        className="text-red-500"
+                      />
+                    </div>
+
+                    <div className="flex flex-col">
+                      <label
+                        htmlFor="pigmentationNasalR"
+                        className="mb-2 font-bold"
+                      >
+                        Pigmentation Nasal
+                      </label>
+                      <Field
+                        type="text"
+                        id="pigmentationNasalR"
+                        name="pigmentationNasalR"
+                        // placeholder="Enter a no Of Quadrants treated Left"
+                        className="border border-gray-400 p-2 rounded-md"
+                      />
+                      <ErrorMessage
+                        name="pigmentationNasalR"
+                        component="div"
+                        className="text-red-500"
+                      />
+                    </div>
+
+                    <div className="flex flex-col">
+                      <label
+                        htmlFor="pigmentationTemporalR"
+                        className="mb-2 font-bold"
+                      >
+                        Pigmentation Temporal
+                      </label>
+                      <Field
+                        type="text"
+                        id="pigmentationTemporalR"
+                        name="pigmentationTemporalR"
+                        // placeholder="Enter a no Of Quadrants treated Left"
+                        className="border border-gray-400 p-2 rounded-md"
+                      />
+                      <ErrorMessage
+                        name="pigmentationTemporalR"
                         component="div"
                         className="text-red-500"
                       />
@@ -4357,6 +4558,24 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                         className="text-red-500"
                       />
                     </div>
+                    <div className="flex flex-col">
+                      <label htmlFor="LOCSG1HRR" className="mb-2 font-bold">
+                        LOCS grading
+                      </label>
+                      <Field
+                        type="text"
+                        id="LOCSG1HRR"
+                        name="LOCSG1HRR"
+                        // placeholder="LOCS grading"
+                        className="border border-gray-400 p-2 rounded-md"
+                      />
+
+                      <ErrorMessage
+                        name="LOCSG1HRR"
+                        component="p"
+                        className="text-red-500"
+                      />
+                    </div>
 
                     <Divider />
 
@@ -4455,25 +4674,6 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
 
                         <ErrorMessage
                           name="cells1HRR"
-                          component="p"
-                          className="text-red-500"
-                        />
-                      </div>
-
-                      <div className="flex flex-col">
-                        <label htmlFor="LOCSG1HRR" className="mb-2 font-bold">
-                          LOCS grading
-                        </label>
-                        <Field
-                          type="text"
-                          id="LOCSG1HRR"
-                          name="LOCSG1HRR"
-                          // placeholder="LOCS grading"
-                          className="border border-gray-400 p-2 rounded-md"
-                        />
-
-                        <ErrorMessage
-                          name="LOCSG1HRR"
                           component="p"
                           className="text-red-500"
                         />
@@ -4642,7 +4842,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                         />
                       </div>
 
-                      <div className="flex flex-col">
+                      {/* <div className="flex flex-col">
                         <label htmlFor="LOCSG24HRR" className="mb-2 font-bold">
                           LOCS grading
                         </label>
@@ -4659,7 +4859,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           component="p"
                           className="text-red-500"
                         />
-                      </div>
+                      </div> */}
 
                       <div className="flex flex-col">
                         <label htmlFor="IOPA24HRR" className="mb-2 font-bold">
@@ -4801,7 +5001,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                         />
                       </div>
 
-                      <div className="flex flex-col">
+                      {/* <div className="flex flex-col">
                         <label htmlFor="LOCSG1MR" className="mb-2 font-bold">
                           LOCS grading
                         </label>
@@ -4818,7 +5018,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           component="p"
                           className="text-red-500"
                         />
-                      </div>
+                      </div> */}
 
                       <div className="flex flex-col">
                         <label htmlFor="IOPA1MR" className="mb-2 font-bold">
