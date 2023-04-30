@@ -444,7 +444,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
   const curId = useSelector((state) => state.user.curId);
   const previous = useSelector((state) => state.user.prev);
 
-  console.log(previous);
+  // console.log(previous);
   if (id) {
     useEffect(() => {
       getStageTwo(id).then((res) => {
