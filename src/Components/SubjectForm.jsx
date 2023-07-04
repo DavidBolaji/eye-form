@@ -318,7 +318,7 @@ const SubjectForm = ({ nextStep, id }) => {
             {values.glucoma === "Other" && (
               <div className="flex flex-col">
                 <label htmlFor="number" className="mb-2 font-bold">
-                  Ethnicity
+                  Glucoma other
                 </label>
                 <Field
                   type="text"

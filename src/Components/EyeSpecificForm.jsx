@@ -1,441 +1,441 @@
-import { Divider, Space, Spin } from 'antd';
-import { ErrorMessage, Field, Form, Formik } from 'formik';
-import React, { useState } from 'react';
-import { memo } from 'react';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { saveStageOne, saveStageTwo } from '../actions/userAction';
-import Axios from '../api/auth';
+import { Divider, Space, Spin } from "antd";
+import { ErrorMessage, Field, Form, Formik } from "formik";
+import React, { useState } from "react";
+import { memo } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { saveStageOne, saveStageTwo } from "../actions/userAction";
+import Axios from "../api/auth";
 
 const initialValuesOut = {
-  whatEye: '',
-  presentingVisualAcuityL: '',
-  presentingVisualAcuityR: '',
-  bestcorrectedvisualAquityLNaive: '', //new
-  bestcorrectedvisualAquityLBeforeWashout: '', //new
-  bestcorrectedvisualAquityLAfterWashout: '', //new
-  bestcorrectedvisualAquityRNaive: '', //new
-  bestcorrectedvisualAquityRBeforeWashout: '', //new
-  bestcorrectedvisualAquityRAfterWshout: '', //new
-  whatEyeChartWasUsedL: '', //text
-  whatEyeChartWasUsedR: '', //text
-  cataractPresentL: '',
-  cataractPresentR: '',
-  GonioscopyL: '',
-  GonioscopyR: '',
-  openessOfQuadrantL: '',
-  openessOfQuadrantR: '',
-  anteriorChemberActivityprioToProcedureL: '', // new text
-  anteriorChemberActivityprioToProcedureR: '', // new text
+  whatEye: "",
+  presentingVisualAcuityL: "",
+  presentingVisualAcuityR: "",
+  bestcorrectedvisualAquityLNaive: "", //new
+  bestcorrectedvisualAquityLBeforeWashout: "", //new
+  bestcorrectedvisualAquityLAfterWashout: "", //new
+  bestcorrectedvisualAquityRNaive: "", //new
+  bestcorrectedvisualAquityRBeforeWashout: "", //new
+  bestcorrectedvisualAquityRAfterWshout: "", //new
+  whatEyeChartWasUsedL: "", //text
+  whatEyeChartWasUsedR: "", //text
+  cataractPresentL: "",
+  cataractPresentR: "",
+  GonioscopyL: "",
+  GonioscopyR: "",
+  openessOfQuadrantL: "",
+  openessOfQuadrantR: "",
+  anteriorChemberActivityprioToProcedureL: "", // new text
+  anteriorChemberActivityprioToProcedureR: "", // new text
 
-  VCDRL: '',
-  VCDRR: '',
-  HCDRL: '',
-  HCDRR: '',
-  CVFL: '',
-  CVFR: '',
-  visualFieldPerformedL: '', // yes, No
-  visualFieldPerformedR: '', // yes, No
-  visualFieldNotPerformedL: '',
-  visualFieldNotPerformedR: '',
-  visualFieldNotPerformedLO: '',
-  visualFieldNotPerformedRO: '',
-  meanDeviationL: '',
-  meanDeviationR: '',
-  patternSDL: '',
-  patternSDR: '',
-  perimeterL: '',
-  perimeterR: '',
+  VCDRL: "",
+  VCDRR: "",
+  HCDRL: "",
+  HCDRR: "",
+  CVFL: "",
+  CVFR: "",
+  visualFieldPerformedL: "", // yes, No
+  visualFieldPerformedR: "", // yes, No
+  visualFieldNotPerformedL: "",
+  visualFieldNotPerformedR: "",
+  visualFieldNotPerformedLO: "",
+  visualFieldNotPerformedRO: "",
+  meanDeviationL: "",
+  meanDeviationR: "",
+  patternSDL: "",
+  patternSDR: "",
+  perimeterL: "",
+  perimeterR: "",
   // end
 
-  CCTL: '',
-  CCTR: '',
+  CCTL: "",
+  CCTR: "",
 
-  eyesToBeTreatedL: '', //dropdown, right, left, both
-  eyesToBeTreatedR: '', //dropdown, right, left, both
+  eyesToBeTreatedL: "", //dropdown, right, left, both
+  eyesToBeTreatedR: "", //dropdown, right, left, both
 
   //change
-  IOP1L: '', //IOPPrior
-  IOP1R: '',
-  IOP2L: '', // IOPBEFOREwASHOUT
-  IOP2R: '',
+  IOP1L: "", //IOPPrior
+  IOP1R: "",
+  IOP2L: "", // IOPBEFOREwASHOUT
+  IOP2R: "",
   //NEW
-  IOP3L: '', // IOPAfterwASHOUT
-  IOP3R: '',
+  IOP3L: "", // IOPAfterwASHOUT
+  IOP3R: "",
 
   //new
-  IOP4L: '', // IOPAtRecruitment
-  IOP4R: '',
+  IOP4L: "", // IOPAtRecruitment
+  IOP4R: "",
   //nEW Position
   // interoccular pressre before procedure(Ihr before)
 
-  IOP1HRL: '',
-  IOP1HRR: '',
+  IOP1HRL: "",
+  IOP1HRR: "",
 
-  BIOP: '',
-  BIOPR: '',
-  howmanymililitreofwaterwasgiven: '', // new
-  howmanymililitreofwaterwasgivenR: '', // new
-  iop5minL: '', //number
-  iop5minR: '', //number
-  iop15MinL: '',
-  iop15MinR: '',
-  iop30minL: '',
-  iop30minR: '',
-  iop45minR: '',
-  iop45minL: '',
-  iop1HRL: '',
-  iop1HRR: '',
-  averageEnergyForProcedureL: '', //Number
-  averageEnergyForProcedureR: '', //Number
+  BIOP: "",
+  BIOPR: "",
+  howmanymililitreofwaterwasgiven: "", // new
+  howmanymililitreofwaterwasgivenR: "", // new
+  iop5minL: "", //number
+  iop5minR: "", //number
+  iop15MinL: "",
+  iop15MinR: "",
+  iop30minL: "",
+  iop30minR: "",
+  iop45minR: "",
+  iop45minL: "",
+  iop1HRL: "",
+  iop1HRR: "",
+  averageEnergyForProcedureL: "", //Number
+  averageEnergyForProcedureR: "", //Number
 
-  noOfShotsL: '',
-  noOfShotsR: '',
-  powerUsedL: '',
-  powerUsedR: '',
-  noOfQuadrantsTreatedL: '',
-  noOfQuadrantsTreatedR: '',
+  noOfShotsL: "",
+  noOfShotsR: "",
+  powerUsedL: "",
+  powerUsedR: "",
+  noOfQuadrantsTreatedL: "",
+  noOfQuadrantsTreatedR: "",
 
-  pigmentationSuperiorL: '',
-  pigmentationSuperiorR: '',
+  pigmentationSuperiorL: "",
+  pigmentationSuperiorR: "",
 
-  pigmentationInferiorL: '',
-  pigmentationInferiorR: '',
+  pigmentationInferiorL: "",
+  pigmentationInferiorR: "",
 
-  pigmentationNasalL: '',
-  pigmentationNasalR: '',
+  pigmentationNasalL: "",
+  pigmentationNasalR: "",
 
-  pigmentationTemporalL: '',
-  pigmentationTemporalR: '',
+  pigmentationTemporalL: "",
+  pigmentationTemporalR: "",
 
-  procedureComplicationL: '',
-  procedureComplicationR: '',
+  procedureComplicationL: "",
+  procedureComplicationR: "",
 
-  ocularPainL: '',
-  ocularPainR: '',
+  ocularPainL: "",
+  ocularPainR: "",
 
   // if yes show scale
-  pain1hrL: '',
-  pain1hrR: '',
-  pain24hrL: '',
-  pain24hrR: '',
-  pain48hrL: '',
-  pain48hrR: '',
+  pain1hrL: "",
+  pain1hrR: "",
+  pain24hrL: "",
+  pain24hrR: "",
+  pain48hrL: "",
+  pain48hrR: "",
 
   medicationsBeforeL: [],
   medicationsBeforeR: [],
   //   hobbies: [],
-  vaUnaided1HRL: '',
-  vaUnaided1HRR: '',
+  vaUnaided1HRL: "",
+  vaUnaided1HRR: "",
 
-  bcVA1HRL: '',
-  bcVA1HRR: '',
+  bcVA1HRL: "",
+  bcVA1HRR: "",
 
-  flare1HRL: '',
-  flare1HRR: '',
+  flare1HRL: "",
+  flare1HRR: "",
 
-  cells1HRL: '',
-  cells1HRR: '',
+  cells1HRL: "",
+  cells1HRR: "",
 
-  LOCSG1HRR: '',
-  LOCSG1HRL: '',
+  LOCSG1HRR: "",
+  LOCSG1HRL: "",
 
-  IOPA1HRL: '',
-  IOPA1HRR: '',
+  IOPA1HRL: "",
+  IOPA1HRR: "",
 
-  comp1HRL: '',
-  comp1HRR: '',
+  comp1HRL: "",
+  comp1HRR: "",
 
-  BV1HRL: '',
-  BV1HRR: '',
+  BV1HRL: "",
+  BV1HRR: "",
 
   //24HR
-  vaUnaided24HRL: '',
-  vaUnaided24HRR: '',
+  vaUnaided24HRL: "",
+  vaUnaided24HRR: "",
 
-  bcVA24HRL: '',
-  bcVA24HRR: '',
+  bcVA24HRL: "",
+  bcVA24HRR: "",
 
-  flare24HRL: '',
-  flare24HRR: '',
+  flare24HRL: "",
+  flare24HRR: "",
 
-  cells24HRL: '',
-  cells24HRR: '',
+  cells24HRL: "",
+  cells24HRR: "",
 
-  LOCSG2R: '',
-  LOCSG2L: '',
+  LOCSG2R: "",
+  LOCSG2L: "",
 
-  IOPA24HRL: '',
-  IOPA24HRR: '',
+  IOPA24HRL: "",
+  IOPA24HRR: "",
 
-  comp24HRL: '',
-  comp24HRR: '',
+  comp24HRL: "",
+  comp24HRR: "",
 
   //1MONTH
-  vaUnaided1ML: '',
-  vaUnaided1MR: '',
+  vaUnaided1ML: "",
+  vaUnaided1MR: "",
 
-  bcVA1ML: '',
-  bcVA1MR: '',
+  bcVA1ML: "",
+  bcVA1MR: "",
 
-  flare1ML: '',
-  flare1MR: '',
+  flare1ML: "",
+  flare1MR: "",
 
-  cells1ML: '',
-  cells1MR: '',
+  cells1ML: "",
+  cells1MR: "",
 
-  LOCSG1MR: '',
-  LOCSG1ML: '',
+  LOCSG1MR: "",
+  LOCSG1ML: "",
 
-  IOPA1ML: '',
-  IOPA1MR: '',
+  IOPA1ML: "",
+  IOPA1MR: "",
 
-  comp1ML: '',
-  comp1MR: '',
+  comp1ML: "",
+  comp1MR: "",
 
   //2MONTH
-  vaUnaided2ML: '',
-  vaUnaided2MR: '',
+  vaUnaided2ML: "",
+  vaUnaided2MR: "",
 
-  bcVA2ML: '',
-  bcVA2MR: '',
+  bcVA2ML: "",
+  bcVA2MR: "",
 
-  flare2ML: '',
-  flare2MR: '',
+  flare2ML: "",
+  flare2MR: "",
 
-  cells2ML: '',
-  cells2MR: '',
+  cells2ML: "",
+  cells2MR: "",
 
-  LOCSG2MR: '',
-  LOCSG2ML: '',
+  LOCSG2MR: "",
+  LOCSG2ML: "",
 
-  IOPA2ML: '',
-  IOPA2MR: '',
+  IOPA2ML: "",
+  IOPA2MR: "",
 
-  PAS2ML: '',
-  PAS2MR: '',
+  PAS2ML: "",
+  PAS2MR: "",
 
-  Gonioscopy2ML: '',
-  Gonioscopy2MR: '',
+  Gonioscopy2ML: "",
+  Gonioscopy2MR: "",
 
-  openessOfQuadrant2MR: '',
-  openessOfQuadrant2ML: '',
+  openessOfQuadrant2MR: "",
+  openessOfQuadrant2ML: "",
 
-  pigment2ML: '',
-  pigment2MR: '',
+  pigment2ML: "",
+  pigment2MR: "",
 
-  pigmentO2ML: '',
-  pigmentO2MR: '',
+  pigmentO2ML: "",
+  pigmentO2MR: "",
 
-  SLT2ML: '',
-  SLT2MR: '',
+  SLT2ML: "",
+  SLT2MR: "",
 
-  BIOP2ML: '',
-  BIOPR2MR: '',
-  howmanymililitreofwaterwasgiven2ML: '', // new
-  howmanymililitreofwaterwasgivenR2MR: '', // new
-  iop5minL2ML: '', //number
-  iop5minR2MR: '', //number
-  iop15MinL2ML: '',
-  iop15MinR2MR: '',
-  iop30minL2ML: '',
-  iop30minR2MR: '',
-  iop45min2MR: '',
-  iop45min2ML: '',
-  iop1HRL2ML: '',
-  iop1HRR2MR: '',
+  BIOP2ML: "",
+  BIOPR2MR: "",
+  howmanymililitreofwaterwasgiven2ML: "", // new
+  howmanymililitreofwaterwasgivenR2MR: "", // new
+  iop5minL2ML: "", //number
+  iop5minR2MR: "", //number
+  iop15MinL2ML: "",
+  iop15MinR2MR: "",
+  iop30minL2ML: "",
+  iop30minR2MR: "",
+  iop45minR2MR: "",
+  iop45min2ML: "",
+  iop1HRL2ML: "",
+  iop1HRR2MR: "",
 
   //3MONTH
-  vaUnaided3ML: '',
-  vaUnaided3MR: '',
+  vaUnaided3ML: "",
+  vaUnaided3MR: "",
 
-  bcVA3ML: '',
-  bcVA3MR: '',
+  bcVA3ML: "",
+  bcVA3MR: "",
 
-  flare3ML: '',
-  flare3MR: '',
+  flare3ML: "",
+  flare3MR: "",
 
-  cells3ML: '',
-  cells3MR: '',
+  cells3ML: "",
+  cells3MR: "",
 
-  LOCSG3MR: '',
-  LOCSG3ML: '',
+  LOCSG3MR: "",
+  LOCSG3ML: "",
 
-  IOPA3ML: '',
-  IOPA3MR: '',
+  IOPA3ML: "",
+  IOPA3MR: "",
 
-  Gonioscopy3ML: '',
-  Gonioscopy3MR: '',
+  Gonioscopy3ML: "",
+  Gonioscopy3MR: "",
 
-  openessOfQuadrant3MR: '',
-  openessOfQuadrant3ML: '',
+  openessOfQuadrant3MR: "",
+  openessOfQuadrant3ML: "",
 
-  PAS3ML: '',
-  PAS3MR: '',
+  PAS3ML: "",
+  PAS3MR: "",
 
-  pigment3ML: '',
-  pigment3MR: '',
+  pigment3ML: "",
+  pigment3MR: "",
 
-  pigmentO3ML: '',
-  pigmentO3MR: '',
+  pigmentO3ML: "",
+  pigmentO3MR: "",
 
-  SLT3ML: '',
-  SLT3MR: '',
+  SLT3ML: "",
+  SLT3MR: "",
 
   //6MONTH
-  vaUnaided6ML: '',
-  vaUnaided6MR: '',
+  vaUnaided6ML: "",
+  vaUnaided6MR: "",
 
-  bcVA6ML: '',
-  bcVA6MR: '',
+  bcVA6ML: "",
+  bcVA6MR: "",
 
-  flare6ML: '',
-  flare6MR: '',
+  flare6ML: "",
+  flare6MR: "",
 
-  cells6ML: '',
-  cells6MR: '',
+  cells6ML: "",
+  cells6MR: "",
 
-  LOCSG6MR: '',
-  LOCSG6ML: '',
+  LOCSG6MR: "",
+  LOCSG6ML: "",
 
-  IOPA6ML: '',
-  IOPA6MR: '',
+  IOPA6ML: "",
+  IOPA6MR: "",
 
-  Gonioscopy6ML: '',
-  Gonioscopy6MR: '',
+  Gonioscopy6ML: "",
+  Gonioscopy6MR: "",
 
-  openessOfQuadrant6MR: '',
-  openessOfQuadrant6ML: '',
+  openessOfQuadrant6MR: "",
+  openessOfQuadrant6ML: "",
 
-  PAS6ML: '',
-  PAS6MR: '',
+  PAS6ML: "",
+  PAS6MR: "",
 
-  pigment6ML: '',
-  pigment6MR: '',
+  pigment6ML: "",
+  pigment6MR: "",
 
-  pigmentO6ML: '',
-  pigmentO6MR: '',
+  pigmentO6ML: "",
+  pigmentO6MR: "",
 
-  SLT6ML: '',
-  SLT6MR: '',
+  SLT6ML: "",
+  SLT6MR: "",
 
-  CVFMD6ML: '',
-  CVFMD6MR: '',
+  CVFMD6ML: "",
+  CVFMD6MR: "",
 
-  PCVF6ML: '',
-  PCVF6MR: '',
+  PCVF6ML: "",
+  PCVF6MR: "",
 
-  CVFO6ML: '',
-  CVFO6MR: '',
+  CVFO6ML: "",
+  CVFO6MR: "",
 
-  CVFOO6ML: '',
-  CVFOO6MR: '',
+  CVFOO6ML: "",
+  CVFOO6MR: "",
 
   //9 month
-  vaUnaided9ML: '',
-  vaUnaided9MR: '',
+  vaUnaided9ML: "",
+  vaUnaided9MR: "",
 
-  bcVA9ML: '',
-  bcVA9MR: '',
+  bcVA9ML: "",
+  bcVA9MR: "",
 
-  flare9ML: '',
-  flare9MR: '',
+  flare9ML: "",
+  flare9MR: "",
 
-  cells9ML: '',
-  cells9MR: '',
+  cells9ML: "",
+  cells9MR: "",
 
-  LOCSG9MR: '',
-  LOCSG9ML: '',
+  LOCSG9MR: "",
+  LOCSG9ML: "",
 
-  IOPA9ML: '',
-  IOPA9MR: '',
+  IOPA9ML: "",
+  IOPA9MR: "",
 
   // 12 MONTH
 
-  vaUnaided12ML: '',
-  vaUnaided12MR: '',
+  vaUnaided12ML: "",
+  vaUnaided12MR: "",
 
-  bcVA12ML: '',
-  bcVA12MR: '',
+  bcVA12ML: "",
+  bcVA12MR: "",
 
-  flare12ML: '',
-  flare12MR: '',
+  flare12ML: "",
+  flare12MR: "",
 
-  cells12ML: '',
-  cells12MR: '',
+  cells12ML: "",
+  cells12MR: "",
 
-  LOCSG12MR: '',
-  LOCSG12ML: '',
+  LOCSG12MR: "",
+  LOCSG12ML: "",
 
-  IOPA12ML: '',
-  IOPA12MR: '',
+  IOPA12ML: "",
+  IOPA12MR: "",
 
-  CVFMD12ML: '',
-  CVFMD12MR: '',
+  CVFMD12ML: "",
+  CVFMD12MR: "",
 
-  PCVF12ML: '',
-  PCVF12MR: '',
+  PCVF12ML: "",
+  PCVF12MR: "",
 
-  CVFO12ML: '',
-  CVFO12MR: '',
+  CVFO12ML: "",
+  CVFO12MR: "",
 
-  CVFOO12ML: '',
-  CVFOO12MR: '',
+  CVFOO12ML: "",
+  CVFOO12MR: "",
 
-  CVFPS12ML: '',
-  CVFPS12MR: '',
+  CVFPS12ML: "",
+  CVFPS12MR: "",
 };
 
 const medications = [
-  'Prostaglandin',
-  'Beta-Blocker',
-  'CAI',
-  'Alpha agonist',
-  'MIOTIC',
-  'Fixed combo',
+  "Prostaglandin",
+  "Beta-Blocker",
+  "CAI",
+  "Alpha agonist",
+  "MIOTIC",
+  "Fixed combo",
 ];
-const whatEye = ['left', 'right', 'both'];
-const ocularPain = ['present', 'absent'];
-const openessOfQuadrant = ['open', 'close', 'narrow'];
-const opticNerveVisible = ['yes', 'no'];
-const visualFieldPerformed = ['yes', 'no'];
+const whatEye = ["left", "right", "both"];
+const ocularPain = ["present", "absent"];
+const openessOfQuadrant = ["open", "close", "narrow"];
+const opticNerveVisible = ["yes", "no"];
+const visualFieldPerformed = ["yes", "no"];
 const visualFieldNotPerformed = [
-  'Poor Vision',
-  'Not Ccooperative',
-  'Cannot afford it',
-  'No Equipment available',
-  'Others',
+  "Poor Vision",
+  "Not Ccooperative",
+  "Cannot afford it",
+  "No Equipment available",
+  "Others",
 ];
 const cataractPresent = [
-  'Not present',
-  'Present but not visually',
-  'Significant',
-  'Visually significant',
+  "Not present",
+  "Present but not visually",
+  "Significant",
+  "Visually significant",
 ];
 const causeOfVisionLoss = [
-  'Principally cataract',
-  'principally glaucoma',
-  'Mixed cataract and glaucoma',
-  'Other',
+  "Principally cataract",
+  "principally glaucoma",
+  "Mixed cataract and glaucoma",
+  "Other",
 ];
 const presentingVisualAcuity = [
-  '6/5',
-  '6/6',
-  '6/9',
-  '6/12',
-  '6/18',
-  '6/24',
-  '6/36',
-  '6/66',
-  'CF',
-  'HM',
-  'LP',
-  'NLP',
+  "6/5",
+  "6/6",
+  "6/9",
+  "6/12",
+  "6/18",
+  "6/24",
+  "6/36",
+  "6/66",
+  "CF",
+  "HM",
+  "LP",
+  "NLP",
 ];
 
 const getStageTwo = async (id) => {
-  const res = await Axios.get('/user/stageTwo/' + id);
+  const res = await Axios.get("/user/stageTwo/" + id);
   return res.data;
 };
 
@@ -487,7 +487,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
     let newObj = {
       ...values,
     };
-    if (typeof previous !== 'undefined' && Object.keys(previous).length > 0) {
+    if (typeof previous !== "undefined" && Object.keys(previous).length > 0) {
       newObj = {
         ...newObj,
         ...previ,
@@ -526,7 +526,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
     let newObj = {
       ...values,
     };
-    if (typeof previous !== 'undefined' && Object.keys(previous).length > 0) {
+    if (typeof previous !== "undefined" && Object.keys(previous).length > 0) {
       newObj = {
         ...newObj,
         ...previ,
@@ -534,7 +534,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
     }
 
     dispatch(saveStageTwo({ ...newObj, _id: values._id ? values._id : curId }));
-    navigate('/dashboard');
+    navigate("/dashboard");
   };
   return Object.keys(initialValues).length < 1 ? (
     <div className="flex h-screen w-full items-center justify-center">
@@ -557,7 +557,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                 What eye
               </label>
               <Field
-                as={'select'}
+                as={"select"}
                 type="text"
                 id="whatEye"
                 name="whatEye"
@@ -582,7 +582,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
               className="flex gap-2 justify-between flex-row-reverse h-screen overflow-y-scroll"
             >
               <div className="w-1/2">
-                {(values.whatEye === 'left' || values.whatEye === 'both') && (
+                {(values.whatEye === "left" || values.whatEye === "both") && (
                   <>
                     <div className="flex flex-col">
                       <label
@@ -592,7 +592,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                         Presenting Visual Acuity left eye
                       </label>
                       <Field
-                        as={'select'}
+                        as={"select"}
                         type="text"
                         id="presentingVisualAcuityL"
                         name="presentingVisualAcuityL"
@@ -621,7 +621,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                         Best Corrected Visual Acuity Naive left eye
                       </label>
                       <Field
-                        as={'select'}
+                        as={"select"}
                         type="text"
                         id="bestcorrectedvisualAquityLNaive"
                         name="bestcorrectedvisualAquityLNaive"
@@ -650,7 +650,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                         Best Corrected Visual Acuity Before wash out left eye
                       </label>
                       <Field
-                        as={'select'}
+                        as={"select"}
                         type="text"
                         id="bestcorrectedvisualAquityLBeforeWashout"
                         name="bestcorrectedvisualAquityLBeforeWashout"
@@ -679,7 +679,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                         Best Corrected Visual Acuity After wash out left eye
                       </label>
                       <Field
-                        as={'select'}
+                        as={"select"}
                         type="text"
                         id="bestcorrectedvisualAquityLAfterWashout"
                         name="bestcorrectedvisualAquityLAfterWashout"
@@ -730,7 +730,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                         Cataract present Left
                       </label>
                       <Field
-                        as={'select'}
+                        as={"select"}
                         type="text"
                         id="cataractPresentL"
                         name="cataractPresentL"
@@ -777,7 +777,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                         Openness of the quadrant
                       </label>
                       <Field
-                        as={'select'}
+                        as={"select"}
                         type="text"
                         id="openessOfQuadrantL"
                         name="openessOfQuadrantL"
@@ -923,7 +923,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                         Visual Field performed
                       </label>
                       <Field
-                        as={'select'}
+                        as={"select"}
                         type="text"
                         id="visualFieldPerformedL"
                         name="visualFieldPerformedL"
@@ -944,7 +944,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                       />
                     </div>
 
-                    {values.visualFieldPerformedL === 'yes' && (
+                    {values.visualFieldPerformedL === "yes" && (
                       <>
                         <div className="flex flex-col">
                           <label htmlFor="number" className="mb-2 font-bold">
@@ -1002,7 +1002,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                       </>
                     )}
 
-                    {values.visualFieldPerformedL === 'no' && (
+                    {values.visualFieldPerformedL === "no" && (
                       <div className="flex flex-col">
                         <label
                           htmlFor="causeOfVisionLossR"
@@ -1011,7 +1011,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Reason Visual not performed
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="visualFieldNotPerformedL"
                           name="visualFieldNotPerformedL"
@@ -1033,7 +1033,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                       </div>
                     )}
 
-                    {values.visualFieldNotPerformedL === 'Others' && (
+                    {values.visualFieldNotPerformedL === "Others" && (
                       <div className="flex flex-col">
                         <label
                           htmlFor="visualFieldNotPerformedLO"
@@ -1083,7 +1083,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                         Eye To Be Treated
                       </label>
                       <Field
-                        as={'select'}
+                        as={"select"}
                         type="text"
                         id="eyesToBeTreatedL"
                         name="eyesToBeTreatedL"
@@ -1510,7 +1510,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                         Ocular pain
                       </label>
                       <Field
-                        as={'select'}
+                        as={"select"}
                         type="text"
                         id="ocularPainL"
                         name="ocularPainL"
@@ -1531,7 +1531,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                       />
                     </div>
 
-                    {values.ocularPainL === 'present' && (
+                    {values.ocularPainL === "present" && (
                       <>
                         <div className="flex flex-col">
                           <label htmlFor="pain1hrL" className="mb-2 font-bold">
@@ -1597,7 +1597,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                         Medications(select all that apply)
                       </label>
                       <Field
-                        as={'select'}
+                        as={"select"}
                         multiple
                         id="medicationsBeforeL"
                         name="medicationsBeforeL"
@@ -1651,7 +1651,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Visual Acuity unaided
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="vaUnaided1HRL"
                           name="vaUnaided1HRL"
@@ -1677,7 +1677,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Visual Acuity Best Corrected
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="bcVA1HRL"
                           name="bcVA1HRL"
@@ -1780,7 +1780,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Bluring of vision
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="BV1HRL"
                           name="BV1HRL"
@@ -1814,7 +1814,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Visual Acuity unaided
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="vaUnaided24HRL"
                           name="vaUnaided24HRL"
@@ -1840,7 +1840,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Visual Acuity Best Corrected
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="bcVA24HRL"
                           name="bcVA24HRL"
@@ -1955,7 +1955,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Visual Acuity unaided
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="vaUnaided1ML"
                           name="vaUnaided1ML"
@@ -1981,7 +1981,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Visual Acuity Best Corrected
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="bcVA1ML"
                           name="bcVA1ML"
@@ -2112,7 +2112,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Visual Acuity unaided
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="vaUnaided2ML"
                           name="vaUnaided2ML"
@@ -2137,7 +2137,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Visual Acuity Best Corrected
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="bcVA2ML"
                           name="bcVA2ML"
@@ -2254,7 +2254,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Openness of the quadrant
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="openessOfQuadrant2ML"
                           name="openessOfQuadrant2ML"
@@ -2279,7 +2279,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Any PAS
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="PAS2ML"
                           name="PAS2ML"
@@ -2337,7 +2337,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           SLT
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="SLT2ML"
                           name="SLT2ML"
@@ -2420,20 +2420,20 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                       </div> */}
                       <div className="flex flex-col">
                         <label
-                          htmlFor="iop15minL2ML"
+                          htmlFor="iop15MinL2ML"
                           className="mb-2 font-bold"
                         >
                           IOP 15MIN
                         </label>
                         <Field
                           type="number"
-                          id="iop15minL2ML"
-                          name="iop15minL2ML"
+                          id="iop15MinL2ML"
+                          name="iop15MinL2ML"
                           // placeholder="IOP 15MIN"
                           className="border border-gray-400 p-2 rounded-md"
                         />
                         <ErrorMessage
-                          name="iop15minL2ML"
+                          name="iop15MinL2ML"
                           component="div"
                           className="text-red-500"
                         />
@@ -2464,13 +2464,13 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                         </label>
                         <Field
                           type="number"
-                          id="iop45min2ML"
-                          name="iop45min2ML"
+                          id="iop45minL2ML"
+                          name="iop45minL2ML"
                           // placeholder="IOP 30MIN"
                           className="border border-gray-400 p-2 rounded-md"
                         />
                         <ErrorMessage
-                          name="iop45min2ML"
+                          name="iop45minL2ML"
                           component="div"
                           className="text-red-500"
                         />
@@ -2507,7 +2507,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Visual Acuity unaided
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="vaUnaided3ML"
                           name="vaUnaided3ML"
@@ -2532,7 +2532,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Visual Acuity Best Corrected
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="bcVA3ML"
                           name="bcVA3ML"
@@ -2650,7 +2650,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Openness of the quadrant
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="openessOfQuadrant3ML"
                           name="openessOfQuadrant3ML"
@@ -2675,7 +2675,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Any PAS
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="PAS3ML"
                           name="PAS3ML"
@@ -2733,7 +2733,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           SLT
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="SLT3ML"
                           name="SLT3ML"
@@ -2772,7 +2772,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Visual Acuity unaided
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="vaUnaided6ML"
                           name="vaUnaided6ML"
@@ -2797,7 +2797,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Visual Acuity Best Corrected
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="bcVA6ML"
                           name="bcVA6ML"
@@ -2915,7 +2915,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Openness of the quadrant
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="openessOfQuadrant6ML"
                           name="openessOfQuadrant6ML"
@@ -2940,7 +2940,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Any PAS
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="PAS6ML"
                           name="PAS6ML"
@@ -2998,7 +2998,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           SLT
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="SLT6ML"
                           name="SLT6ML"
@@ -3045,7 +3045,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Any progression
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="PCVF6ML"
                           name="PCVF6ML"
@@ -3062,14 +3062,14 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           className="text-red-500"
                         />
                       </div>
-                      {values.PCVF6ML === 'yes' && (
+                      {values.PCVF6ML === "yes" && (
                         <>
                           <div className="flex flex-col">
                             <label htmlFor="CVFO6ML" className="mb-2 font-bold">
                               select progression
                             </label>
                             <Field
-                              as={'select'}
+                              as={"select"}
                               type="text"
                               id="CVFO6ML"
                               name="CVFO6ML"
@@ -3092,7 +3092,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           </div>
                         </>
                       )}
-                      {values.CVFO6ML === 'others' && (
+                      {values.CVFO6ML === "others" && (
                         <>
                           <div className="flex flex-col">
                             <label
@@ -3134,7 +3134,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Visual Acuity unaided
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="vaUnaided9ML"
                           name="vaUnaided9ML"
@@ -3160,7 +3160,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Visual Acuity Best Corrected
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="bcVA9ML"
                           name="bcVA9ML"
@@ -3273,7 +3273,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Visual Acuity unaided
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="vaUnaided12ML"
                           name="vaUnaided12ML"
@@ -3299,7 +3299,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Visual Acuity Best Corrected
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="bcVA12ML"
                           name="bcVA12ML"
@@ -3439,7 +3439,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Any progression
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="PCVF12ML"
                           name="PCVF12ML"
@@ -3457,7 +3457,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                         />
                       </div>
 
-                      {values.PCVF12ML === 'yes' && (
+                      {values.PCVF12ML === "yes" && (
                         <>
                           <div className="flex flex-col">
                             <label
@@ -3467,7 +3467,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                               select progression
                             </label>
                             <Field
-                              as={'select'}
+                              as={"select"}
                               type="text"
                               id="CVFO12ML"
                               name="CVFO12ML"
@@ -3491,7 +3491,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                         </>
                       )}
 
-                      {values.CVFO12ML === 'others' && (
+                      {values.CVFO12ML === "others" && (
                         <>
                           <div className="flex flex-col">
                             <label
@@ -3523,7 +3523,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
 
               {/* Right Group */}
               <div className="w-1/2">
-                {(values.whatEye === 'right' || values.whatEye === 'both') && (
+                {(values.whatEye === "right" || values.whatEye === "both") && (
                   <>
                     <div className="flex flex-col">
                       <label
@@ -3533,7 +3533,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                         Presenting Visual Acuity Right eye
                       </label>
                       <Field
-                        as={'select'}
+                        as={"select"}
                         type="text"
                         id="presentingVisualAcuityR"
                         name="presentingVisualAcuityR"
@@ -3562,7 +3562,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                         Best Corrected Visual Acuity Naive Right eye
                       </label>
                       <Field
-                        as={'select'}
+                        as={"select"}
                         type="text"
                         id="bestcorrectedvisualAquityRNaive"
                         name="bestcorrectedvisualAquityRNaive"
@@ -3591,7 +3591,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                         Best Corrected Visual Acuity Before wash out Right eye
                       </label>
                       <Field
-                        as={'select'}
+                        as={"select"}
                         type="text"
                         id="bestcorrectedvisualAquityRBeforeWashout"
                         name="bestcorrectedvisualAquityRBeforeWashout"
@@ -3620,7 +3620,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                         Best Corrected Visual Acuity After wash out Right eye
                       </label>
                       <Field
-                        as={'select'}
+                        as={"select"}
                         type="text"
                         id="bestcorrectedvisualAquityRAfterWshout"
                         name="bestcorrectedvisualAquityRAfterWshout"
@@ -3671,7 +3671,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                         Cataract present Right
                       </label>
                       <Field
-                        as={'select'}
+                        as={"select"}
                         type="text"
                         id="cataractPresentR"
                         name="cataractPresentR"
@@ -3718,7 +3718,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                         Openness of the quadrant
                       </label>
                       <Field
-                        as={'select'}
+                        as={"select"}
                         type="text"
                         id="openessOfQuadrantR"
                         name="openessOfQuadrantR"
@@ -3864,7 +3864,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                         Visual Field performed
                       </label>
                       <Field
-                        as={'select'}
+                        as={"select"}
                         type="text"
                         id="visualFieldPerformedR"
                         name="visualFieldPerformedR"
@@ -3885,7 +3885,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                       />
                     </div>
 
-                    {values.visualFieldPerformedR === 'yes' && (
+                    {values.visualFieldPerformedR === "yes" && (
                       <>
                         <div className="flex flex-col">
                           <label
@@ -3952,7 +3952,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                       </>
                     )}
 
-                    {values.visualFieldPerformedR === 'no' && (
+                    {values.visualFieldPerformedR === "no" && (
                       <div className="flex flex-col">
                         <label
                           htmlFor="causeOfVisionLossR"
@@ -3961,7 +3961,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Reason Visual not performed
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="visualFieldNotPerformedR"
                           name="visualFieldNotPerformedR"
@@ -3983,7 +3983,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                       </div>
                     )}
 
-                    {values.visualFieldNotPerformedR === 'Others' && (
+                    {values.visualFieldNotPerformedR === "Others" && (
                       <div className="flex flex-col">
                         <label
                           htmlFor="visualFieldNotPerformedRO"
@@ -4033,7 +4033,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                         Eye To Be Treated
                       </label>
                       <Field
-                        as={'select'}
+                        as={"select"}
                         type="text"
                         id="eyesToBeTreatedR"
                         name="eyesToBeTreatedR"
@@ -4459,7 +4459,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                         Ocular pain
                       </label>
                       <Field
-                        as={'select'}
+                        as={"select"}
                         type="text"
                         id="ocularPainR"
                         name="ocularPainR"
@@ -4480,7 +4480,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                       />
                     </div>
 
-                    {values.ocularPainR === 'present' && (
+                    {values.ocularPainR === "present" && (
                       <>
                         <div className="flex flex-col">
                           <label htmlFor="pain1hrR" className="mb-2 font-bold">
@@ -4546,7 +4546,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                         Medications(select all that apply)
                       </label>
                       <Field
-                        as={'select'}
+                        as={"select"}
                         multiple
                         id="medicationsBeforeR"
                         name="medicationsBeforeR"
@@ -4600,7 +4600,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Visual Acuity unaided
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="vaUnaided1HRR"
                           name="vaUnaided1HRR"
@@ -4626,7 +4626,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Visual Acuity Best Corrected
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="bcVA1HRR"
                           name="bcVA1HRR"
@@ -4729,7 +4729,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Bluring of vision
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="BV1HRR"
                           name="BV1HRR"
@@ -4763,7 +4763,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Visual Acuity unaided
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="vaUnaided24HRR"
                           name="vaUnaided24HRR"
@@ -4789,7 +4789,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Visual Acuity Best Corrected
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="bcVA24HRR"
                           name="bcVA24HRR"
@@ -4922,7 +4922,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Visual Acuity unaided
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="vaUnaided1MR"
                           name="vaUnaided1MR"
@@ -4948,7 +4948,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Visual Acuity Best Corrected
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="bcVA1MR"
                           name="bcVA1MR"
@@ -5079,7 +5079,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Visual Acuity unaided
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="vaUnaided2MR"
                           name="vaUnaided2MR"
@@ -5104,7 +5104,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Visual Acuity Best Corrected
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="bcVA2MR"
                           name="bcVA2MR"
@@ -5221,7 +5221,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Openness of the quadrant
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="openessOfQuadrant2MR"
                           name="openessOfQuadrant2MR"
@@ -5246,7 +5246,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Any PAS
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="PAS2MR"
                           name="PAS2MR"
@@ -5304,7 +5304,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           SLT
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="SLT2MR"
                           name="SLT2MR"
@@ -5434,13 +5434,13 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                         </label>
                         <Field
                           type="number"
-                          id="iop45min2MR"
-                          name="iop45min2MR"
+                          id="iop45minR2MR"
+                          name="iop45minR2MR"
                           // placeholder="IOP 30MIN"
                           className="border border-gray-400 p-2 rounded-md"
                         />
                         <ErrorMessage
-                          name="iop45min2MR"
+                          name="iop45minR2MR"
                           component="div"
                           className="text-red-500"
                         />
@@ -5477,7 +5477,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Visual Acuity unaided
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="vaUnaided3MR"
                           name="vaUnaided3MR"
@@ -5502,7 +5502,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Visual Acuity Best Corrected
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="bcVA3MR"
                           name="bcVA3MR"
@@ -5620,7 +5620,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Openness of the quadrant
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="openessOfQuadrant3MR"
                           name="openessOfQuadrant3MR"
@@ -5645,7 +5645,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Any PAS
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="PAS3MR"
                           name="PAS3MR"
@@ -5703,7 +5703,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           SLT
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="SLT3MR"
                           name="SLT3MR"
@@ -5742,7 +5742,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Visual Acuity unaided
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="vaUnaided6MR"
                           name="vaUnaided6MR"
@@ -5767,7 +5767,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Visual Acuity Best Corrected
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="bcVA6MR"
                           name="bcVA6MR"
@@ -5885,7 +5885,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Openness of the quadrant
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="openessOfQuadrant6MR"
                           name="openessOfQuadrant6MR"
@@ -5910,7 +5910,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Any PAS
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="PAS6MR"
                           name="PAS6MR"
@@ -5968,7 +5968,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           SLT
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="SLT6MR"
                           name="SLT6MR"
@@ -6015,7 +6015,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Any progression
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="PCVF6MR"
                           name="PCVF6MR"
@@ -6032,14 +6032,14 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           className="text-red-500"
                         />
                       </div>
-                      {values.PCVF6MR === 'yes' && (
+                      {values.PCVF6MR === "yes" && (
                         <>
                           <div className="flex flex-col">
                             <label htmlFor="CVFO6MR" className="mb-2 font-bold">
                               select progression
                             </label>
                             <Field
-                              as={'select'}
+                              as={"select"}
                               type="text"
                               id="CVFO6MR"
                               name="CVFO6MR"
@@ -6062,7 +6062,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           </div>
                         </>
                       )}
-                      {values.CVFO6MR === 'others' && (
+                      {values.CVFO6MR === "others" && (
                         <>
                           <div className="flex flex-col">
                             <label
@@ -6104,7 +6104,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Visual Acuity unaided
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="vaUnaided9MR"
                           name="vaUnaided9MR"
@@ -6130,7 +6130,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Visual Acuity Best Corrected
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="bcVA9MR"
                           name="bcVA9MR"
@@ -6243,7 +6243,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Visual Acuity unaided
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="vaUnaided12MR"
                           name="vaUnaided12MR"
@@ -6269,7 +6269,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Visual Acuity Best Corrected
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="bcVA12MR"
                           name="bcVA12MR"
@@ -6409,7 +6409,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           Any progression
                         </label>
                         <Field
-                          as={'select'}
+                          as={"select"}
                           type="text"
                           id="PCVF12MR"
                           name="PCVF12MR"
@@ -6427,7 +6427,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                         />
                       </div>
 
-                      {values.PCVF12MR === 'yes' && (
+                      {values.PCVF12MR === "yes" && (
                         <>
                           <div className="flex flex-col">
                             <label
@@ -6437,7 +6437,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                               select progression
                             </label>
                             <Field
-                              as={'select'}
+                              as={"select"}
                               type="text"
                               id="CVFO12MR"
                               name="CVFO12MR"
@@ -6461,7 +6461,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                         </>
                       )}
 
-                      {values.CVFO12MR === 'others' && (
+                      {values.CVFO12MR === "others" && (
                         <>
                           <div className="flex flex-col">
                             <label
