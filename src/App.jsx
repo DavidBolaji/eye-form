@@ -6,6 +6,7 @@ import EditPage from "./pages/EditPage";
 import "./index.css";
 import LoginPage from "./pages/LoginPage";
 import HomePage from "./pages/HomePage";
+import EditUser from "./pages/EditUser";
 
 const route = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const route = createBrowserRouter([
       {
         path: "add_user",
         element: <AddPage />,
+      },
+      {
+        path: "repeat/:id",
+        element: <EditUser />,
       },
       {
         path: "edit_user/:id/:stage",

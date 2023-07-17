@@ -82,6 +82,15 @@ const HomePage = () => {
           >
             Stage 2
           </Button>
+          {(record.SLT2ML === "failed (repeat SLT)" || record.SLT2ML === "IOP reduced post SLT but needs to repeat SLT" || record.SLT2MR === "failed (repeat SLT)" || record.SLT2MR === "IOP reduced post SLT but needs to repeat SLT") &&
+          <Button
+          size="sm"
+          onClick={() => navigate(`repeat/${record._id}`)}
+         
+        >
+          Repeat Stage
+        </Button>
+          }
           <Button
             size="sm"
             onClick={() => navigate(`edit_user/${record._id}/3`)}
