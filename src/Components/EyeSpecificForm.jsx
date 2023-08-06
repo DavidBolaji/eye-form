@@ -90,6 +90,9 @@ const initialValuesOut = {
   averageEnergyForProcedureL: "", //Number
   averageEnergyForProcedureR: "", //Number
 
+  energyUseRangeL: "",
+  energyUseRangeR: "",
+
   noOfShotsL: "",
   noOfShotsR: "",
   powerUsedL: "",
@@ -1360,6 +1363,27 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                       />
                     </div>
 
+                    <div className="flex flex-col">
+                      <label
+                        htmlFor="energyUseRangeL"
+                        className="mb-2 font-bold"
+                      >
+                        Energy use range
+                      </label>
+                      <Field
+                        type="text"
+                        id="energyUseRangeL"
+                        name="energyUseRangeL"
+                        // placeholder="Average Energy For Procedure"
+                        className="border border-gray-400 p-2 rounded-md"
+                      />
+                      <ErrorMessage
+                        name="energyUseRangeL"
+                        component="div"
+                        className="text-red-500"
+                      />
+                    </div>
+
                     <Divider />
 
                     <div className="flex flex-col">
@@ -2343,11 +2367,11 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           className="border border-gray-400 p-2 rounded-md"
                         >
                           <option value=""></option>
-                          <option value="successful (continue medication)">
-                            Successful (continue medication)
+                          <option value="successful">
+                            Successful
                           </option>
-                          <option value="failed (continue medication)">
-                            Failed (continue medication)
+                          <option value="failed">
+                            Failed
                           </option>
                           <option value="failed (repeat SLT)">
                             Failed (repeat SLT)
@@ -2369,8 +2393,8 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           className="text-red-500"
                         />
                       </div>
-                      {(values.SLT2ML === "successful (continue medication)" ||
-                        values.SLT2ML === "failed (continue medication)" ||
+                      {(values.SLT2ML === "successful" ||
+                        values.SLT2ML === "failed" ||
                         values.SLT2ML ===
                           "IOP reduced post SLT but needs to continue medication") && (
                           <>
@@ -4409,6 +4433,27 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                       />
                     </div>
 
+                    <div className="flex flex-col">
+                      <label
+                        htmlFor="energyUseRangeR"
+                        className="mb-2 font-bold"
+                      >
+                        Energy use Range
+                      </label>
+                      <Field
+                        type="text"
+                        id="energyUseRangeR"
+                        name="energyUseRangeR"
+                        // placeholder="Average Energy For Procedure"
+                        className="border border-gray-400 p-2 rounded-md"
+                      />
+                      <ErrorMessage
+                        name="energyUseRangeR"
+                        component="div"
+                        className="text-red-500"
+                      />
+                    </div>
+
                     <Divider />
 
                     <div className="flex flex-col">
@@ -5427,11 +5472,11 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           className="border border-gray-400 p-2 rounded-md"
                         >
                           <option value=""></option>
-                          <option value="successful (continue medication)">
-                            Successful (continue medication)
+                          <option value="successful">
+                            Successful
                           </option>
-                          <option value="failed (continue medication)">
-                            Failed (continue medication)
+                          <option value="failed">
+                            Failed
                           </option>
                           <option value="failed (repeat SLT)">
                             Failed (repeat SLT)
@@ -5453,8 +5498,8 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           className="text-red-500"
                         />
                       </div>
-                      {(values.SLT2MR === "successful (continue medication)" ||
-                        values.SLT2MR === "failed (continue medication)" ||
+                      {(values.SLT2MR === "successful" ||
+                        values.SLT2MR === "failed" ||
                         values.SLT2MR ===
                           "IOP reduced post SLT but needs to continue medication") && (
                             <>
