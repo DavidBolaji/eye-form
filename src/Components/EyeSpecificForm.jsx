@@ -499,7 +499,6 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
 
     dispatch(saveStageTwo({ ...newObj, _id: values._id ? values._id : curId }));
     navigate(`/dashboard/repeat/${id}`);
-
   };
   const onSubmit = (values) => {
     const previ = {
@@ -593,6 +592,7 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
               <label htmlFor="whatEye" className="mb-2 font-bold">
                 What eye
               </label>
+
               <Field
                 as={"select"}
                 type="text"
@@ -2367,12 +2367,8 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           className="border border-gray-400 p-2 rounded-md"
                         >
                           <option value=""></option>
-                          <option value="successful">
-                            Successful
-                          </option>
-                          <option value="failed">
-                            Failed
-                          </option>
+                          <option value="successful">Successful</option>
+                          <option value="failed">Failed</option>
                           <option value="failed (repeat SLT)">
                             Failed (repeat SLT)
                           </option>
@@ -2397,1264 +2393,1277 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                         values.SLT2ML === "failed" ||
                         values.SLT2ML ===
                           "IOP reduced post SLT but needs to continue medication") && (
-                          <>
+                        <>
+                          <Divider />
+                          Water Drinking
+                          <Divider />
+                          <div className="flex flex-col">
+                            <label htmlFor="BIOP2ML" className="mb-2 font-bold">
+                              Water drinking test Baseline IOP
+                            </label>
+                            <Field
+                              type="number"
+                              id="BIOP2ML"
+                              name="BIOP2ML"
+                              // placeholder="Enter a no Of Shots given Left"
+                              className="border border-gray-400 p-2 rounded-md"
+                            />
+                            <ErrorMessage
+                              name="BIOP2ML"
+                              component="div"
+                              className="text-red-500"
+                            />
+                          </div>
+                          <div className="flex flex-col">
+                            <label
+                              htmlFor="howmanymililitreofwaterwasgiven2ML"
+                              className="mb-2 font-bold"
+                            >
+                              how many mililitre of water was given
+                            </label>
+                            <Field
+                              type="number"
+                              id="howmanymililitreofwaterwasgiven2ML"
+                              name="howmanymililitreofwaterwasgiven2ML"
+                              // placeholder="how many mililitre of water was given"
+                              className="border border-gray-400 p-2 rounded-md"
+                            />
+                            <ErrorMessage
+                              name="howmanymililitreofwaterwasgiven2ML"
+                              component="div"
+                              className="text-red-500"
+                            />
+                          </div>
+                          <div className="flex flex-col">
+                            <label
+                              htmlFor="iop15MinL2ML"
+                              className="mb-2 font-bold"
+                            >
+                              IOP 15MIN
+                            </label>
+                            <Field
+                              type="number"
+                              id="iop15MinL2ML"
+                              name="iop15MinL2ML"
+                              // placeholder="IOP 15MIN"
+                              className="border border-gray-400 p-2 rounded-md"
+                            />
+                            <ErrorMessage
+                              name="iop15MinL2ML"
+                              component="div"
+                              className="text-red-500"
+                            />
+                          </div>
+                          <div className="flex flex-col">
+                            <label
+                              htmlFor="iop30minL2ML"
+                              className="mb-2 font-bold"
+                            >
+                              IOP 30MIN
+                            </label>
+                            <Field
+                              type="number"
+                              id="iop30minL2ML"
+                              name="iop30minL2ML"
+                              // placeholder="IOP 30MIN"
+                              className="border border-gray-400 p-2 rounded-md"
+                            />
+                            <ErrorMessage
+                              name="iop30minL2ML"
+                              component="div"
+                              className="text-red-500"
+                            />
+                          </div>
+                          <div className="flex flex-col">
+                            <label
+                              htmlFor="iop45min2ML"
+                              className="mb-2 font-bold"
+                            >
+                              IOP 45MIN
+                            </label>
+                            <Field
+                              type="number"
+                              id="iop45minL2ML"
+                              name="iop45minL2ML"
+                              // placeholder="IOP 30MIN"
+                              className="border border-gray-400 p-2 rounded-md"
+                            />
+                            <ErrorMessage
+                              name="iop45minL2ML"
+                              component="div"
+                              className="text-red-500"
+                            />
+                          </div>
+                          <div className="flex flex-col">
+                            <label
+                              htmlFor="iop1HRL2ML"
+                              className="mb-2 font-bold"
+                            >
+                              IOP 1HR
+                            </label>
+                            <Field
+                              type="number"
+                              id="iop1HRL2ML"
+                              name="iop1HRL2ML"
+                              // placeholder="IOP 1HR"
+                              className="border border-gray-400 p-2 rounded-md"
+                            />
+                            <ErrorMessage
+                              name="iop1HRL2ML"
+                              component="div"
+                              className="text-red-500"
+                            />
+                          </div>
+                          {/* 3M */}
+                          <div>
                             <Divider />
-                            Water Drinking
+                            <h3>Examination of eye at 3 Month</h3>
                             <Divider />
                             <div className="flex flex-col">
                               <label
-                                htmlFor="BIOP2ML"
+                                htmlFor="vaUnaided3ML"
                                 className="mb-2 font-bold"
                               >
-                                Water drinking test Baseline IOP
+                                Visual Acuity unaided
                               </label>
                               <Field
-                                type="number"
-                                id="BIOP2ML"
-                                name="BIOP2ML"
-                                // placeholder="Enter a no Of Shots given Left"
+                                as={"select"}
+                                type="text"
+                                id="vaUnaided3ML"
+                                name="vaUnaided3ML"
+                                // placeholder="Visual Acuity unaided"
                                 className="border border-gray-400 p-2 rounded-md"
-                              />
-                              <ErrorMessage
-                                name="BIOP2ML"
-                                component="div"
-                                className="text-red-500"
-                              />
-                            </div>
-                            <div className="flex flex-col">
-                              <label
-                                htmlFor="howmanymililitreofwaterwasgiven2ML"
-                                className="mb-2 font-bold"
                               >
-                                how many mililitre of water was given
-                              </label>
-                              <Field
-                                type="number"
-                                id="howmanymililitreofwaterwasgiven2ML"
-                                name="howmanymililitreofwaterwasgiven2ML"
-                                // placeholder="how many mililitre of water was given"
-                                className="border border-gray-400 p-2 rounded-md"
-                              />
-                              <ErrorMessage
-                                name="howmanymililitreofwaterwasgiven2ML"
-                                component="div"
-                                className="text-red-500"
-                              />
-                            </div>
-                            <div className="flex flex-col">
-                              <label
-                                htmlFor="iop15MinL2ML"
-                                className="mb-2 font-bold"
-                              >
-                                IOP 15MIN
-                              </label>
-                              <Field
-                                type="number"
-                                id="iop15MinL2ML"
-                                name="iop15MinL2ML"
-                                // placeholder="IOP 15MIN"
-                                className="border border-gray-400 p-2 rounded-md"
-                              />
-                              <ErrorMessage
-                                name="iop15MinL2ML"
-                                component="div"
-                                className="text-red-500"
-                              />
-                            </div>
-                            <div className="flex flex-col">
-                              <label
-                                htmlFor="iop30minL2ML"
-                                className="mb-2 font-bold"
-                              >
-                                IOP 30MIN
-                              </label>
-                              <Field
-                                type="number"
-                                id="iop30minL2ML"
-                                name="iop30minL2ML"
-                                // placeholder="IOP 30MIN"
-                                className="border border-gray-400 p-2 rounded-md"
-                              />
-                              <ErrorMessage
-                                name="iop30minL2ML"
-                                component="div"
-                                className="text-red-500"
-                              />
-                            </div>
-                            <div className="flex flex-col">
-                              <label
-                                htmlFor="iop45min2ML"
-                                className="mb-2 font-bold"
-                              >
-                                IOP 45MIN
-                              </label>
-                              <Field
-                                type="number"
-                                id="iop45minL2ML"
-                                name="iop45minL2ML"
-                                // placeholder="IOP 30MIN"
-                                className="border border-gray-400 p-2 rounded-md"
-                              />
-                              <ErrorMessage
-                                name="iop45minL2ML"
-                                component="div"
-                                className="text-red-500"
-                              />
-                            </div>
-                            <div className="flex flex-col">
-                              <label
-                                htmlFor="iop1HRL2ML"
-                                className="mb-2 font-bold"
-                              >
-                                IOP 1HR
-                              </label>
-                              <Field
-                                type="number"
-                                id="iop1HRL2ML"
-                                name="iop1HRL2ML"
-                                // placeholder="IOP 1HR"
-                                className="border border-gray-400 p-2 rounded-md"
-                              />
-                              <ErrorMessage
-                                name="iop1HRL2ML"
-                                component="div"
-                                className="text-red-500"
-                              />
-                            </div>
-                            {/* 3M */}
-                            <div>
-                              <Divider />
-                              <h3>Examination of eye at 3 Month</h3>
-                              <Divider />
-                              <div className="flex flex-col">
-                                <label
-                                  htmlFor="vaUnaided3ML"
-                                  className="mb-2 font-bold"
-                                >
-                                  Visual Acuity unaided
-                                </label>
-                                <Field
-                                  as={"select"}
-                                  type="text"
-                                  id="vaUnaided3ML"
-                                  name="vaUnaided3ML"
-                                  // placeholder="Visual Acuity unaided"
-                                  className="border border-gray-400 p-2 rounded-md"
-                                >
-                                  <option value=""></option>
-                                  {presentingVisualAcuity.map((option) => (
-                                    <option key={option} value={option}>
-                                      {option}
-                                    </option>
-                                  ))}
-                                </Field>
-                                <ErrorMessage
-                                  name="vaUnaided3ML"
-                                  component="p"
-                                  className="text-red-500"
-                                />
-                              </div>
-                              <div className="flex flex-col">
-                                <label
-                                  htmlFor="bcVA3ML"
-                                  className="mb-2 font-bold"
-                                >
-                                  Visual Acuity Best Corrected
-                                </label>
-                                <Field
-                                  as={"select"}
-                                  type="text"
-                                  id="bcVA3ML"
-                                  name="bcVA3ML"
-                                  // placeholder="Best Corrected Visual Acuity After wash left eye"
-                                  className="border border-gray-400 p-2 rounded-md"
-                                >
-                                  <option value=""></option>
-                                  {presentingVisualAcuity.map((option) => (
-                                    <option key={option} value={option}>
-                                      {option}
-                                    </option>
-                                  ))}
-                                </Field>
-                                <ErrorMessage
-                                  name="bcVA3ML"
-                                  component="p"
-                                  className="text-red-500"
-                                />
-                              </div>
-                              <div className="flex flex-col">
-                                <label
-                                  htmlFor="flare3ML"
-                                  className="mb-2 font-bold"
-                                >
-                                  Flare
-                                </label>
-                                <Field
-                                  type="text"
-                                  id="flare3ML"
-                                  name="flare3ML"
-                                  // placeholder="flare"
-                                  className="border border-gray-400 p-2 rounded-md"
-                                />
-
-                                <ErrorMessage
-                                  name="flare3ML"
-                                  component="p"
-                                  className="text-red-500"
-                                />
-                              </div>
-                              <div className="flex flex-col">
-                                <label
-                                  htmlFor="cells3ML"
-                                  className="mb-2 font-bold"
-                                >
-                                  Cells
-                                </label>
-                                <Field
-                                  type="text"
-                                  id="cells3ML"
-                                  name="cells3ML"
-                                  // placeholder="Cells"
-                                  className="border border-gray-400 p-2 rounded-md"
-                                />
-
-                                <ErrorMessage
-                                  name="cells3ML"
-                                  component="p"
-                                  className="text-red-500"
-                                />
-                              </div>
-                              <div className="flex flex-col">
-                                <label
-                                  htmlFor="LOCSG3ML"
-                                  className="mb-2 font-bold"
-                                >
-                                  LOCS grading
-                                </label>
-                                <Field
-                                  type="text"
-                                  id="LOCSG3ML"
-                                  name="LOCSG3ML"
-                                  // placeholder="LOCS grading"
-                                  className="border border-gray-400 p-2 rounded-md"
-                                />
-
-                                <ErrorMessage
-                                  name="LOCSG3ML"
-                                  component="p"
-                                  className="text-red-500"
-                                />
-                              </div>
-                              <div className="flex flex-col">
-                                <label
-                                  htmlFor="IOPA3ML"
-                                  className="mb-2 font-bold"
-                                >
-                                  IOP
-                                </label>
-                                <Field
-                                  type="text"
-                                  id="IOPA3ML"
-                                  name="IOPA3ML"
-                                  // placeholder="IOP"
-                                  className="border border-gray-400 p-2 rounded-md"
-                                />
-
-                                <ErrorMessage
-                                  name="IOPA3ML"
-                                  component="p"
-                                  className="text-red-500"
-                                />
-                              </div>
-
-                              <div className="flex flex-col">
-                                <label
-                                  htmlFor="number"
-                                  className="mb-2 font-bold"
-                                >
-                                  Gonioscopy
-                                </label>
-                                <Field
-                                  type="text"
-                                  id="Gonioscopy3ML"
-                                  name="Gonioscopy3ML"
-                                  // placeholder="Gonioscopy"
-                                  className="border border-gray-400 p-2 rounded-md"
-                                />
-                                <ErrorMessage
-                                  name="Gonioscopy3ML"
-                                  component="div"
-                                  className="text-red-500"
-                                />
-                              </div>
-                              <div className="flex flex-col">
-                                <label
-                                  htmlFor="openessOfQuadrant3ML"
-                                  className="mb-2 font-bold"
-                                >
-                                  Openness of the quadrant
-                                </label>
-                                <Field
-                                  as={"select"}
-                                  type="text"
-                                  id="openessOfQuadrant3ML"
-                                  name="openessOfQuadrant3ML"
-                                  // placeholder="presenting Visual Acuity"
-                                  className="border border-gray-400 p-2 rounded-md"
-                                >
-                                  <option value=""> </option>
-                                  {openessOfQuadrant.map((option) => (
-                                    <option key={option} value={option}>
-                                      {option}
-                                    </option>
-                                  ))}
-                                </Field>
-                                <ErrorMessage
-                                  name="openessOfQuadrant3ML"
-                                  component="p"
-                                  className="text-red-500"
-                                />
-                              </div>
-                              <div className="flex flex-col">
-                                <label
-                                  htmlFor="PAS3ML"
-                                  className="mb-2 font-bold"
-                                >
-                                  Any PAS
-                                </label>
-                                <Field
-                                  as={"select"}
-                                  type="text"
-                                  id="PAS3ML"
-                                  name="PAS3ML"
-                                  // placeholder="Any PAS"
-                                  className="border border-gray-400 p-3 rounded-md"
-                                >
-                                  <option value=""></option>
-                                  <option value="yes">Yes</option>
-                                  <option value="no">No</option>
-                                </Field>
-                                <ErrorMessage
-                                  name="PAS3ML"
-                                  component="p"
-                                  className="text-red-500"
-                                />
-                              </div>
-                              <div className="flex flex-col">
-                                <label
-                                  htmlFor="pigment3ML"
-                                  className="mb-2 font-bold"
-                                >
-                                  Pigments how many pluses
-                                </label>
-                                <Field
-                                  type="number"
-                                  id="pigment3ML"
-                                  name="pigment3ML"
-                                  // placeholder="Pigments"
-                                  className="border border-gray-400 p-3 rounded-md"
-                                />
-
-                                <ErrorMessage
-                                  name="pigment3ML"
-                                  component="p"
-                                  className="text-red-500"
-                                />
-                              </div>
-                              <div className="flex flex-col">
-                                <label
-                                  htmlFor="pigmentO3ML"
-                                  className="mb-2 font-bold"
-                                >
-                                  Others
-                                </label>
-                                <Field
-                                  type="text"
-                                  id="pigmentO3ML"
-                                  name="pigmentO3ML"
-                                  // placeholder="Others"
-                                  className="border border-gray-400 p-3 rounded-md"
-                                />
-
-                                <ErrorMessage
-                                  name="pigmentO3ML"
-                                  component="p"
-                                  className="text-red-500"
-                                />
-                              </div>
-                              <div className="flex flex-col">
-                                <label
-                                  htmlFor="SLT3ML"
-                                  className="mb-2 font-bold"
-                                >
-                                  SLT
-                                </label>
-                                <Field
-                                  as={"select"}
-                                  type="text"
-                                  id="SLT3ML"
-                                  name="SLT3ML"
-                                  // placeholder="SLT"
-                                  className="border border-gray-400 p-3 rounded-md"
-                                >
-                                  <option value=""></option>
-                                  <option value="successful">Successful</option>
-                                  <option value="failed">Failed</option>
-                                  <option value="IOP reduced post SLT but needs either repeat SLT OR medication">
-                                    IOP reduced post SLT but needs either repeat
-                                    SLT OR medication
+                                <option value=""></option>
+                                {presentingVisualAcuity.map((option) => (
+                                  <option key={option} value={option}>
+                                    {option}
                                   </option>
-                                  <option value="other assesement">
-                                    other assesement
+                                ))}
+                              </Field>
+                              <ErrorMessage
+                                name="vaUnaided3ML"
+                                component="p"
+                                className="text-red-500"
+                              />
+                            </div>
+                            <div className="flex flex-col">
+                              <label
+                                htmlFor="bcVA3ML"
+                                className="mb-2 font-bold"
+                              >
+                                Visual Acuity Best Corrected
+                              </label>
+                              <Field
+                                as={"select"}
+                                type="text"
+                                id="bcVA3ML"
+                                name="bcVA3ML"
+                                // placeholder="Best Corrected Visual Acuity After wash left eye"
+                                className="border border-gray-400 p-2 rounded-md"
+                              >
+                                <option value=""></option>
+                                {presentingVisualAcuity.map((option) => (
+                                  <option key={option} value={option}>
+                                    {option}
                                   </option>
-                                </Field>
-                                <ErrorMessage
-                                  name="SLT3ML"
-                                  component="p"
-                                  className="text-red-500"
-                                />
-                              </div>
+                                ))}
+                              </Field>
+                              <ErrorMessage
+                                name="bcVA3ML"
+                                component="p"
+                                className="text-red-500"
+                              />
                             </div>
-                            {/* 6M */}
-                            <div>
-                              <Divider />
-                              <h3>Examination of eye at 6 M</h3>
-                              <Divider />
-                              <div className="flex flex-col">
-                                <label
-                                  htmlFor="vaUnaided6ML"
-                                  className="mb-2 font-bold"
-                                >
-                                  Visual Acuity unaided
-                                </label>
-                                <Field
-                                  as={"select"}
-                                  type="text"
-                                  id="vaUnaided6ML"
-                                  name="vaUnaided6ML"
-                                  // placeholder="Visual Acuity unaided"
-                                  className="border border-gray-400 p-2 rounded-md"
-                                >
-                                  <option value=""></option>
-                                  {presentingVisualAcuity.map((option) => (
-                                    <option key={option} value={option}>
-                                      {option}
-                                    </option>
-                                  ))}
-                                </Field>
-                                <ErrorMessage
-                                  name="vaUnaided6ML"
-                                  component="p"
-                                  className="text-red-500"
-                                />
-                              </div>
-                              <div className="flex flex-col">
-                                <label
-                                  htmlFor="bcVA6ML"
-                                  className="mb-2 font-bold"
-                                >
-                                  Visual Acuity Best Corrected
-                                </label>
-                                <Field
-                                  as={"select"}
-                                  type="text"
-                                  id="bcVA6ML"
-                                  name="bcVA6ML"
-                                  // placeholder="Best Corrected Visual Acuity After wash left eye"
-                                  className="border border-gray-400 p-2 rounded-md"
-                                >
-                                  <option value=""></option>
-                                  {presentingVisualAcuity.map((option) => (
-                                    <option key={option} value={option}>
-                                      {option}
-                                    </option>
-                                  ))}
-                                </Field>
-                                <ErrorMessage
-                                  name="bcVA6ML"
-                                  component="p"
-                                  className="text-red-500"
-                                />
-                              </div>
-                              <div className="flex flex-col">
-                                <label
-                                  htmlFor="flare6ML"
-                                  className="mb-2 font-bold"
-                                >
-                                  Flare
-                                </label>
-                                <Field
-                                  type="text"
-                                  id="flare6ML"
-                                  name="flare6ML"
-                                  // placeholder="flare"
-                                  className="border border-gray-400 p-2 rounded-md"
-                                />
+                            <div className="flex flex-col">
+                              <label
+                                htmlFor="flare3ML"
+                                className="mb-2 font-bold"
+                              >
+                                Flare
+                              </label>
+                              <Field
+                                type="text"
+                                id="flare3ML"
+                                name="flare3ML"
+                                // placeholder="flare"
+                                className="border border-gray-400 p-2 rounded-md"
+                              />
 
-                                <ErrorMessage
-                                  name="flare6ML"
-                                  component="p"
-                                  className="text-red-500"
-                                />
-                              </div>
-                              <div className="flex flex-col">
-                                <label
-                                  htmlFor="cells6ML"
-                                  className="mb-2 font-bold"
-                                >
-                                  Cells
-                                </label>
-                                <Field
-                                  type="text"
-                                  id="cells6ML"
-                                  name="cells6ML"
-                                  // placeholder="Cells"
-                                  className="border border-gray-400 p-2 rounded-md"
-                                />
+                              <ErrorMessage
+                                name="flare3ML"
+                                component="p"
+                                className="text-red-500"
+                              />
+                            </div>
+                            <div className="flex flex-col">
+                              <label
+                                htmlFor="cells3ML"
+                                className="mb-2 font-bold"
+                              >
+                                Cells
+                              </label>
+                              <Field
+                                type="text"
+                                id="cells3ML"
+                                name="cells3ML"
+                                // placeholder="Cells"
+                                className="border border-gray-400 p-2 rounded-md"
+                              />
 
-                                <ErrorMessage
-                                  name="cells6ML"
-                                  component="p"
-                                  className="text-red-500"
-                                />
-                              </div>
-                              <div className="flex flex-col">
-                                <label
-                                  htmlFor="LOCSG6ML"
-                                  className="mb-2 font-bold"
-                                >
-                                  LOCS grading
-                                </label>
-                                <Field
-                                  type="text"
-                                  id="LOCSG6ML"
-                                  name="LOCSG6ML"
-                                  // placeholder="LOCS grading"
-                                  className="border border-gray-400 p-2 rounded-md"
-                                />
+                              <ErrorMessage
+                                name="cells3ML"
+                                component="p"
+                                className="text-red-500"
+                              />
+                            </div>
+                            <div className="flex flex-col">
+                              <label
+                                htmlFor="LOCSG3ML"
+                                className="mb-2 font-bold"
+                              >
+                                LOCS grading
+                              </label>
+                              <Field
+                                type="text"
+                                id="LOCSG3ML"
+                                name="LOCSG3ML"
+                                // placeholder="LOCS grading"
+                                className="border border-gray-400 p-2 rounded-md"
+                              />
 
-                                <ErrorMessage
-                                  name="LOCSG6ML"
-                                  component="p"
-                                  className="text-red-500"
-                                />
-                              </div>
-                              <div className="flex flex-col">
-                                <label
-                                  htmlFor="IOPA6ML"
-                                  className="mb-2 font-bold"
-                                >
-                                  IOP
-                                </label>
-                                <Field
-                                  type="text"
-                                  id="IOPA6ML"
-                                  name="IOPA6ML"
-                                  // placeholder="IOP"
-                                  className="border border-gray-400 p-2 rounded-md"
-                                />
+                              <ErrorMessage
+                                name="LOCSG3ML"
+                                component="p"
+                                className="text-red-500"
+                              />
+                            </div>
+                            <div className="flex flex-col">
+                              <label
+                                htmlFor="IOPA3ML"
+                                className="mb-2 font-bold"
+                              >
+                                IOP
+                              </label>
+                              <Field
+                                type="text"
+                                id="IOPA3ML"
+                                name="IOPA3ML"
+                                // placeholder="IOP"
+                                className="border border-gray-400 p-2 rounded-md"
+                              />
 
-                                <ErrorMessage
-                                  name="IOPA6ML"
-                                  component="p"
-                                  className="text-red-500"
-                                />
-                              </div>
+                              <ErrorMessage
+                                name="IOPA3ML"
+                                component="p"
+                                className="text-red-500"
+                              />
+                            </div>
 
-                              <div className="flex flex-col">
-                                <label
-                                  htmlFor="number"
-                                  className="mb-2 font-bold"
-                                >
-                                  Gonioscopy
-                                </label>
-                                <Field
-                                  type="text"
-                                  id="Gonioscopy6ML"
-                                  name="Gonioscopy6ML"
-                                  // placeholder="Gonioscopy"
-                                  className="border border-gray-400 p-2 rounded-md"
-                                />
-                                <ErrorMessage
-                                  name="Gonioscopy6ML"
-                                  component="div"
-                                  className="text-red-500"
-                                />
-                              </div>
-                              <div className="flex flex-col">
-                                <label
-                                  htmlFor="openessOfQuadrant6ML"
-                                  className="mb-2 font-bold"
-                                >
-                                  Openness of the quadrant
-                                </label>
-                                <Field
-                                  as={"select"}
-                                  type="text"
-                                  id="openessOfQuadrant6ML"
-                                  name="openessOfQuadrant6ML"
-                                  // placeholder="presenting Visual Acuity"
-                                  className="border border-gray-400 p-2 rounded-md"
-                                >
-                                  <option value=""> </option>
-                                  {openessOfQuadrant.map((option) => (
-                                    <option key={option} value={option}>
-                                      {option}
-                                    </option>
-                                  ))}
-                                </Field>
-                                <ErrorMessage
-                                  name="openessOfQuadrant6ML"
-                                  component="p"
-                                  className="text-red-500"
-                                />
-                              </div>
-                              <div className="flex flex-col">
-                                <label
-                                  htmlFor="PAS6ML"
-                                  className="mb-2 font-bold"
-                                >
-                                  Any PAS
-                                </label>
-                                <Field
-                                  as={"select"}
-                                  type="text"
-                                  id="PAS6ML"
-                                  name="PAS6ML"
-                                  // placeholder="Any PAS"
-                                  className="border border-gray-400 p-3 rounded-md"
-                                >
-                                  <option value=""></option>
-                                  <option value="yes">Yes</option>
-                                  <option value="no">No</option>
-                                </Field>
-                                <ErrorMessage
-                                  name="PAS6ML"
-                                  component="p"
-                                  className="text-red-500"
-                                />
-                              </div>
-                              <div className="flex flex-col">
-                                <label
-                                  htmlFor="pigment6ML"
-                                  className="mb-2 font-bold"
-                                >
-                                  Pigments how many pluses
-                                </label>
-                                <Field
-                                  type="number"
-                                  id="pigment6ML"
-                                  name="pigment6ML"
-                                  // placeholder="Pigments"
-                                  className="border border-gray-400 p-3 rounded-md"
-                                />
-
-                                <ErrorMessage
-                                  name="pigment6ML"
-                                  component="p"
-                                  className="text-red-500"
-                                />
-                              </div>
-                              <div className="flex flex-col">
-                                <label
-                                  htmlFor="pigmentO6ML"
-                                  className="mb-2 font-bold"
-                                >
-                                  Others
-                                </label>
-                                <Field
-                                  type="text"
-                                  id="pigmentO6ML"
-                                  name="pigmentO6ML"
-                                  // placeholder="Others"
-                                  className="border border-gray-400 p-3 rounded-md"
-                                />
-
-                                <ErrorMessage
-                                  name="pigmentO6ML"
-                                  component="p"
-                                  className="text-red-500"
-                                />
-                              </div>
-                              <div className="flex flex-col">
-                                <label
-                                  htmlFor="SLT6ML"
-                                  className="mb-2 font-bold"
-                                >
-                                  SLT
-                                </label>
-                                <Field
-                                  as={"select"}
-                                  type="text"
-                                  id="SLT6ML"
-                                  name="SLT6ML"
-                                  // placeholder="SLT"
-                                  className="border border-gray-400 p-3 rounded-md"
-                                >
-                                  <option value=""></option>
-                                  <option value="successful">Successful</option>
-                                  <option value="failed">Failed</option>
-                                  <option value="IOP reduced post SLT but needs either repeat SLT OR medication">
-                                    IOP reduced post SLT but needs either repeat
-                                    SLT OR medication
+                            <div className="flex flex-col">
+                              <label
+                                htmlFor="number"
+                                className="mb-2 font-bold"
+                              >
+                                Gonioscopy
+                              </label>
+                              <Field
+                                type="text"
+                                id="Gonioscopy3ML"
+                                name="Gonioscopy3ML"
+                                // placeholder="Gonioscopy"
+                                className="border border-gray-400 p-2 rounded-md"
+                              />
+                              <ErrorMessage
+                                name="Gonioscopy3ML"
+                                component="div"
+                                className="text-red-500"
+                              />
+                            </div>
+                            <div className="flex flex-col">
+                              <label
+                                htmlFor="openessOfQuadrant3ML"
+                                className="mb-2 font-bold"
+                              >
+                                Openness of the quadrant
+                              </label>
+                              <Field
+                                as={"select"}
+                                type="text"
+                                id="openessOfQuadrant3ML"
+                                name="openessOfQuadrant3ML"
+                                // placeholder="presenting Visual Acuity"
+                                className="border border-gray-400 p-2 rounded-md"
+                              >
+                                <option value=""> </option>
+                                {openessOfQuadrant.map((option) => (
+                                  <option key={option} value={option}>
+                                    {option}
                                   </option>
-                                  <option value="other assesement">
-                                    other assesement
-                                  </option>
-                                </Field>
-                                <ErrorMessage
-                                  name="SLT6ML"
-                                  component="p"
-                                  className="text-red-500"
-                                />
-                              </div>
-                              <div className="flex flex-col">
-                                <label
-                                  htmlFor="CVFMD6ML"
-                                  className="mb-2 font-bold"
-                                >
-                                  CVF Mean deviation
-                                </label>
-                                <Field
-                                  type="number"
-                                  id="CVFMD6ML"
-                                  name="CVFMD6ML"
-                                  // placeholder="CVF Mean deviation"
-                                  className="border border-gray-400 p-3 rounded-md"
-                                />
-
-                                <ErrorMessage
-                                  name="CVFMD6ML"
-                                  component="p"
-                                  className="text-red-500"
-                                />
-                              </div>
-                              <div className="flex flex-col">
-                                <label
-                                  htmlFor="PCVF6ML"
-                                  className="mb-2 font-bold"
-                                >
-                                  Any progression
-                                </label>
-                                <Field
-                                  as={"select"}
-                                  type="text"
-                                  id="PCVF6ML"
-                                  name="PCVF6ML"
-                                  // placeholder="SLT"
-                                  className="border border-gray-400 p-3 rounded-md"
-                                >
-                                  <option value=""></option>
-                                  <option value="yes">yes</option>
-                                  <option value="no">no</option>
-                                </Field>
-                                <ErrorMessage
-                                  name="PCVF6ML"
-                                  component="p"
-                                  className="text-red-500"
-                                />
-                              </div>
-                              {values.PCVF6ML === "yes" && (
-                                <>
-                                  <div className="flex flex-col">
-                                    <label
-                                      htmlFor="CVFO6ML"
-                                      className="mb-2 font-bold"
-                                    >
-                                      select progression
-                                    </label>
-                                    <Field
-                                      as={"select"}
-                                      type="text"
-                                      id="CVFO6ML"
-                                      name="CVFO6ML"
-                                      // placeholder="select progression"
-                                      className="border border-gray-400 p-3 rounded-md"
-                                    >
-                                      <option value=""></option>
-                                      <option value="widening">widening</option>
-                                      <option value="Deepening of scotomas">
-                                        Deepening of scotomas
-                                      </option>
-                                      <option value="higher MD">
-                                        higher MD
-                                      </option>
-                                      <option value="others">others</option>
-                                    </Field>
-                                    <ErrorMessage
-                                      name="CVFO6ML"
-                                      component="p"
-                                      className="text-red-500"
-                                    />
-                                  </div>
-                                </>
-                              )}
-                              {values.CVFO6ML === "others" && (
-                                <>
-                                  <div className="flex flex-col">
-                                    <label
-                                      htmlFor="CVFOO6ML"
-                                      className="mb-2 font-bold"
-                                    >
-                                      Enter progression
-                                    </label>
-                                    <Field
-                                      type="text"
-                                      id="CVFOO6ML"
-                                      name="CVFOO6ML"
-                                      // placeholder="Enter progression"
-                                      className="border border-gray-400 p-3 rounded-md"
-                                    />
-
-                                    <ErrorMessage
-                                      name="CVFOO6ML"
-                                      component="p"
-                                      className="text-red-500"
-                                    />
-                                  </div>
-                                </>
-                              )}
+                                ))}
+                              </Field>
+                              <ErrorMessage
+                                name="openessOfQuadrant3ML"
+                                component="p"
+                                className="text-red-500"
+                              />
                             </div>
-                            {/* 9M */}
-                            <div>
-                              <Divider />
-                              <h3>Examination of eye at 9 Months</h3>
-
-                              <Divider />
-
-                              <div className="flex flex-col">
-                                <label
-                                  htmlFor="vaUnaided9ML"
-                                  className="mb-2 font-bold"
-                                >
-                                  Visual Acuity unaided
-                                </label>
-                                <Field
-                                  as={"select"}
-                                  type="text"
-                                  id="vaUnaided9ML"
-                                  name="vaUnaided9ML"
-                                  // placeholder="Visual Acuity unaided"
-                                  className="border border-gray-400 p-2 rounded-md"
-                                >
-                                  <option value=""></option>
-                                  {presentingVisualAcuity.map((option) => (
-                                    <option key={option} value={option}>
-                                      {option}
-                                    </option>
-                                  ))}
-                                </Field>
-                                <ErrorMessage
-                                  name="vaUnaided9ML"
-                                  component="p"
-                                  className="text-red-500"
-                                />
-                              </div>
-
-                              <div className="flex flex-col">
-                                <label
-                                  htmlFor="bcVA9ML"
-                                  className="mb-2 font-bold"
-                                >
-                                  Visual Acuity Best Corrected
-                                </label>
-                                <Field
-                                  as={"select"}
-                                  type="text"
-                                  id="bcVA9ML"
-                                  name="bcVA9ML"
-                                  // placeholder="Best Corrected Visual Acuity After wash left eye"
-                                  className="border border-gray-400 p-2 rounded-md"
-                                >
-                                  <option value=""></option>
-                                  {presentingVisualAcuity.map((option) => (
-                                    <option key={option} value={option}>
-                                      {option}
-                                    </option>
-                                  ))}
-                                </Field>
-                                <ErrorMessage
-                                  name="bcVA9ML"
-                                  component="p"
-                                  className="text-red-500"
-                                />
-                              </div>
-
-                              <div className="flex flex-col">
-                                <label
-                                  htmlFor="flare9ML"
-                                  className="mb-2 font-bold"
-                                >
-                                  Flare
-                                </label>
-                                <Field
-                                  type="text"
-                                  id="flare9ML"
-                                  name="flare9ML"
-                                  // placeholder="flare"
-                                  className="border border-gray-400 p-2 rounded-md"
-                                />
-
-                                <ErrorMessage
-                                  name="flare9ML"
-                                  component="p"
-                                  className="text-red-500"
-                                />
-                              </div>
-
-                              <div className="flex flex-col">
-                                <label
-                                  htmlFor="cells9ML"
-                                  className="mb-2 font-bold"
-                                >
-                                  Cells
-                                </label>
-                                <Field
-                                  type="text"
-                                  id="cells9ML"
-                                  name="cells9ML"
-                                  // placeholder="Cells"
-                                  className="border border-gray-400 p-2 rounded-md"
-                                />
-
-                                <ErrorMessage
-                                  name="cells9ML"
-                                  component="p"
-                                  className="text-red-500"
-                                />
-                              </div>
-
-                              <div className="flex flex-col">
-                                <label
-                                  htmlFor="LOCSG9ML"
-                                  className="mb-2 font-bold"
-                                >
-                                  LOCS grading
-                                </label>
-                                <Field
-                                  type="text"
-                                  id="LOCSG9ML"
-                                  name="LOCSG9ML"
-                                  // placeholder="LOCS grading"
-                                  className="border border-gray-400 p-2 rounded-md"
-                                />
-
-                                <ErrorMessage
-                                  name="LOCSG9ML"
-                                  component="p"
-                                  className="text-red-500"
-                                />
-                              </div>
-
-                              <div className="flex flex-col">
-                                <label
-                                  htmlFor="IOPA9ML"
-                                  className="mb-2 font-bold"
-                                >
-                                  IOP
-                                </label>
-                                <Field
-                                  type="text"
-                                  id="IOPA9ML"
-                                  name="IOPA9ML"
-                                  // placeholder="IOP"
-                                  className="border border-gray-400 p-2 rounded-md"
-                                />
-
-                                <ErrorMessage
-                                  name="IOPA9ML"
-                                  component="p"
-                                  className="text-red-500"
-                                />
-                              </div>
+                            <div className="flex flex-col">
+                              <label
+                                htmlFor="PAS3ML"
+                                className="mb-2 font-bold"
+                              >
+                                Any PAS
+                              </label>
+                              <Field
+                                as={"select"}
+                                type="text"
+                                id="PAS3ML"
+                                name="PAS3ML"
+                                // placeholder="Any PAS"
+                                className="border border-gray-400 p-3 rounded-md"
+                              >
+                                <option value=""></option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                              </Field>
+                              <ErrorMessage
+                                name="PAS3ML"
+                                component="p"
+                                className="text-red-500"
+                              />
                             </div>
-                            {/* 12M */}
-                            <div>
-                              <Divider />
-                              <h3>Examination of eye at 12 M</h3>
+                            <div className="flex flex-col">
+                              <label
+                                htmlFor="pigment3ML"
+                                className="mb-2 font-bold"
+                              >
+                                Pigments how many pluses
+                              </label>
+                              <Field
+                                type="number"
+                                id="pigment3ML"
+                                name="pigment3ML"
+                                // placeholder="Pigments"
+                                className="border border-gray-400 p-3 rounded-md"
+                              />
 
-                              <Divider />
-
-                              <div className="flex flex-col">
-                                <label
-                                  htmlFor="vaUnaided12ML"
-                                  className="mb-2 font-bold"
-                                >
-                                  Visual Acuity unaided
-                                </label>
-                                <Field
-                                  as={"select"}
-                                  type="text"
-                                  id="vaUnaided12ML"
-                                  name="vaUnaided12ML"
-                                  // placeholder="Visual Acuity unaided"
-                                  className="border border-gray-400 p-2 rounded-md"
-                                >
-                                  <option value=""></option>
-                                  {presentingVisualAcuity.map((option) => (
-                                    <option key={option} value={option}>
-                                      {option}
-                                    </option>
-                                  ))}
-                                </Field>
-                                <ErrorMessage
-                                  name="vaUnaided12ML"
-                                  component="p"
-                                  className="text-red-500"
-                                />
-                              </div>
-
-                              <div className="flex flex-col">
-                                <label
-                                  htmlFor="bcVA12ML"
-                                  className="mb-2 font-bold"
-                                >
-                                  Visual Acuity Best Corrected
-                                </label>
-                                <Field
-                                  as={"select"}
-                                  type="text"
-                                  id="bcVA12ML"
-                                  name="bcVA12ML"
-                                  // placeholder="Best Corrected Visual Acuity After wash left eye"
-                                  className="border border-gray-400 p-2 rounded-md"
-                                >
-                                  <option value=""></option>
-                                  {presentingVisualAcuity.map((option) => (
-                                    <option key={option} value={option}>
-                                      {option}
-                                    </option>
-                                  ))}
-                                </Field>
-                                <ErrorMessage
-                                  name="bcVA12ML"
-                                  component="p"
-                                  className="text-red-500"
-                                />
-                              </div>
-
-                              <div className="flex flex-col">
-                                <label
-                                  htmlFor="flare12ML"
-                                  className="mb-2 font-bold"
-                                >
-                                  Flare
-                                </label>
-                                <Field
-                                  type="text"
-                                  id="flare12ML"
-                                  name="flare12ML"
-                                  // placeholder="flare"
-                                  className="border border-gray-400 p-2 rounded-md"
-                                />
-
-                                <ErrorMessage
-                                  name="flare12ML"
-                                  component="p"
-                                  className="text-red-500"
-                                />
-                              </div>
-
-                              <div className="flex flex-col">
-                                <label
-                                  htmlFor="cells12ML"
-                                  className="mb-2 font-bold"
-                                >
-                                  Cells
-                                </label>
-                                <Field
-                                  type="text"
-                                  id="cells12ML"
-                                  name="cells12ML"
-                                  // placeholder="Cells"
-                                  className="border border-gray-400 p-2 rounded-md"
-                                />
-
-                                <ErrorMessage
-                                  name="cells12ML"
-                                  component="p"
-                                  className="text-red-500"
-                                />
-                              </div>
-
-                              <div className="flex flex-col">
-                                <label
-                                  htmlFor="LOCSG12ML"
-                                  className="mb-2 font-bold"
-                                >
-                                  LOCS grading
-                                </label>
-                                <Field
-                                  type="text"
-                                  id="LOCSG12ML"
-                                  name="LOCSG12ML"
-                                  // placeholder="LOCS grading"
-                                  className="border border-gray-400 p-2 rounded-md"
-                                />
-
-                                <ErrorMessage
-                                  name="LOCSG12ML"
-                                  component="p"
-                                  className="text-red-500"
-                                />
-                              </div>
-
-                              <div className="flex flex-col">
-                                <label
-                                  htmlFor="IOPA12ML"
-                                  className="mb-2 font-bold"
-                                >
-                                  IOP
-                                </label>
-                                <Field
-                                  type="text"
-                                  id="IOPA12ML"
-                                  name="IOPA12ML"
-                                  // placeholder="IOP"
-                                  className="border border-gray-400 p-2 rounded-md"
-                                />
-
-                                <ErrorMessage
-                                  name="IOPA12ML"
-                                  component="p"
-                                  className="text-red-500"
-                                />
-                              </div>
-
-                              <div className="flex flex-col">
-                                <label
-                                  htmlFor="CVFMD12ML"
-                                  className="mb-2 font-bold"
-                                >
-                                  CVF Mean deviation
-                                </label>
-                                <Field
-                                  type="number"
-                                  id="CVFMD12ML"
-                                  name="CVFMD12ML"
-                                  // placeholder="CVF Mean deviation"
-                                  className="border border-gray-400 p-3 rounded-md"
-                                />
-
-                                <ErrorMessage
-                                  name="CVFMD12ML"
-                                  component="p"
-                                  className="text-red-500"
-                                />
-                              </div>
-
-                              <div className="flex flex-col">
-                                <label
-                                  htmlFor="CVFPS12ML"
-                                  className="mb-2 font-bold"
-                                >
-                                  CVF Pattern standard
-                                </label>
-                                <Field
-                                  type="number"
-                                  id="CVFPS12ML"
-                                  name="CVFPS12ML"
-                                  // placeholder="CVF Mean deviation"
-                                  className="border border-gray-400 p-3 rounded-md"
-                                />
-
-                                <ErrorMessage
-                                  name="CVFPS12ML"
-                                  component="p"
-                                  className="text-red-500"
-                                />
-                              </div>
-
-                              <div className="flex flex-col">
-                                <label
-                                  htmlFor="PCVF12ML"
-                                  className="mb-2 font-bold"
-                                >
-                                  Any progression
-                                </label>
-                                <Field
-                                  as={"select"}
-                                  type="text"
-                                  id="PCVF12ML"
-                                  name="PCVF12ML"
-                                  // placeholder="SLT"
-                                  className="border border-gray-400 p-3 rounded-md"
-                                >
-                                  <option value=""></option>
-                                  <option value="yes">yes</option>
-                                  <option value="no">no</option>
-                                </Field>
-                                <ErrorMessage
-                                  name="PCVF12ML"
-                                  component="p"
-                                  className="text-red-500"
-                                />
-                              </div>
-
-                              {values.PCVF12ML === "yes" && (
-                                <>
-                                  <div className="flex flex-col">
-                                    <label
-                                      htmlFor="CVFO12ML"
-                                      className="mb-2 font-bold"
-                                    >
-                                      select progression
-                                    </label>
-                                    <Field
-                                      as={"select"}
-                                      type="text"
-                                      id="CVFO12ML"
-                                      name="CVFO12ML"
-                                      // placeholder="select progression"
-                                      className="border border-gray-400 p-3 rounded-md"
-                                    >
-                                      <option value=""></option>
-                                      <option value="widening">widening</option>
-                                      <option value="Deepening of scotomas">
-                                        Deepening of scotomas
-                                      </option>
-                                      <option value="higher MD">
-                                        higher MD
-                                      </option>
-                                      <option value="others">others</option>
-                                    </Field>
-                                    <ErrorMessage
-                                      name="CVFO12ML"
-                                      component="p"
-                                      className="text-red-500"
-                                    />
-                                  </div>
-                                </>
-                              )}
-
-                              {values.CVFO12ML === "others" && (
-                                <>
-                                  <div className="flex flex-col">
-                                    <label
-                                      htmlFor="CVFOO12ML"
-                                      className="mb-2 font-bold"
-                                    >
-                                      Enter progression
-                                    </label>
-                                    <Field
-                                      type="text"
-                                      id="CVFOO12ML"
-                                      name="CVFOO12ML"
-                                      // placeholder="Enter progression"
-                                      className="border border-gray-400 p-3 rounded-md"
-                                    />
-
-                                    <ErrorMessage
-                                      name="CVFOO12ML"
-                                      component="p"
-                                      className="text-red-500"
-                                    />
-                                  </div>
-                                </>
-                              )}
+                              <ErrorMessage
+                                name="pigment3ML"
+                                component="p"
+                                className="text-red-500"
+                              />
                             </div>
-                          </>
-                        )}
+                            <div className="flex flex-col">
+                              <label
+                                htmlFor="pigmentO3ML"
+                                className="mb-2 font-bold"
+                              >
+                                Others
+                              </label>
+                              <Field
+                                type="text"
+                                id="pigmentO3ML"
+                                name="pigmentO3ML"
+                                // placeholder="Others"
+                                className="border border-gray-400 p-3 rounded-md"
+                              />
+
+                              <ErrorMessage
+                                name="pigmentO3ML"
+                                component="p"
+                                className="text-red-500"
+                              />
+                            </div>
+                            <div className="flex flex-col">
+                              <label
+                                htmlFor="SLT3ML"
+                                className="mb-2 font-bold"
+                              >
+                                SLT
+                              </label>
+                              <Field
+                                as={"select"}
+                                type="text"
+                                id="SLT3ML"
+                                name="SLT3ML"
+                                // placeholder="SLT"
+                                className="border border-gray-400 p-3 rounded-md"
+                              >
+                                <option value=""></option>
+                                <option value="successful">Successful</option>
+                                <option value="failed">Failed</option>
+                                <option value="failed (repeat SLT)">
+                                  Failed (repeat SLT)
+                                </option>
+                                <option value="IOP reduced post SLT but needs to repeat SLT">
+                                  IOP reduced post SLT but needs to repeat SLT
+                                </option>
+                                <option value="IOP reduced post SLT but needs to continue medication">
+                                  IOP reduced post SLT but needs to continue
+                                  medication
+                                </option>
+                              </Field>
+                              <ErrorMessage
+                                name="SLT3ML"
+                                component="p"
+                                className="text-red-500"
+                              />
+                            </div>
+                          </div>
+                          {(values.SLT3ML === "successful" ||
+                            values.SLT3ML === "failed" ||
+                            values.SLT3ML ===
+                              "IOP reduced post SLT but needs to continue medication") && (
+                            <>
+                              {/* 6M */}
+                              <div>
+                                <Divider />
+                                <h3>Examination of eye at 6 M</h3>
+                                <Divider />
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="vaUnaided6ML"
+                                    className="mb-2 font-bold"
+                                  >
+                                    Visual Acuity unaided
+                                  </label>
+                                  <Field
+                                    as={"select"}
+                                    type="text"
+                                    id="vaUnaided6ML"
+                                    name="vaUnaided6ML"
+                                    // placeholder="Visual Acuity unaided"
+                                    className="border border-gray-400 p-2 rounded-md"
+                                  >
+                                    <option value=""></option>
+                                    {presentingVisualAcuity.map((option) => (
+                                      <option key={option} value={option}>
+                                        {option}
+                                      </option>
+                                    ))}
+                                  </Field>
+                                  <ErrorMessage
+                                    name="vaUnaided6ML"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="bcVA6ML"
+                                    className="mb-2 font-bold"
+                                  >
+                                    Visual Acuity Best Corrected
+                                  </label>
+                                  <Field
+                                    as={"select"}
+                                    type="text"
+                                    id="bcVA6ML"
+                                    name="bcVA6ML"
+                                    // placeholder="Best Corrected Visual Acuity After wash left eye"
+                                    className="border border-gray-400 p-2 rounded-md"
+                                  >
+                                    <option value=""></option>
+                                    {presentingVisualAcuity.map((option) => (
+                                      <option key={option} value={option}>
+                                        {option}
+                                      </option>
+                                    ))}
+                                  </Field>
+                                  <ErrorMessage
+                                    name="bcVA6ML"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="flare6ML"
+                                    className="mb-2 font-bold"
+                                  >
+                                    Flare
+                                  </label>
+                                  <Field
+                                    type="text"
+                                    id="flare6ML"
+                                    name="flare6ML"
+                                    // placeholder="flare"
+                                    className="border border-gray-400 p-2 rounded-md"
+                                  />
+
+                                  <ErrorMessage
+                                    name="flare6ML"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="cells6ML"
+                                    className="mb-2 font-bold"
+                                  >
+                                    Cells
+                                  </label>
+                                  <Field
+                                    type="text"
+                                    id="cells6ML"
+                                    name="cells6ML"
+                                    // placeholder="Cells"
+                                    className="border border-gray-400 p-2 rounded-md"
+                                  />
+
+                                  <ErrorMessage
+                                    name="cells6ML"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="LOCSG6ML"
+                                    className="mb-2 font-bold"
+                                  >
+                                    LOCS grading
+                                  </label>
+                                  <Field
+                                    type="text"
+                                    id="LOCSG6ML"
+                                    name="LOCSG6ML"
+                                    // placeholder="LOCS grading"
+                                    className="border border-gray-400 p-2 rounded-md"
+                                  />
+
+                                  <ErrorMessage
+                                    name="LOCSG6ML"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="IOPA6ML"
+                                    className="mb-2 font-bold"
+                                  >
+                                    IOP
+                                  </label>
+                                  <Field
+                                    type="text"
+                                    id="IOPA6ML"
+                                    name="IOPA6ML"
+                                    // placeholder="IOP"
+                                    className="border border-gray-400 p-2 rounded-md"
+                                  />
+
+                                  <ErrorMessage
+                                    name="IOPA6ML"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
+
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="number"
+                                    className="mb-2 font-bold"
+                                  >
+                                    Gonioscopy
+                                  </label>
+                                  <Field
+                                    type="text"
+                                    id="Gonioscopy6ML"
+                                    name="Gonioscopy6ML"
+                                    // placeholder="Gonioscopy"
+                                    className="border border-gray-400 p-2 rounded-md"
+                                  />
+                                  <ErrorMessage
+                                    name="Gonioscopy6ML"
+                                    component="div"
+                                    className="text-red-500"
+                                  />
+                                </div>
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="openessOfQuadrant6ML"
+                                    className="mb-2 font-bold"
+                                  >
+                                    Openness of the quadrant
+                                  </label>
+                                  <Field
+                                    as={"select"}
+                                    type="text"
+                                    id="openessOfQuadrant6ML"
+                                    name="openessOfQuadrant6ML"
+                                    // placeholder="presenting Visual Acuity"
+                                    className="border border-gray-400 p-2 rounded-md"
+                                  >
+                                    <option value=""> </option>
+                                    {openessOfQuadrant.map((option) => (
+                                      <option key={option} value={option}>
+                                        {option}
+                                      </option>
+                                    ))}
+                                  </Field>
+                                  <ErrorMessage
+                                    name="openessOfQuadrant6ML"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="PAS6ML"
+                                    className="mb-2 font-bold"
+                                  >
+                                    Any PAS
+                                  </label>
+                                  <Field
+                                    as={"select"}
+                                    type="text"
+                                    id="PAS6ML"
+                                    name="PAS6ML"
+                                    // placeholder="Any PAS"
+                                    className="border border-gray-400 p-3 rounded-md"
+                                  >
+                                    <option value=""></option>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                  </Field>
+                                  <ErrorMessage
+                                    name="PAS6ML"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="pigment6ML"
+                                    className="mb-2 font-bold"
+                                  >
+                                    Pigments how many pluses
+                                  </label>
+                                  <Field
+                                    type="number"
+                                    id="pigment6ML"
+                                    name="pigment6ML"
+                                    // placeholder="Pigments"
+                                    className="border border-gray-400 p-3 rounded-md"
+                                  />
+
+                                  <ErrorMessage
+                                    name="pigment6ML"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="pigmentO6ML"
+                                    className="mb-2 font-bold"
+                                  >
+                                    Others
+                                  </label>
+                                  <Field
+                                    type="text"
+                                    id="pigmentO6ML"
+                                    name="pigmentO6ML"
+                                    // placeholder="Others"
+                                    className="border border-gray-400 p-3 rounded-md"
+                                  />
+
+                                  <ErrorMessage
+                                    name="pigmentO6ML"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="SLT6ML"
+                                    className="mb-2 font-bold"
+                                  >
+                                    SLT
+                                  </label>
+                                  <Field
+                                    as={"select"}
+                                    type="text"
+                                    id="SLT6ML"
+                                    name="SLT6ML"
+                                    // placeholder="SLT"
+                                    className="border border-gray-400 p-3 rounded-md"
+                                  >
+                                    <option value=""></option>
+                                    <option value="successful">
+                                      Successful
+                                    </option>
+                                    <option value="failed">Failed</option>
+                                    <option value="IOP reduced post SLT but needs either repeat SLT OR medication">
+                                      IOP reduced post SLT but needs either
+                                      repeat SLT OR medication
+                                    </option>
+                                    <option value="other assesement">
+                                      other assesement
+                                    </option>
+                                  </Field>
+                                  <ErrorMessage
+                                    name="SLT6ML"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="CVFMD6ML"
+                                    className="mb-2 font-bold"
+                                  >
+                                    CVF Mean deviation
+                                  </label>
+                                  <Field
+                                    type="number"
+                                    id="CVFMD6ML"
+                                    name="CVFMD6ML"
+                                    // placeholder="CVF Mean deviation"
+                                    className="border border-gray-400 p-3 rounded-md"
+                                  />
+
+                                  <ErrorMessage
+                                    name="CVFMD6ML"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="PCVF6ML"
+                                    className="mb-2 font-bold"
+                                  >
+                                    Any progression
+                                  </label>
+                                  <Field
+                                    as={"select"}
+                                    type="text"
+                                    id="PCVF6ML"
+                                    name="PCVF6ML"
+                                    // placeholder="SLT"
+                                    className="border border-gray-400 p-3 rounded-md"
+                                  >
+                                    <option value=""></option>
+                                    <option value="yes">yes</option>
+                                    <option value="no">no</option>
+                                  </Field>
+                                  <ErrorMessage
+                                    name="PCVF6ML"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
+                                {values.PCVF6ML === "yes" && (
+                                  <>
+                                    <div className="flex flex-col">
+                                      <label
+                                        htmlFor="CVFO6ML"
+                                        className="mb-2 font-bold"
+                                      >
+                                        select progression
+                                      </label>
+                                      <Field
+                                        as={"select"}
+                                        type="text"
+                                        id="CVFO6ML"
+                                        name="CVFO6ML"
+                                        // placeholder="select progression"
+                                        className="border border-gray-400 p-3 rounded-md"
+                                      >
+                                        <option value=""></option>
+                                        <option value="widening">
+                                          widening
+                                        </option>
+                                        <option value="Deepening of scotomas">
+                                          Deepening of scotomas
+                                        </option>
+                                        <option value="higher MD">
+                                          higher MD
+                                        </option>
+                                        <option value="others">others</option>
+                                      </Field>
+                                      <ErrorMessage
+                                        name="CVFO6ML"
+                                        component="p"
+                                        className="text-red-500"
+                                      />
+                                    </div>
+                                  </>
+                                )}
+                                {values.CVFO6ML === "others" && (
+                                  <>
+                                    <div className="flex flex-col">
+                                      <label
+                                        htmlFor="CVFOO6ML"
+                                        className="mb-2 font-bold"
+                                      >
+                                        Enter progression
+                                      </label>
+                                      <Field
+                                        type="text"
+                                        id="CVFOO6ML"
+                                        name="CVFOO6ML"
+                                        // placeholder="Enter progression"
+                                        className="border border-gray-400 p-3 rounded-md"
+                                      />
+
+                                      <ErrorMessage
+                                        name="CVFOO6ML"
+                                        component="p"
+                                        className="text-red-500"
+                                      />
+                                    </div>
+                                  </>
+                                )}
+                              </div>
+                              {/* 9M */}
+                              <div>
+                                <Divider />
+                                <h3>Examination of eye at 9 Months</h3>
+
+                                <Divider />
+
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="vaUnaided9ML"
+                                    className="mb-2 font-bold"
+                                  >
+                                    Visual Acuity unaided
+                                  </label>
+                                  <Field
+                                    as={"select"}
+                                    type="text"
+                                    id="vaUnaided9ML"
+                                    name="vaUnaided9ML"
+                                    // placeholder="Visual Acuity unaided"
+                                    className="border border-gray-400 p-2 rounded-md"
+                                  >
+                                    <option value=""></option>
+                                    {presentingVisualAcuity.map((option) => (
+                                      <option key={option} value={option}>
+                                        {option}
+                                      </option>
+                                    ))}
+                                  </Field>
+                                  <ErrorMessage
+                                    name="vaUnaided9ML"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
+
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="bcVA9ML"
+                                    className="mb-2 font-bold"
+                                  >
+                                    Visual Acuity Best Corrected
+                                  </label>
+                                  <Field
+                                    as={"select"}
+                                    type="text"
+                                    id="bcVA9ML"
+                                    name="bcVA9ML"
+                                    // placeholder="Best Corrected Visual Acuity After wash left eye"
+                                    className="border border-gray-400 p-2 rounded-md"
+                                  >
+                                    <option value=""></option>
+                                    {presentingVisualAcuity.map((option) => (
+                                      <option key={option} value={option}>
+                                        {option}
+                                      </option>
+                                    ))}
+                                  </Field>
+                                  <ErrorMessage
+                                    name="bcVA9ML"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
+
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="flare9ML"
+                                    className="mb-2 font-bold"
+                                  >
+                                    Flare
+                                  </label>
+                                  <Field
+                                    type="text"
+                                    id="flare9ML"
+                                    name="flare9ML"
+                                    // placeholder="flare"
+                                    className="border border-gray-400 p-2 rounded-md"
+                                  />
+
+                                  <ErrorMessage
+                                    name="flare9ML"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
+
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="cells9ML"
+                                    className="mb-2 font-bold"
+                                  >
+                                    Cells
+                                  </label>
+                                  <Field
+                                    type="text"
+                                    id="cells9ML"
+                                    name="cells9ML"
+                                    // placeholder="Cells"
+                                    className="border border-gray-400 p-2 rounded-md"
+                                  />
+
+                                  <ErrorMessage
+                                    name="cells9ML"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
+
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="LOCSG9ML"
+                                    className="mb-2 font-bold"
+                                  >
+                                    LOCS grading
+                                  </label>
+                                  <Field
+                                    type="text"
+                                    id="LOCSG9ML"
+                                    name="LOCSG9ML"
+                                    // placeholder="LOCS grading"
+                                    className="border border-gray-400 p-2 rounded-md"
+                                  />
+
+                                  <ErrorMessage
+                                    name="LOCSG9ML"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
+
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="IOPA9ML"
+                                    className="mb-2 font-bold"
+                                  >
+                                    IOP
+                                  </label>
+                                  <Field
+                                    type="text"
+                                    id="IOPA9ML"
+                                    name="IOPA9ML"
+                                    // placeholder="IOP"
+                                    className="border border-gray-400 p-2 rounded-md"
+                                  />
+
+                                  <ErrorMessage
+                                    name="IOPA9ML"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
+                              </div>
+                              {/* 12M */}
+                              <div>
+                                <Divider />
+                                <h3>Examination of eye at 12 M</h3>
+
+                                <Divider />
+
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="vaUnaided12ML"
+                                    className="mb-2 font-bold"
+                                  >
+                                    Visual Acuity unaided
+                                  </label>
+                                  <Field
+                                    as={"select"}
+                                    type="text"
+                                    id="vaUnaided12ML"
+                                    name="vaUnaided12ML"
+                                    // placeholder="Visual Acuity unaided"
+                                    className="border border-gray-400 p-2 rounded-md"
+                                  >
+                                    <option value=""></option>
+                                    {presentingVisualAcuity.map((option) => (
+                                      <option key={option} value={option}>
+                                        {option}
+                                      </option>
+                                    ))}
+                                  </Field>
+                                  <ErrorMessage
+                                    name="vaUnaided12ML"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
+
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="bcVA12ML"
+                                    className="mb-2 font-bold"
+                                  >
+                                    Visual Acuity Best Corrected
+                                  </label>
+                                  <Field
+                                    as={"select"}
+                                    type="text"
+                                    id="bcVA12ML"
+                                    name="bcVA12ML"
+                                    // placeholder="Best Corrected Visual Acuity After wash left eye"
+                                    className="border border-gray-400 p-2 rounded-md"
+                                  >
+                                    <option value=""></option>
+                                    {presentingVisualAcuity.map((option) => (
+                                      <option key={option} value={option}>
+                                        {option}
+                                      </option>
+                                    ))}
+                                  </Field>
+                                  <ErrorMessage
+                                    name="bcVA12ML"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
+
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="flare12ML"
+                                    className="mb-2 font-bold"
+                                  >
+                                    Flare
+                                  </label>
+                                  <Field
+                                    type="text"
+                                    id="flare12ML"
+                                    name="flare12ML"
+                                    // placeholder="flare"
+                                    className="border border-gray-400 p-2 rounded-md"
+                                  />
+
+                                  <ErrorMessage
+                                    name="flare12ML"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
+
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="cells12ML"
+                                    className="mb-2 font-bold"
+                                  >
+                                    Cells
+                                  </label>
+                                  <Field
+                                    type="text"
+                                    id="cells12ML"
+                                    name="cells12ML"
+                                    // placeholder="Cells"
+                                    className="border border-gray-400 p-2 rounded-md"
+                                  />
+
+                                  <ErrorMessage
+                                    name="cells12ML"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
+
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="LOCSG12ML"
+                                    className="mb-2 font-bold"
+                                  >
+                                    LOCS grading
+                                  </label>
+                                  <Field
+                                    type="text"
+                                    id="LOCSG12ML"
+                                    name="LOCSG12ML"
+                                    // placeholder="LOCS grading"
+                                    className="border border-gray-400 p-2 rounded-md"
+                                  />
+
+                                  <ErrorMessage
+                                    name="LOCSG12ML"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
+
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="IOPA12ML"
+                                    className="mb-2 font-bold"
+                                  >
+                                    IOP
+                                  </label>
+                                  <Field
+                                    type="text"
+                                    id="IOPA12ML"
+                                    name="IOPA12ML"
+                                    // placeholder="IOP"
+                                    className="border border-gray-400 p-2 rounded-md"
+                                  />
+
+                                  <ErrorMessage
+                                    name="IOPA12ML"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
+
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="CVFMD12ML"
+                                    className="mb-2 font-bold"
+                                  >
+                                    CVF Mean deviation
+                                  </label>
+                                  <Field
+                                    type="number"
+                                    id="CVFMD12ML"
+                                    name="CVFMD12ML"
+                                    // placeholder="CVF Mean deviation"
+                                    className="border border-gray-400 p-3 rounded-md"
+                                  />
+
+                                  <ErrorMessage
+                                    name="CVFMD12ML"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
+
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="CVFPS12ML"
+                                    className="mb-2 font-bold"
+                                  >
+                                    CVF Pattern standard
+                                  </label>
+                                  <Field
+                                    type="number"
+                                    id="CVFPS12ML"
+                                    name="CVFPS12ML"
+                                    // placeholder="CVF Mean deviation"
+                                    className="border border-gray-400 p-3 rounded-md"
+                                  />
+
+                                  <ErrorMessage
+                                    name="CVFPS12ML"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
+
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="PCVF12ML"
+                                    className="mb-2 font-bold"
+                                  >
+                                    Any progression
+                                  </label>
+                                  <Field
+                                    as={"select"}
+                                    type="text"
+                                    id="PCVF12ML"
+                                    name="PCVF12ML"
+                                    // placeholder="SLT"
+                                    className="border border-gray-400 p-3 rounded-md"
+                                  >
+                                    <option value=""></option>
+                                    <option value="yes">yes</option>
+                                    <option value="no">no</option>
+                                  </Field>
+                                  <ErrorMessage
+                                    name="PCVF12ML"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
+
+                                {values.PCVF12ML === "yes" && (
+                                  <>
+                                    <div className="flex flex-col">
+                                      <label
+                                        htmlFor="CVFO12ML"
+                                        className="mb-2 font-bold"
+                                      >
+                                        select progression
+                                      </label>
+                                      <Field
+                                        as={"select"}
+                                        type="text"
+                                        id="CVFO12ML"
+                                        name="CVFO12ML"
+                                        // placeholder="select progression"
+                                        className="border border-gray-400 p-3 rounded-md"
+                                      >
+                                        <option value=""></option>
+                                        <option value="widening">
+                                          widening
+                                        </option>
+                                        <option value="Deepening of scotomas">
+                                          Deepening of scotomas
+                                        </option>
+                                        <option value="higher MD">
+                                          higher MD
+                                        </option>
+                                        <option value="others">others</option>
+                                      </Field>
+                                      <ErrorMessage
+                                        name="CVFO12ML"
+                                        component="p"
+                                        className="text-red-500"
+                                      />
+                                    </div>
+                                  </>
+                                )}
+
+                                {values.CVFO12ML === "others" && (
+                                  <>
+                                    <div className="flex flex-col">
+                                      <label
+                                        htmlFor="CVFOO12ML"
+                                        className="mb-2 font-bold"
+                                      >
+                                        Enter progression
+                                      </label>
+                                      <Field
+                                        type="text"
+                                        id="CVFOO12ML"
+                                        name="CVFOO12ML"
+                                        // placeholder="Enter progression"
+                                        className="border border-gray-400 p-3 rounded-md"
+                                      />
+
+                                      <ErrorMessage
+                                        name="CVFOO12ML"
+                                        component="p"
+                                        className="text-red-500"
+                                      />
+                                    </div>
+                                  </>
+                                )}
+                              </div>
+                            </>
+                          )}
+                        </>
+                      )}
                     </div>
                   </>
                 )}
@@ -5472,12 +5481,8 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                           className="border border-gray-400 p-2 rounded-md"
                         >
                           <option value=""></option>
-                          <option value="successful">
-                            Successful
-                          </option>
-                          <option value="failed">
-                            Failed
-                          </option>
+                          <option value="successful">Successful</option>
+                          <option value="failed">Failed</option>
                           <option value="failed (repeat SLT)">
                             Failed (repeat SLT)
                           </option>
@@ -5502,1154 +5507,1281 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
                         values.SLT2MR === "failed" ||
                         values.SLT2MR ===
                           "IOP reduced post SLT but needs to continue medication") && (
-                            <>
+                        <>
+                          <Divider />
+                          Water Drinking
+                          <Divider />
+                          <div className="flex flex-col">
+                            <label
+                              htmlFor="BIOPR2MR"
+                              className="mb-2 font-bold"
+                            >
+                              Water drinking test Baseline IOP
+                            </label>
+                            <Field
+                              type="number"
+                              id="BIOPR2MR"
+                              name="BIOPR2MR"
+                              // placeholder="Enter a no Of Shots given Left"
+                              className="border border-gray-400 p-2 rounded-md"
+                            />
+                            <ErrorMessage
+                              name="BIOPR2MR"
+                              component="div"
+                              className="text-red-500"
+                            />
+                          </div>
+                          <div className="flex flex-col">
+                            <label
+                              htmlFor="howmanymililitreofwaterwasgivenR2MR"
+                              className="mb-2 font-bold"
+                            >
+                              how many mililitre of water was given
+                            </label>
+                            <Field
+                              type="number"
+                              id="howmanymililitreofwaterwasgivenR2MR"
+                              name="howmanymililitreofwaterwasgivenR2MR"
+                              // placeholder="how many mililitre of water was given"
+                              className="border border-gray-400 p-2 rounded-md"
+                            />
+                            <ErrorMessage
+                              name="howmanymililitreofwaterwasgivenR2MR"
+                              component="div"
+                              className="text-red-500"
+                            />
+                          </div>
+                          <div className="flex flex-col">
+                            <label
+                              htmlFor="iop15MinR2MR"
+                              className="mb-2 font-bold"
+                            >
+                              IOP 15MIN
+                            </label>
+                            <Field
+                              type="number"
+                              id="iop15MinR2MR"
+                              name="iop15MinR2MR"
+                              // placeholder="IOP 15MIN"
+                              className="border border-gray-400 p-2 rounded-md"
+                            />
+                            <ErrorMessage
+                              name="iop15MinR2MR"
+                              component="div"
+                              className="text-red-500"
+                            />
+                          </div>
+                          <div className="flex flex-col">
+                            <label
+                              htmlFor="iop30minR2MR"
+                              className="mb-2 font-bold"
+                            >
+                              IOP 30MIN
+                            </label>
+                            <Field
+                              type="number"
+                              id="iop30minR2MR"
+                              name="iop30minR2MR"
+                              // placeholder="IOP 30MIN"
+                              className="border border-gray-400 p-2 rounded-md"
+                            />
+                            <ErrorMessage
+                              name="iop30minR2MR"
+                              component="div"
+                              className="text-red-500"
+                            />
+                          </div>
+                          <div className="flex flex-col">
+                            <label
+                              htmlFor="iop45minR2MR"
+                              className="mb-2 font-bold"
+                            >
+                              IOP 45MIN
+                            </label>
+                            <Field
+                              type="number"
+                              id="iop45minR2MR"
+                              name="iop45minR2MR"
+                              // placeholder="IOP 30MIN"
+                              className="border border-gray-400 p-2 rounded-md"
+                            />
+                            <ErrorMessage
+                              name="iop45minR2MR"
+                              component="div"
+                              className="text-red-500"
+                            />
+                          </div>
+                          <div className="flex flex-col">
+                            <label
+                              htmlFor="iop1HRR2MR"
+                              className="mb-2 font-bold"
+                            >
+                              IOP 1HR
+                            </label>
+                            <Field
+                              type="number"
+                              id="iop1HRR2MR"
+                              name="iop1HRR2MR"
+                              // placeholder="IOP 1HR"
+                              className="border border-gray-400 p-2 rounded-md"
+                            />
+                            <ErrorMessage
+                              name="iop1HRR2MR"
+                              component="div"
+                              className="text-red-500"
+                            />
+                          </div>
+                          {/* 3M */}
+                          <div>
                             <Divider />
-                      Water Drinking
-                      <Divider />
-                      <div className="flex flex-col">
-                        <label htmlFor="BIOPR2MR" className="mb-2 font-bold">
-                          Water drinking test Baseline IOP
-                        </label>
-                        <Field
-                          type="number"
-                          id="BIOPR2MR"
-                          name="BIOPR2MR"
-                          // placeholder="Enter a no Of Shots given Left"
-                          className="border border-gray-400 p-2 rounded-md"
-                        />
-                        <ErrorMessage
-                          name="BIOPR2MR"
-                          component="div"
-                          className="text-red-500"
-                        />
-                      </div>
-                      <div className="flex flex-col">
-                        <label
-                          htmlFor="howmanymililitreofwaterwasgivenR2MR"
-                          className="mb-2 font-bold"
-                        >
-                          how many mililitre of water was given
-                        </label>
-                        <Field
-                          type="number"
-                          id="howmanymililitreofwaterwasgivenR2MR"
-                          name="howmanymililitreofwaterwasgivenR2MR"
-                          // placeholder="how many mililitre of water was given"
-                          className="border border-gray-400 p-2 rounded-md"
-                        />
-                        <ErrorMessage
-                          name="howmanymililitreofwaterwasgivenR2MR"
-                          component="div"
-                          className="text-red-500"
-                        />
-                      </div>
-                    
-                      <div className="flex flex-col">
-                        <label
-                          htmlFor="iop15MinR2MR"
-                          className="mb-2 font-bold"
-                        >
-                          IOP 15MIN
-                        </label>
-                        <Field
-                          type="number"
-                          id="iop15MinR2MR"
-                          name="iop15MinR2MR"
-                          // placeholder="IOP 15MIN"
-                          className="border border-gray-400 p-2 rounded-md"
-                        />
-                        <ErrorMessage
-                          name="iop15MinR2MR"
-                          component="div"
-                          className="text-red-500"
-                        />
-                      </div>
-                      <div className="flex flex-col">
-                        <label
-                          htmlFor="iop30minR2MR"
-                          className="mb-2 font-bold"
-                        >
-                          IOP 30MIN
-                        </label>
-                        <Field
-                          type="number"
-                          id="iop30minR2MR"
-                          name="iop30minR2MR"
-                          // placeholder="IOP 30MIN"
-                          className="border border-gray-400 p-2 rounded-md"
-                        />
-                        <ErrorMessage
-                          name="iop30minR2MR"
-                          component="div"
-                          className="text-red-500"
-                        />
-                      </div>
-                      <div className="flex flex-col">
-                        <label
-                          htmlFor="iop45minR2MR"
-                          className="mb-2 font-bold"
-                        >
-                          IOP 45MIN
-                        </label>
-                        <Field
-                          type="number"
-                          id="iop45minR2MR"
-                          name="iop45minR2MR"
-                          // placeholder="IOP 30MIN"
-                          className="border border-gray-400 p-2 rounded-md"
-                        />
-                        <ErrorMessage
-                          name="iop45minR2MR"
-                          component="div"
-                          className="text-red-500"
-                        />
-                      </div>
-                      <div className="flex flex-col">
-                        <label htmlFor="iop1HRR2MR" className="mb-2 font-bold">
-                          IOP 1HR
-                        </label>
-                        <Field
-                          type="number"
-                          id="iop1HRR2MR"
-                          name="iop1HRR2MR"
-                          // placeholder="IOP 1HR"
-                          className="border border-gray-400 p-2 rounded-md"
-                        />
-                        <ErrorMessage
-                          name="iop1HRR2MR"
-                          component="div"
-                          className="text-red-500"
-                        />
-                      </div>
-                       {/* 3M */}
-                    <div>
-                      <Divider />
-                      <h3>Examination of eye at 3 Month</h3>
-                      <Divider />
-                      <div className="flex flex-col">
-                        <label
-                          htmlFor="vaUnaided3MR"
-                          className="mb-2 font-bold"
-                        >
-                          Visual Acuity unaided
-                        </label>
-                        <Field
-                          as={"select"}
-                          type="text"
-                          id="vaUnaided3MR"
-                          name="vaUnaided3MR"
-                          // placeholder="Visual Acuity unaided"
-                          className="border border-gray-400 p-2 rounded-md"
-                        >
-                          <option value=""></option>
-                          {presentingVisualAcuity.map((option) => (
-                            <option key={option} value={option}>
-                              {option}
-                            </option>
-                          ))}
-                        </Field>
-                        <ErrorMessage
-                          name="vaUnaided3MR"
-                          component="p"
-                          className="text-red-500"
-                        />
-                      </div>
-                      <div className="flex flex-col">
-                        <label htmlFor="bcVA3MR" className="mb-2 font-bold">
-                          Visual Acuity Best Corrected
-                        </label>
-                        <Field
-                          as={"select"}
-                          type="text"
-                          id="bcVA3MR"
-                          name="bcVA3MR"
-                          // placeholder="Best Corrected Visual Acuity After wash left eye"
-                          className="border border-gray-400 p-2 rounded-md"
-                        >
-                          <option value=""></option>
-                          {presentingVisualAcuity.map((option) => (
-                            <option key={option} value={option}>
-                              {option}
-                            </option>
-                          ))}
-                        </Field>
-                        <ErrorMessage
-                          name="bcVA3MR"
-                          component="p"
-                          className="text-red-500"
-                        />
-                      </div>
-                      <div className="flex flex-col">
-                        <label htmlFor="flare3MR" className="mb-2 font-bold">
-                          Flare
-                        </label>
-                        <Field
-                          type="text"
-                          id="flare3MR"
-                          name="flare3MR"
-                          // placeholder="flare"
-                          className="border border-gray-400 p-2 rounded-md"
-                        />
+                            <h3>Examination of eye at 3 Month</h3>
+                            <Divider />
+                            <div className="flex flex-col">
+                              <label
+                                htmlFor="vaUnaided3MR"
+                                className="mb-2 font-bold"
+                              >
+                                Visual Acuity unaided
+                              </label>
+                              <Field
+                                as={"select"}
+                                type="text"
+                                id="vaUnaided3MR"
+                                name="vaUnaided3MR"
+                                // placeholder="Visual Acuity unaided"
+                                className="border border-gray-400 p-2 rounded-md"
+                              >
+                                <option value=""></option>
+                                {presentingVisualAcuity.map((option) => (
+                                  <option key={option} value={option}>
+                                    {option}
+                                  </option>
+                                ))}
+                              </Field>
+                              <ErrorMessage
+                                name="vaUnaided3MR"
+                                component="p"
+                                className="text-red-500"
+                              />
+                            </div>
+                            <div className="flex flex-col">
+                              <label
+                                htmlFor="bcVA3MR"
+                                className="mb-2 font-bold"
+                              >
+                                Visual Acuity Best Corrected
+                              </label>
+                              <Field
+                                as={"select"}
+                                type="text"
+                                id="bcVA3MR"
+                                name="bcVA3MR"
+                                // placeholder="Best Corrected Visual Acuity After wash left eye"
+                                className="border border-gray-400 p-2 rounded-md"
+                              >
+                                <option value=""></option>
+                                {presentingVisualAcuity.map((option) => (
+                                  <option key={option} value={option}>
+                                    {option}
+                                  </option>
+                                ))}
+                              </Field>
+                              <ErrorMessage
+                                name="bcVA3MR"
+                                component="p"
+                                className="text-red-500"
+                              />
+                            </div>
+                            <div className="flex flex-col">
+                              <label
+                                htmlFor="flare3MR"
+                                className="mb-2 font-bold"
+                              >
+                                Flare
+                              </label>
+                              <Field
+                                type="text"
+                                id="flare3MR"
+                                name="flare3MR"
+                                // placeholder="flare"
+                                className="border border-gray-400 p-2 rounded-md"
+                              />
 
-                        <ErrorMessage
-                          name="flare3MR"
-                          component="p"
-                          className="text-red-500"
-                        />
-                      </div>
-                      <div className="flex flex-col">
-                        <label htmlFor="cells3MR" className="mb-2 font-bold">
-                          Cells
-                        </label>
-                        <Field
-                          type="text"
-                          id="cells3MR"
-                          name="cells3MR"
-                          // placeholder="Cells"
-                          className="border border-gray-400 p-2 rounded-md"
-                        />
+                              <ErrorMessage
+                                name="flare3MR"
+                                component="p"
+                                className="text-red-500"
+                              />
+                            </div>
+                            <div className="flex flex-col">
+                              <label
+                                htmlFor="cells3MR"
+                                className="mb-2 font-bold"
+                              >
+                                Cells
+                              </label>
+                              <Field
+                                type="text"
+                                id="cells3MR"
+                                name="cells3MR"
+                                // placeholder="Cells"
+                                className="border border-gray-400 p-2 rounded-md"
+                              />
 
-                        <ErrorMessage
-                          name="cells3MR"
-                          component="p"
-                          className="text-red-500"
-                        />
-                      </div>
-                      <div className="flex flex-col">
-                        <label htmlFor="LOCSG3MR" className="mb-2 font-bold">
-                          LOCS grading
-                        </label>
-                        <Field
-                          type="text"
-                          id="LOCSG3MR"
-                          name="LOCSG3MR"
-                          // placeholder="LOCS grading"
-                          className="border border-gray-400 p-2 rounded-md"
-                        />
+                              <ErrorMessage
+                                name="cells3MR"
+                                component="p"
+                                className="text-red-500"
+                              />
+                            </div>
+                            <div className="flex flex-col">
+                              <label
+                                htmlFor="LOCSG3MR"
+                                className="mb-2 font-bold"
+                              >
+                                LOCS grading
+                              </label>
+                              <Field
+                                type="text"
+                                id="LOCSG3MR"
+                                name="LOCSG3MR"
+                                // placeholder="LOCS grading"
+                                className="border border-gray-400 p-2 rounded-md"
+                              />
 
-                        <ErrorMessage
-                          name="LOCSG3MR"
-                          component="p"
-                          className="text-red-500"
-                        />
-                      </div>
-                      <div className="flex flex-col">
-                        <label htmlFor="IOPA3MR" className="mb-2 font-bold">
-                          IOP
-                        </label>
-                        <Field
-                          type="text"
-                          id="IOPA3MR"
-                          name="IOPA3MR"
-                          // placeholder="IOP"
-                          className="border border-gray-400 p-2 rounded-md"
-                        />
+                              <ErrorMessage
+                                name="LOCSG3MR"
+                                component="p"
+                                className="text-red-500"
+                              />
+                            </div>
+                            <div className="flex flex-col">
+                              <label
+                                htmlFor="IOPA3MR"
+                                className="mb-2 font-bold"
+                              >
+                                IOP
+                              </label>
+                              <Field
+                                type="text"
+                                id="IOPA3MR"
+                                name="IOPA3MR"
+                                // placeholder="IOP"
+                                className="border border-gray-400 p-2 rounded-md"
+                              />
 
-                        <ErrorMessage
-                          name="IOPA3MR"
-                          component="p"
-                          className="text-red-500"
-                        />
-                      </div>
+                              <ErrorMessage
+                                name="IOPA3MR"
+                                component="p"
+                                className="text-red-500"
+                              />
+                            </div>
 
-                      <div className="flex flex-col">
-                        <label htmlFor="number" className="mb-2 font-bold">
-                          Gonioscopy
-                        </label>
-                        <Field
-                          type="text"
-                          id="Gonioscopy3MR"
-                          name="Gonioscopy3MR"
-                          // placeholder="Gonioscopy"
-                          className="border border-gray-400 p-2 rounded-md"
-                        />
-                        <ErrorMessage
-                          name="Gonioscopy3MR"
-                          component="div"
-                          className="text-red-500"
-                        />
-                      </div>
-                      <div className="flex flex-col">
-                        <label
-                          htmlFor="openessOfQuadrant3MR"
-                          className="mb-2 font-bold"
-                        >
-                          Openness of the quadrant
-                        </label>
-                        <Field
-                          as={"select"}
-                          type="text"
-                          id="openessOfQuadrant3MR"
-                          name="openessOfQuadrant3MR"
-                          // placeholder="presenting Visual Acuity"
-                          className="border border-gray-400 p-2 rounded-md"
-                        >
-                          <option value=""> </option>
-                          {openessOfQuadrant.map((option) => (
-                            <option key={option} value={option}>
-                              {option}
-                            </option>
-                          ))}
-                        </Field>
-                        <ErrorMessage
-                          name="openessOfQuadrant3MR"
-                          component="p"
-                          className="text-red-500"
-                        />
-                      </div>
-                      <div className="flex flex-col">
-                        <label htmlFor="PAS3MR" className="mb-2 font-bold">
-                          Any PAS
-                        </label>
-                        <Field
-                          as={"select"}
-                          type="text"
-                          id="PAS3MR"
-                          name="PAS3MR"
-                          // placeholder="Any PAS"
-                          className="border border-gray-400 p-3 rounded-md"
-                        >
-                          <option value=""></option>
-                          <option value="yes">Yes</option>
-                          <option value="no">No</option>
-                        </Field>
-                        <ErrorMessage
-                          name="PAS3MR"
-                          component="p"
-                          className="text-red-500"
-                        />
-                      </div>
-                      <div className="flex flex-col">
-                        <label htmlFor="pigment3MR" className="mb-2 font-bold">
-                          Pigments how many pluses
-                        </label>
-                        <Field
-                          type="number"
-                          id="pigment3MR"
-                          name="pigment3MR"
-                          // placeholder="Pigments"
-                          className="border border-gray-400 p-3 rounded-md"
-                        />
+                            <div className="flex flex-col">
+                              <label
+                                htmlFor="number"
+                                className="mb-2 font-bold"
+                              >
+                                Gonioscopy
+                              </label>
+                              <Field
+                                type="text"
+                                id="Gonioscopy3MR"
+                                name="Gonioscopy3MR"
+                                // placeholder="Gonioscopy"
+                                className="border border-gray-400 p-2 rounded-md"
+                              />
+                              <ErrorMessage
+                                name="Gonioscopy3MR"
+                                component="div"
+                                className="text-red-500"
+                              />
+                            </div>
+                            <div className="flex flex-col">
+                              <label
+                                htmlFor="openessOfQuadrant3MR"
+                                className="mb-2 font-bold"
+                              >
+                                Openness of the quadrant
+                              </label>
+                              <Field
+                                as={"select"}
+                                type="text"
+                                id="openessOfQuadrant3MR"
+                                name="openessOfQuadrant3MR"
+                                // placeholder="presenting Visual Acuity"
+                                className="border border-gray-400 p-2 rounded-md"
+                              >
+                                <option value=""> </option>
+                                {openessOfQuadrant.map((option) => (
+                                  <option key={option} value={option}>
+                                    {option}
+                                  </option>
+                                ))}
+                              </Field>
+                              <ErrorMessage
+                                name="openessOfQuadrant3MR"
+                                component="p"
+                                className="text-red-500"
+                              />
+                            </div>
+                            <div className="flex flex-col">
+                              <label
+                                htmlFor="PAS3MR"
+                                className="mb-2 font-bold"
+                              >
+                                Any PAS
+                              </label>
+                              <Field
+                                as={"select"}
+                                type="text"
+                                id="PAS3MR"
+                                name="PAS3MR"
+                                // placeholder="Any PAS"
+                                className="border border-gray-400 p-3 rounded-md"
+                              >
+                                <option value=""></option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                              </Field>
+                              <ErrorMessage
+                                name="PAS3MR"
+                                component="p"
+                                className="text-red-500"
+                              />
+                            </div>
+                            <div className="flex flex-col">
+                              <label
+                                htmlFor="pigment3MR"
+                                className="mb-2 font-bold"
+                              >
+                                Pigments how many pluses
+                              </label>
+                              <Field
+                                type="number"
+                                id="pigment3MR"
+                                name="pigment3MR"
+                                // placeholder="Pigments"
+                                className="border border-gray-400 p-3 rounded-md"
+                              />
 
-                        <ErrorMessage
-                          name="pigment3MR"
-                          component="p"
-                          className="text-red-500"
-                        />
-                      </div>
-                      <div className="flex flex-col">
-                        <label htmlFor="pigmentO3MR" className="mb-2 font-bold">
-                          Others
-                        </label>
-                        <Field
-                          type="text"
-                          id="pigmentO3MR"
-                          name="pigmentO3MR"
-                          // placeholder="Others"
-                          className="border border-gray-400 p-3 rounded-md"
-                        />
+                              <ErrorMessage
+                                name="pigment3MR"
+                                component="p"
+                                className="text-red-500"
+                              />
+                            </div>
+                            <div className="flex flex-col">
+                              <label
+                                htmlFor="pigmentO3MR"
+                                className="mb-2 font-bold"
+                              >
+                                Others
+                              </label>
+                              <Field
+                                type="text"
+                                id="pigmentO3MR"
+                                name="pigmentO3MR"
+                                // placeholder="Others"
+                                className="border border-gray-400 p-3 rounded-md"
+                              />
 
-                        <ErrorMessage
-                          name="pigmentO3MR"
-                          component="p"
-                          className="text-red-500"
-                        />
-                      </div>
-                      <div className="flex flex-col">
-                        <label htmlFor="SLT3MR" className="mb-2 font-bold">
-                          SLT
-                        </label>
-                        <Field
-                          as={"select"}
-                          type="text"
-                          id="SLT3MR"
-                          name="SLT3MR"
-                          // placeholder="SLT"
-                          className="border border-gray-400 p-3 rounded-md"
-                        >
-                          <option value=""></option>
-                          <option value="successful">Successful</option>
-                          <option value="failed">Failed</option>
-                          <option value="IOP reduced post SLT but needs either repeat SLT OR medication">
-                            IOP reduced post SLT but needs either repeat SLT OR
-                            medication
-                          </option>
-                          <option value="other assesement">
-                            other assesement
-                          </option>
-                        </Field>
-                        <ErrorMessage
-                          name="SLT3MR"
-                          component="p"
-                          className="text-red-500"
-                        />
-                      </div>
-                    </div>
-
-                    {/* 6M */}
-                    <div>
-                      <Divider />
-                      <h3>Examination of eye at 6 M</h3>
-                      <Divider />
-                      <div className="flex flex-col">
-                        <label
-                          htmlFor="vaUnaided6MR"
-                          className="mb-2 font-bold"
-                        >
-                          Visual Acuity unaided
-                        </label>
-                        <Field
-                          as={"select"}
-                          type="text"
-                          id="vaUnaided6MR"
-                          name="vaUnaided6MR"
-                          // placeholder="Visual Acuity unaided"
-                          className="border border-gray-400 p-2 rounded-md"
-                        >
-                          <option value=""></option>
-                          {presentingVisualAcuity.map((option) => (
-                            <option key={option} value={option}>
-                              {option}
-                            </option>
-                          ))}
-                        </Field>
-                        <ErrorMessage
-                          name="vaUnaided6MR"
-                          component="p"
-                          className="text-red-500"
-                        />
-                      </div>
-                      <div className="flex flex-col">
-                        <label htmlFor="bcVA6MR" className="mb-2 font-bold">
-                          Visual Acuity Best Corrected
-                        </label>
-                        <Field
-                          as={"select"}
-                          type="text"
-                          id="bcVA6MR"
-                          name="bcVA6MR"
-                          // placeholder="Best Corrected Visual Acuity After wash left eye"
-                          className="border border-gray-400 p-2 rounded-md"
-                        >
-                          <option value=""></option>
-                          {presentingVisualAcuity.map((option) => (
-                            <option key={option} value={option}>
-                              {option}
-                            </option>
-                          ))}
-                        </Field>
-                        <ErrorMessage
-                          name="bcVA6MR"
-                          component="p"
-                          className="text-red-500"
-                        />
-                      </div>
-                      <div className="flex flex-col">
-                        <label htmlFor="flare6MR" className="mb-2 font-bold">
-                          Flare
-                        </label>
-                        <Field
-                          type="text"
-                          id="flare6MR"
-                          name="flare6MR"
-                          // placeholder="flare"
-                          className="border border-gray-400 p-2 rounded-md"
-                        />
-
-                        <ErrorMessage
-                          name="flare6MR"
-                          component="p"
-                          className="text-red-500"
-                        />
-                      </div>
-                      <div className="flex flex-col">
-                        <label htmlFor="cells6MR" className="mb-2 font-bold">
-                          Cells
-                        </label>
-                        <Field
-                          type="text"
-                          id="cells6MR"
-                          name="cells6MR"
-                          // placeholder="Cells"
-                          className="border border-gray-400 p-2 rounded-md"
-                        />
-
-                        <ErrorMessage
-                          name="cells6MR"
-                          component="p"
-                          className="text-red-500"
-                        />
-                      </div>
-                      <div className="flex flex-col">
-                        <label htmlFor="LOCSG6MR" className="mb-2 font-bold">
-                          LOCS grading
-                        </label>
-                        <Field
-                          type="text"
-                          id="LOCSG6MR"
-                          name="LOCSG6MR"
-                          // placeholder="LOCS grading"
-                          className="border border-gray-400 p-2 rounded-md"
-                        />
-
-                        <ErrorMessage
-                          name="LOCSG6MR"
-                          component="p"
-                          className="text-red-500"
-                        />
-                      </div>
-                      <div className="flex flex-col">
-                        <label htmlFor="IOPA6MR" className="mb-2 font-bold">
-                          IOP
-                        </label>
-                        <Field
-                          type="text"
-                          id="IOPA6MR"
-                          name="IOPA6MR"
-                          // placeholder="IOP"
-                          className="border border-gray-400 p-2 rounded-md"
-                        />
-
-                        <ErrorMessage
-                          name="IOPA6MR"
-                          component="p"
-                          className="text-red-500"
-                        />
-                      </div>
-
-                      <div className="flex flex-col">
-                        <label htmlFor="number" className="mb-2 font-bold">
-                          Gonioscopy
-                        </label>
-                        <Field
-                          type="text"
-                          id="Gonioscopy6MR"
-                          name="Gonioscopy6MR"
-                          // placeholder="Gonioscopy"
-                          className="border border-gray-400 p-2 rounded-md"
-                        />
-                        <ErrorMessage
-                          name="Gonioscopy6MR"
-                          component="div"
-                          className="text-red-500"
-                        />
-                      </div>
-                      <div className="flex flex-col">
-                        <label
-                          htmlFor="openessOfQuadrant6MR"
-                          className="mb-2 font-bold"
-                        >
-                          Openness of the quadrant
-                        </label>
-                        <Field
-                          as={"select"}
-                          type="text"
-                          id="openessOfQuadrant6MR"
-                          name="openessOfQuadrant6MR"
-                          // placeholder="presenting Visual Acuity"
-                          className="border border-gray-400 p-2 rounded-md"
-                        >
-                          <option value=""> </option>
-                          {openessOfQuadrant.map((option) => (
-                            <option key={option} value={option}>
-                              {option}
-                            </option>
-                          ))}
-                        </Field>
-                        <ErrorMessage
-                          name="openessOfQuadrant6MR"
-                          component="p"
-                          className="text-red-500"
-                        />
-                      </div>
-                      <div className="flex flex-col">
-                        <label htmlFor="PAS6MR" className="mb-2 font-bold">
-                          Any PAS
-                        </label>
-                        <Field
-                          as={"select"}
-                          type="text"
-                          id="PAS6MR"
-                          name="PAS6MR"
-                          // placeholder="Any PAS"
-                          className="border border-gray-400 p-3 rounded-md"
-                        >
-                          <option value=""></option>
-                          <option value="yes">Yes</option>
-                          <option value="no">No</option>
-                        </Field>
-                        <ErrorMessage
-                          name="PAS6MR"
-                          component="p"
-                          className="text-red-500"
-                        />
-                      </div>
-                      <div className="flex flex-col">
-                        <label htmlFor="pigment6MR" className="mb-2 font-bold">
-                          Pigments how many pluses
-                        </label>
-                        <Field
-                          type="number"
-                          id="pigment6MR"
-                          name="pigment6MR"
-                          // placeholder="Pigments"
-                          className="border border-gray-400 p-3 rounded-md"
-                        />
-
-                        <ErrorMessage
-                          name="pigment6MR"
-                          component="p"
-                          className="text-red-500"
-                        />
-                      </div>
-                      <div className="flex flex-col">
-                        <label htmlFor="pigmentO6MR" className="mb-2 font-bold">
-                          Others
-                        </label>
-                        <Field
-                          type="text"
-                          id="pigmentO6MR"
-                          name="pigmentO6MR"
-                          // placeholder="Others"
-                          className="border border-gray-400 p-3 rounded-md"
-                        />
-
-                        <ErrorMessage
-                          name="pigmentO6MR"
-                          component="p"
-                          className="text-red-500"
-                        />
-                      </div>
-                      <div className="flex flex-col">
-                        <label htmlFor="SLT6MR" className="mb-2 font-bold">
-                          SLT
-                        </label>
-                        <Field
-                          as={"select"}
-                          type="text"
-                          id="SLT6MR"
-                          name="SLT6MR"
-                          // placeholder="SLT"
-                          className="border border-gray-400 p-3 rounded-md"
-                        >
-                          <option value=""></option>
-                          <option value="successful">Successful</option>
-                          <option value="failed">Failed</option>
-                          <option value="IOP reduced post SLT but needs either repeat SLT OR medication">
-                            IOP reduced post SLT but needs either repeat SLT OR
-                            medication
-                          </option>
-                          <option value="other assesement">
-                            other assesement
-                          </option>
-                        </Field>
-                        <ErrorMessage
-                          name="SLT6MR"
-                          component="p"
-                          className="text-red-500"
-                        />
-                      </div>
-                      <div className="flex flex-col">
-                        <label htmlFor="CVFMD6MR" className="mb-2 font-bold">
-                          CVF Mean deviation
-                        </label>
-                        <Field
-                          type="number"
-                          id="CVFMD6MR"
-                          name="CVFMD6MR"
-                          // placeholder="CVF Mean deviation"
-                          className="border border-gray-400 p-3 rounded-md"
-                        />
-
-                        <ErrorMessage
-                          name="CVFMD6MR"
-                          component="p"
-                          className="text-red-500"
-                        />
-                      </div>
-                      <div className="flex flex-col">
-                        <label htmlFor="PCVF6MR" className="mb-2 font-bold">
-                          Any progression
-                        </label>
-                        <Field
-                          as={"select"}
-                          type="text"
-                          id="PCVF6MR"
-                          name="PCVF6MR"
-                          // placeholder="SLT"
-                          className="border border-gray-400 p-3 rounded-md"
-                        >
-                          <option value=""></option>
-                          <option value="yes">yes</option>
-                          <option value="no">no</option>
-                        </Field>
-                        <ErrorMessage
-                          name="PCVF6MR"
-                          component="p"
-                          className="text-red-500"
-                        />
-                      </div>
-                      {values.PCVF6MR === "yes" && (
-                        <>
-                          <div className="flex flex-col">
-                            <label htmlFor="CVFO6MR" className="mb-2 font-bold">
-                              select progression
-                            </label>
-                            <Field
-                              as={"select"}
-                              type="text"
-                              id="CVFO6MR"
-                              name="CVFO6MR"
-                              // placeholder="select progression"
-                              className="border border-gray-400 p-3 rounded-md"
-                            >
-                              <option value=""></option>
-                              <option value="widening">widening</option>
-                              <option value="Deepening of scotomas">
-                                Deepening of scotomas
-                              </option>
-                              <option value="higher MD">higher MD</option>
-                              <option value="others">others</option>
-                            </Field>
-                            <ErrorMessage
-                              name="CVFO6MR"
-                              component="p"
-                              className="text-red-500"
-                            />
+                              <ErrorMessage
+                                name="pigmentO3MR"
+                                component="p"
+                                className="text-red-500"
+                              />
+                            </div>
+                            <div className="flex flex-col">
+                              <label
+                                htmlFor="SLT3MR"
+                                className="mb-2 font-bold"
+                              >
+                                SLT
+                              </label>
+                              <Field
+                                as={"select"}
+                                type="text"
+                                id="SLT3MR"
+                                name="SLT3MR"
+                                // placeholder="SLT"
+                                className="border border-gray-400 p-3 rounded-md"
+                              >
+                                <option value=""></option>
+                                <option value="successful">Successful</option>
+                                <option value="failed">Failed</option>
+                                <option value="failed (repeat SLT)">
+                                  Failed (repeat SLT)
+                                </option>
+                                <option value="IOP reduced post SLT but needs to repeat SLT">
+                                  IOP reduced post SLT but needs to repeat SLT
+                                </option>
+                                <option value="IOP reduced post SLT but needs to continue medication">
+                                  IOP reduced post SLT but needs to continue
+                                  medication
+                                </option>
+                              </Field>
+                              <ErrorMessage
+                                name="SLT3MR"
+                                component="p"
+                                className="text-red-500"
+                              />
+                            </div>
                           </div>
-                        </>
-                      )}
-                      {values.CVFO6MR === "others" && (
-                        <>
-                          <div className="flex flex-col">
-                            <label
-                              htmlFor="CVFOO6MR"
-                              className="mb-2 font-bold"
-                            >
-                              Enter progression
-                            </label>
-                            <Field
-                              type="text"
-                              id="CVFOO6MR"
-                              name="CVFOO6MR"
-                              // placeholder="Enter progression"
-                              className="border border-gray-400 p-3 rounded-md"
-                            />
+                          {(values.SLT3MR === "successful" ||
+                            values.SLT3MR === "failed" ||
+                            values.SLT3MR ===
+                              "IOP reduced post SLT but needs to continue medication") && (
+                            <>
+                              {/* 6M */}
+                              <div>
+                                <Divider />
+                                <h3>Examination of eye at 6 M</h3>
+                                <Divider />
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="vaUnaided6MR"
+                                    className="mb-2 font-bold"
+                                  >
+                                    Visual Acuity unaided
+                                  </label>
+                                  <Field
+                                    as={"select"}
+                                    type="text"
+                                    id="vaUnaided6MR"
+                                    name="vaUnaided6MR"
+                                    // placeholder="Visual Acuity unaided"
+                                    className="border border-gray-400 p-2 rounded-md"
+                                  >
+                                    <option value=""></option>
+                                    {presentingVisualAcuity.map((option) => (
+                                      <option key={option} value={option}>
+                                        {option}
+                                      </option>
+                                    ))}
+                                  </Field>
+                                  <ErrorMessage
+                                    name="vaUnaided6MR"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="bcVA6MR"
+                                    className="mb-2 font-bold"
+                                  >
+                                    Visual Acuity Best Corrected
+                                  </label>
+                                  <Field
+                                    as={"select"}
+                                    type="text"
+                                    id="bcVA6MR"
+                                    name="bcVA6MR"
+                                    // placeholder="Best Corrected Visual Acuity After wash left eye"
+                                    className="border border-gray-400 p-2 rounded-md"
+                                  >
+                                    <option value=""></option>
+                                    {presentingVisualAcuity.map((option) => (
+                                      <option key={option} value={option}>
+                                        {option}
+                                      </option>
+                                    ))}
+                                  </Field>
+                                  <ErrorMessage
+                                    name="bcVA6MR"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="flare6MR"
+                                    className="mb-2 font-bold"
+                                  >
+                                    Flare
+                                  </label>
+                                  <Field
+                                    type="text"
+                                    id="flare6MR"
+                                    name="flare6MR"
+                                    // placeholder="flare"
+                                    className="border border-gray-400 p-2 rounded-md"
+                                  />
 
-                            <ErrorMessage
-                              name="CVFOO6MR"
-                              component="p"
-                              className="text-red-500"
-                            />
-                          </div>
-                        </>
-                      )}
-                    </div>
+                                  <ErrorMessage
+                                    name="flare6MR"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="cells6MR"
+                                    className="mb-2 font-bold"
+                                  >
+                                    Cells
+                                  </label>
+                                  <Field
+                                    type="text"
+                                    id="cells6MR"
+                                    name="cells6MR"
+                                    // placeholder="Cells"
+                                    className="border border-gray-400 p-2 rounded-md"
+                                  />
 
-                    {/* 9M */}
-                    <div>
-                      <Divider />
-                      <h3>Examination of eye at 9 Months</h3>
+                                  <ErrorMessage
+                                    name="cells6MR"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="LOCSG6MR"
+                                    className="mb-2 font-bold"
+                                  >
+                                    LOCS grading
+                                  </label>
+                                  <Field
+                                    type="text"
+                                    id="LOCSG6MR"
+                                    name="LOCSG6MR"
+                                    // placeholder="LOCS grading"
+                                    className="border border-gray-400 p-2 rounded-md"
+                                  />
 
-                      <Divider />
+                                  <ErrorMessage
+                                    name="LOCSG6MR"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="IOPA6MR"
+                                    className="mb-2 font-bold"
+                                  >
+                                    IOP
+                                  </label>
+                                  <Field
+                                    type="text"
+                                    id="IOPA6MR"
+                                    name="IOPA6MR"
+                                    // placeholder="IOP"
+                                    className="border border-gray-400 p-2 rounded-md"
+                                  />
 
-                      <div className="flex flex-col">
-                        <label
-                          htmlFor="vaUnaided9MR"
-                          className="mb-2 font-bold"
-                        >
-                          Visual Acuity unaided
-                        </label>
-                        <Field
-                          as={"select"}
-                          type="text"
-                          id="vaUnaided9MR"
-                          name="vaUnaided9MR"
-                          // placeholder="Visual Acuity unaided"
-                          className="border border-gray-400 p-2 rounded-md"
-                        >
-                          <option value=""></option>
-                          {presentingVisualAcuity.map((option) => (
-                            <option key={option} value={option}>
-                              {option}
-                            </option>
-                          ))}
-                        </Field>
-                        <ErrorMessage
-                          name="vaUnaided9MR"
-                          component="p"
-                          className="text-red-500"
-                        />
-                      </div>
+                                  <ErrorMessage
+                                    name="IOPA6MR"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
 
-                      <div className="flex flex-col">
-                        <label htmlFor="bcVA9MR" className="mb-2 font-bold">
-                          Visual Acuity Best Corrected
-                        </label>
-                        <Field
-                          as={"select"}
-                          type="text"
-                          id="bcVA9MR"
-                          name="bcVA9MR"
-                          // placeholder="Best Corrected Visual Acuity After wash left eye"
-                          className="border border-gray-400 p-2 rounded-md"
-                        >
-                          <option value=""></option>
-                          {presentingVisualAcuity.map((option) => (
-                            <option key={option} value={option}>
-                              {option}
-                            </option>
-                          ))}
-                        </Field>
-                        <ErrorMessage
-                          name="bcVA9MR"
-                          component="p"
-                          className="text-red-500"
-                        />
-                      </div>
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="number"
+                                    className="mb-2 font-bold"
+                                  >
+                                    Gonioscopy
+                                  </label>
+                                  <Field
+                                    type="text"
+                                    id="Gonioscopy6MR"
+                                    name="Gonioscopy6MR"
+                                    // placeholder="Gonioscopy"
+                                    className="border border-gray-400 p-2 rounded-md"
+                                  />
+                                  <ErrorMessage
+                                    name="Gonioscopy6MR"
+                                    component="div"
+                                    className="text-red-500"
+                                  />
+                                </div>
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="openessOfQuadrant6MR"
+                                    className="mb-2 font-bold"
+                                  >
+                                    Openness of the quadrant
+                                  </label>
+                                  <Field
+                                    as={"select"}
+                                    type="text"
+                                    id="openessOfQuadrant6MR"
+                                    name="openessOfQuadrant6MR"
+                                    // placeholder="presenting Visual Acuity"
+                                    className="border border-gray-400 p-2 rounded-md"
+                                  >
+                                    <option value=""> </option>
+                                    {openessOfQuadrant.map((option) => (
+                                      <option key={option} value={option}>
+                                        {option}
+                                      </option>
+                                    ))}
+                                  </Field>
+                                  <ErrorMessage
+                                    name="openessOfQuadrant6MR"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="PAS6MR"
+                                    className="mb-2 font-bold"
+                                  >
+                                    Any PAS
+                                  </label>
+                                  <Field
+                                    as={"select"}
+                                    type="text"
+                                    id="PAS6MR"
+                                    name="PAS6MR"
+                                    // placeholder="Any PAS"
+                                    className="border border-gray-400 p-3 rounded-md"
+                                  >
+                                    <option value=""></option>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                  </Field>
+                                  <ErrorMessage
+                                    name="PAS6MR"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="pigment6MR"
+                                    className="mb-2 font-bold"
+                                  >
+                                    Pigments how many pluses
+                                  </label>
+                                  <Field
+                                    type="number"
+                                    id="pigment6MR"
+                                    name="pigment6MR"
+                                    // placeholder="Pigments"
+                                    className="border border-gray-400 p-3 rounded-md"
+                                  />
 
-                      <div className="flex flex-col">
-                        <label htmlFor="flare9MR" className="mb-2 font-bold">
-                          Flare
-                        </label>
-                        <Field
-                          type="text"
-                          id="flare9MR"
-                          name="flare9MR"
-                          // placeholder="flare"
-                          className="border border-gray-400 p-2 rounded-md"
-                        />
+                                  <ErrorMessage
+                                    name="pigment6MR"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="pigmentO6MR"
+                                    className="mb-2 font-bold"
+                                  >
+                                    Others
+                                  </label>
+                                  <Field
+                                    type="text"
+                                    id="pigmentO6MR"
+                                    name="pigmentO6MR"
+                                    // placeholder="Others"
+                                    className="border border-gray-400 p-3 rounded-md"
+                                  />
 
-                        <ErrorMessage
-                          name="flare9MR"
-                          component="p"
-                          className="text-red-500"
-                        />
-                      </div>
+                                  <ErrorMessage
+                                    name="pigmentO6MR"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="SLT6MR"
+                                    className="mb-2 font-bold"
+                                  >
+                                    SLT
+                                  </label>
+                                  <Field
+                                    as={"select"}
+                                    type="text"
+                                    id="SLT6MR"
+                                    name="SLT6MR"
+                                    // placeholder="SLT"
+                                    className="border border-gray-400 p-3 rounded-md"
+                                  >
+                                    <option value=""></option>
+                                    <option value="successful">
+                                      Successful
+                                    </option>
+                                    <option value="failed">Failed</option>
+                                    <option value="IOP reduced post SLT but needs either repeat SLT OR medication">
+                                      IOP reduced post SLT but needs either
+                                      repeat SLT OR medication
+                                    </option>
+                                    <option value="other assesement">
+                                      other assesement
+                                    </option>
+                                  </Field>
+                                  <ErrorMessage
+                                    name="SLT6MR"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="CVFMD6MR"
+                                    className="mb-2 font-bold"
+                                  >
+                                    CVF Mean deviation
+                                  </label>
+                                  <Field
+                                    type="number"
+                                    id="CVFMD6MR"
+                                    name="CVFMD6MR"
+                                    // placeholder="CVF Mean deviation"
+                                    className="border border-gray-400 p-3 rounded-md"
+                                  />
 
-                      <div className="flex flex-col">
-                        <label htmlFor="cells9MR" className="mb-2 font-bold">
-                          Cells
-                        </label>
-                        <Field
-                          type="text"
-                          id="cells9MR"
-                          name="cells9MR"
-                          // placeholder="Cells"
-                          className="border border-gray-400 p-2 rounded-md"
-                        />
+                                  <ErrorMessage
+                                    name="CVFMD6MR"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="PCVF6MR"
+                                    className="mb-2 font-bold"
+                                  >
+                                    Any progression
+                                  </label>
+                                  <Field
+                                    as={"select"}
+                                    type="text"
+                                    id="PCVF6MR"
+                                    name="PCVF6MR"
+                                    // placeholder="SLT"
+                                    className="border border-gray-400 p-3 rounded-md"
+                                  >
+                                    <option value=""></option>
+                                    <option value="yes">yes</option>
+                                    <option value="no">no</option>
+                                  </Field>
+                                  <ErrorMessage
+                                    name="PCVF6MR"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
+                                {values.PCVF6MR === "yes" && (
+                                  <>
+                                    <div className="flex flex-col">
+                                      <label
+                                        htmlFor="CVFO6MR"
+                                        className="mb-2 font-bold"
+                                      >
+                                        select progression
+                                      </label>
+                                      <Field
+                                        as={"select"}
+                                        type="text"
+                                        id="CVFO6MR"
+                                        name="CVFO6MR"
+                                        // placeholder="select progression"
+                                        className="border border-gray-400 p-3 rounded-md"
+                                      >
+                                        <option value=""></option>
+                                        <option value="widening">
+                                          widening
+                                        </option>
+                                        <option value="Deepening of scotomas">
+                                          Deepening of scotomas
+                                        </option>
+                                        <option value="higher MD">
+                                          higher MD
+                                        </option>
+                                        <option value="others">others</option>
+                                      </Field>
+                                      <ErrorMessage
+                                        name="CVFO6MR"
+                                        component="p"
+                                        className="text-red-500"
+                                      />
+                                    </div>
+                                  </>
+                                )}
+                                {values.CVFO6MR === "others" && (
+                                  <>
+                                    <div className="flex flex-col">
+                                      <label
+                                        htmlFor="CVFOO6MR"
+                                        className="mb-2 font-bold"
+                                      >
+                                        Enter progression
+                                      </label>
+                                      <Field
+                                        type="text"
+                                        id="CVFOO6MR"
+                                        name="CVFOO6MR"
+                                        // placeholder="Enter progression"
+                                        className="border border-gray-400 p-3 rounded-md"
+                                      />
 
-                        <ErrorMessage
-                          name="cells9MR"
-                          component="p"
-                          className="text-red-500"
-                        />
-                      </div>
+                                      <ErrorMessage
+                                        name="CVFOO6MR"
+                                        component="p"
+                                        className="text-red-500"
+                                      />
+                                    </div>
+                                  </>
+                                )}
+                              </div>
+                              {/* 9M */}
+                              <div>
+                                <Divider />
+                                <h3>Examination of eye at 9 Months</h3>
 
-                      <div className="flex flex-col">
-                        <label htmlFor="LOCSG9MR" className="mb-2 font-bold">
-                          LOCS grading
-                        </label>
-                        <Field
-                          type="text"
-                          id="LOCSG9MR"
-                          name="LOCSG9MR"
-                          // placeholder="LOCS grading"
-                          className="border border-gray-400 p-2 rounded-md"
-                        />
+                                <Divider />
 
-                        <ErrorMessage
-                          name="LOCSG9MR"
-                          component="p"
-                          className="text-red-500"
-                        />
-                      </div>
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="vaUnaided9MR"
+                                    className="mb-2 font-bold"
+                                  >
+                                    Visual Acuity unaided
+                                  </label>
+                                  <Field
+                                    as={"select"}
+                                    type="text"
+                                    id="vaUnaided9MR"
+                                    name="vaUnaided9MR"
+                                    // placeholder="Visual Acuity unaided"
+                                    className="border border-gray-400 p-2 rounded-md"
+                                  >
+                                    <option value=""></option>
+                                    {presentingVisualAcuity.map((option) => (
+                                      <option key={option} value={option}>
+                                        {option}
+                                      </option>
+                                    ))}
+                                  </Field>
+                                  <ErrorMessage
+                                    name="vaUnaided9MR"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
 
-                      <div className="flex flex-col">
-                        <label htmlFor="IOPA9MR" className="mb-2 font-bold">
-                          IOP
-                        </label>
-                        <Field
-                          type="text"
-                          id="IOPA9MR"
-                          name="IOPA9MR"
-                          // placeholder="IOP"
-                          className="border border-gray-400 p-2 rounded-md"
-                        />
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="bcVA9MR"
+                                    className="mb-2 font-bold"
+                                  >
+                                    Visual Acuity Best Corrected
+                                  </label>
+                                  <Field
+                                    as={"select"}
+                                    type="text"
+                                    id="bcVA9MR"
+                                    name="bcVA9MR"
+                                    // placeholder="Best Corrected Visual Acuity After wash left eye"
+                                    className="border border-gray-400 p-2 rounded-md"
+                                  >
+                                    <option value=""></option>
+                                    {presentingVisualAcuity.map((option) => (
+                                      <option key={option} value={option}>
+                                        {option}
+                                      </option>
+                                    ))}
+                                  </Field>
+                                  <ErrorMessage
+                                    name="bcVA9MR"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
 
-                        <ErrorMessage
-                          name="IOPA9MR"
-                          component="p"
-                          className="text-red-500"
-                        />
-                      </div>
-                    </div>
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="flare9MR"
+                                    className="mb-2 font-bold"
+                                  >
+                                    Flare
+                                  </label>
+                                  <Field
+                                    type="text"
+                                    id="flare9MR"
+                                    name="flare9MR"
+                                    // placeholder="flare"
+                                    className="border border-gray-400 p-2 rounded-md"
+                                  />
 
-                    {/* 12M */}
-                    <div>
-                      <Divider />
-                      <h3>Examination of eye at 12 M</h3>
+                                  <ErrorMessage
+                                    name="flare9MR"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
 
-                      <Divider />
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="cells9MR"
+                                    className="mb-2 font-bold"
+                                  >
+                                    Cells
+                                  </label>
+                                  <Field
+                                    type="text"
+                                    id="cells9MR"
+                                    name="cells9MR"
+                                    // placeholder="Cells"
+                                    className="border border-gray-400 p-2 rounded-md"
+                                  />
 
-                      <div className="flex flex-col">
-                        <label
-                          htmlFor="vaUnaided12MR"
-                          className="mb-2 font-bold"
-                        >
-                          Visual Acuity unaided
-                        </label>
-                        <Field
-                          as={"select"}
-                          type="text"
-                          id="vaUnaided12MR"
-                          name="vaUnaided12MR"
-                          // placeholder="Visual Acuity unaided"
-                          className="border border-gray-400 p-2 rounded-md"
-                        >
-                          <option value=""></option>
-                          {presentingVisualAcuity.map((option) => (
-                            <option key={option} value={option}>
-                              {option}
-                            </option>
-                          ))}
-                        </Field>
-                        <ErrorMessage
-                          name="vaUnaided12MR"
-                          component="p"
-                          className="text-red-500"
-                        />
-                      </div>
+                                  <ErrorMessage
+                                    name="cells9MR"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
 
-                      <div className="flex flex-col">
-                        <label htmlFor="bcVA12MR" className="mb-2 font-bold">
-                          Visual Acuity Best Corrected
-                        </label>
-                        <Field
-                          as={"select"}
-                          type="text"
-                          id="bcVA12MR"
-                          name="bcVA12MR"
-                          // placeholder="Best Corrected Visual Acuity After wash left eye"
-                          className="border border-gray-400 p-2 rounded-md"
-                        >
-                          <option value=""></option>
-                          {presentingVisualAcuity.map((option) => (
-                            <option key={option} value={option}>
-                              {option}
-                            </option>
-                          ))}
-                        </Field>
-                        <ErrorMessage
-                          name="bcVA12MR"
-                          component="p"
-                          className="text-red-500"
-                        />
-                      </div>
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="LOCSG9MR"
+                                    className="mb-2 font-bold"
+                                  >
+                                    LOCS grading
+                                  </label>
+                                  <Field
+                                    type="text"
+                                    id="LOCSG9MR"
+                                    name="LOCSG9MR"
+                                    // placeholder="LOCS grading"
+                                    className="border border-gray-400 p-2 rounded-md"
+                                  />
 
-                      <div className="flex flex-col">
-                        <label htmlFor="flare12MR" className="mb-2 font-bold">
-                          Flare
-                        </label>
-                        <Field
-                          type="text"
-                          id="flare12MR"
-                          name="flare12MR"
-                          // placeholder="flare"
-                          className="border border-gray-400 p-2 rounded-md"
-                        />
+                                  <ErrorMessage
+                                    name="LOCSG9MR"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
 
-                        <ErrorMessage
-                          name="flare12MR"
-                          component="p"
-                          className="text-red-500"
-                        />
-                      </div>
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="IOPA9MR"
+                                    className="mb-2 font-bold"
+                                  >
+                                    IOP
+                                  </label>
+                                  <Field
+                                    type="text"
+                                    id="IOPA9MR"
+                                    name="IOPA9MR"
+                                    // placeholder="IOP"
+                                    className="border border-gray-400 p-2 rounded-md"
+                                  />
 
-                      <div className="flex flex-col">
-                        <label htmlFor="cells12MR" className="mb-2 font-bold">
-                          Cells
-                        </label>
-                        <Field
-                          type="text"
-                          id="cells12MR"
-                          name="cells12MR"
-                          // placeholder="Cells"
-                          className="border border-gray-400 p-2 rounded-md"
-                        />
+                                  <ErrorMessage
+                                    name="IOPA9MR"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
+                              </div>
+                              {/* 12M */}
+                              <div>
+                                <Divider />
+                                <h3>Examination of eye at 12 M</h3>
 
-                        <ErrorMessage
-                          name="cells12MR"
-                          component="p"
-                          className="text-red-500"
-                        />
-                      </div>
+                                <Divider />
 
-                      <div className="flex flex-col">
-                        <label htmlFor="LOCSG12MR" className="mb-2 font-bold">
-                          LOCS grading
-                        </label>
-                        <Field
-                          type="text"
-                          id="LOCSG12MR"
-                          name="LOCSG12MR"
-                          // placeholder="LOCS grading"
-                          className="border border-gray-400 p-2 rounded-md"
-                        />
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="vaUnaided12MR"
+                                    className="mb-2 font-bold"
+                                  >
+                                    Visual Acuity unaided
+                                  </label>
+                                  <Field
+                                    as={"select"}
+                                    type="text"
+                                    id="vaUnaided12MR"
+                                    name="vaUnaided12MR"
+                                    // placeholder="Visual Acuity unaided"
+                                    className="border border-gray-400 p-2 rounded-md"
+                                  >
+                                    <option value=""></option>
+                                    {presentingVisualAcuity.map((option) => (
+                                      <option key={option} value={option}>
+                                        {option}
+                                      </option>
+                                    ))}
+                                  </Field>
+                                  <ErrorMessage
+                                    name="vaUnaided12MR"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
 
-                        <ErrorMessage
-                          name="LOCSG12MR"
-                          component="p"
-                          className="text-red-500"
-                        />
-                      </div>
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="bcVA12MR"
+                                    className="mb-2 font-bold"
+                                  >
+                                    Visual Acuity Best Corrected
+                                  </label>
+                                  <Field
+                                    as={"select"}
+                                    type="text"
+                                    id="bcVA12MR"
+                                    name="bcVA12MR"
+                                    // placeholder="Best Corrected Visual Acuity After wash left eye"
+                                    className="border border-gray-400 p-2 rounded-md"
+                                  >
+                                    <option value=""></option>
+                                    {presentingVisualAcuity.map((option) => (
+                                      <option key={option} value={option}>
+                                        {option}
+                                      </option>
+                                    ))}
+                                  </Field>
+                                  <ErrorMessage
+                                    name="bcVA12MR"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
 
-                      <div className="flex flex-col">
-                        <label htmlFor="IOPA12MR" className="mb-2 font-bold">
-                          IOP
-                        </label>
-                        <Field
-                          type="text"
-                          id="IOPA12MR"
-                          name="IOPA12MR"
-                          // placeholder="IOP"
-                          className="border border-gray-400 p-2 rounded-md"
-                        />
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="flare12MR"
+                                    className="mb-2 font-bold"
+                                  >
+                                    Flare
+                                  </label>
+                                  <Field
+                                    type="text"
+                                    id="flare12MR"
+                                    name="flare12MR"
+                                    // placeholder="flare"
+                                    className="border border-gray-400 p-2 rounded-md"
+                                  />
 
-                        <ErrorMessage
-                          name="IOPA12MR"
-                          component="p"
-                          className="text-red-500"
-                        />
-                      </div>
+                                  <ErrorMessage
+                                    name="flare12MR"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
 
-                      <div className="flex flex-col">
-                        <label htmlFor="CVFMD12MR" className="mb-2 font-bold">
-                          CVF Mean deviation
-                        </label>
-                        <Field
-                          type="number"
-                          id="CVFMD12MR"
-                          name="CVFMD12MR"
-                          // placeholder="CVF Mean deviation"
-                          className="border border-gray-400 p-3 rounded-md"
-                        />
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="cells12MR"
+                                    className="mb-2 font-bold"
+                                  >
+                                    Cells
+                                  </label>
+                                  <Field
+                                    type="text"
+                                    id="cells12MR"
+                                    name="cells12MR"
+                                    // placeholder="Cells"
+                                    className="border border-gray-400 p-2 rounded-md"
+                                  />
 
-                        <ErrorMessage
-                          name="CVFMD12MR"
-                          component="p"
-                          className="text-red-500"
-                        />
-                      </div>
+                                  <ErrorMessage
+                                    name="cells12MR"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
 
-                      <div className="flex flex-col">
-                        <label htmlFor="CVFPS12MR" className="mb-2 font-bold">
-                          CVF Pattern standard
-                        </label>
-                        <Field
-                          type="number"
-                          id="CVFPS12MR"
-                          name="CVFPS12MR"
-                          // placeholder="CVF Mean deviation"
-                          className="border border-gray-400 p-3 rounded-md"
-                        />
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="LOCSG12MR"
+                                    className="mb-2 font-bold"
+                                  >
+                                    LOCS grading
+                                  </label>
+                                  <Field
+                                    type="text"
+                                    id="LOCSG12MR"
+                                    name="LOCSG12MR"
+                                    // placeholder="LOCS grading"
+                                    className="border border-gray-400 p-2 rounded-md"
+                                  />
 
-                        <ErrorMessage
-                          name="CVFPS12MR"
-                          component="p"
-                          className="text-red-500"
-                        />
-                      </div>
+                                  <ErrorMessage
+                                    name="LOCSG12MR"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
 
-                      <div className="flex flex-col">
-                        <label htmlFor="PCVF12MR" className="mb-2 font-bold">
-                          Any progression
-                        </label>
-                        <Field
-                          as={"select"}
-                          type="text"
-                          id="PCVF12MR"
-                          name="PCVF12MR"
-                          // placeholder="SLT"
-                          className="border border-gray-400 p-3 rounded-md"
-                        >
-                          <option value=""></option>
-                          <option value="yes">yes</option>
-                          <option value="no">no</option>
-                        </Field>
-                        <ErrorMessage
-                          name="PCVF12MR"
-                          component="p"
-                          className="text-red-500"
-                        />
-                      </div>
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="IOPA12MR"
+                                    className="mb-2 font-bold"
+                                  >
+                                    IOP
+                                  </label>
+                                  <Field
+                                    type="text"
+                                    id="IOPA12MR"
+                                    name="IOPA12MR"
+                                    // placeholder="IOP"
+                                    className="border border-gray-400 p-2 rounded-md"
+                                  />
 
-                      {values.PCVF12MR === "yes" && (
-                        <>
-                          <div className="flex flex-col">
-                            <label
-                              htmlFor="CVFO12MR"
-                              className="mb-2 font-bold"
-                            >
-                              select progression
-                            </label>
-                            <Field
-                              as={"select"}
-                              type="text"
-                              id="CVFO12MR"
-                              name="CVFO12MR"
-                              // placeholder="select progression"
-                              className="border border-gray-400 p-3 rounded-md"
-                            >
-                              <option value=""></option>
-                              <option value="widening">widening</option>
-                              <option value="Deepening of scotomas">
-                                Deepening of scotomas
-                              </option>
-                              <option value="higher MD">higher MD</option>
-                              <option value="others">others</option>
-                            </Field>
-                            <ErrorMessage
-                              name="CVFO12MR"
-                              component="p"
-                              className="text-red-500"
-                            />
-                          </div>
-                        </>
-                      )}
+                                  <ErrorMessage
+                                    name="IOPA12MR"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
 
-                      {values.CVFO12MR === "others" && (
-                        <>
-                          <div className="flex flex-col">
-                            <label
-                              htmlFor="CVFOO12MR"
-                              className="mb-2 font-bold"
-                            >
-                              Enter progression
-                            </label>
-                            <Field
-                              type="text"
-                              id="CVFOO12MR"
-                              name="CVFOO12MR"
-                              // placeholder="Enter progression"
-                              className="border border-gray-400 p-3 rounded-md"
-                            />
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="CVFMD12MR"
+                                    className="mb-2 font-bold"
+                                  >
+                                    CVF Mean deviation
+                                  </label>
+                                  <Field
+                                    type="number"
+                                    id="CVFMD12MR"
+                                    name="CVFMD12MR"
+                                    // placeholder="CVF Mean deviation"
+                                    className="border border-gray-400 p-3 rounded-md"
+                                  />
 
-                            <ErrorMessage
-                              name="CVFOO12MR"
-                              component="p"
-                              className="text-red-500"
-                            />
-                          </div>
-                        </>
-                      )}
-                    </div>
+                                  <ErrorMessage
+                                    name="CVFMD12MR"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
+
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="CVFPS12MR"
+                                    className="mb-2 font-bold"
+                                  >
+                                    CVF Pattern standard
+                                  </label>
+                                  <Field
+                                    type="number"
+                                    id="CVFPS12MR"
+                                    name="CVFPS12MR"
+                                    // placeholder="CVF Mean deviation"
+                                    className="border border-gray-400 p-3 rounded-md"
+                                  />
+
+                                  <ErrorMessage
+                                    name="CVFPS12MR"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
+
+                                <div className="flex flex-col">
+                                  <label
+                                    htmlFor="PCVF12MR"
+                                    className="mb-2 font-bold"
+                                  >
+                                    Any progression
+                                  </label>
+                                  <Field
+                                    as={"select"}
+                                    type="text"
+                                    id="PCVF12MR"
+                                    name="PCVF12MR"
+                                    // placeholder="SLT"
+                                    className="border border-gray-400 p-3 rounded-md"
+                                  >
+                                    <option value=""></option>
+                                    <option value="yes">yes</option>
+                                    <option value="no">no</option>
+                                  </Field>
+                                  <ErrorMessage
+                                    name="PCVF12MR"
+                                    component="p"
+                                    className="text-red-500"
+                                  />
+                                </div>
+
+                                {values.PCVF12MR === "yes" && (
+                                  <>
+                                    <div className="flex flex-col">
+                                      <label
+                                        htmlFor="CVFO12MR"
+                                        className="mb-2 font-bold"
+                                      >
+                                        select progression
+                                      </label>
+                                      <Field
+                                        as={"select"}
+                                        type="text"
+                                        id="CVFO12MR"
+                                        name="CVFO12MR"
+                                        // placeholder="select progression"
+                                        className="border border-gray-400 p-3 rounded-md"
+                                      >
+                                        <option value=""></option>
+                                        <option value="widening">
+                                          widening
+                                        </option>
+                                        <option value="Deepening of scotomas">
+                                          Deepening of scotomas
+                                        </option>
+                                        <option value="higher MD">
+                                          higher MD
+                                        </option>
+                                        <option value="others">others</option>
+                                      </Field>
+                                      <ErrorMessage
+                                        name="CVFO12MR"
+                                        component="p"
+                                        className="text-red-500"
+                                      />
+                                    </div>
+                                  </>
+                                )}
+
+                                {values.CVFO12MR === "others" && (
+                                  <>
+                                    <div className="flex flex-col">
+                                      <label
+                                        htmlFor="CVFOO12MR"
+                                        className="mb-2 font-bold"
+                                      >
+                                        Enter progression
+                                      </label>
+                                      <Field
+                                        type="text"
+                                        id="CVFOO12MR"
+                                        name="CVFOO12MR"
+                                        // placeholder="Enter progression"
+                                        className="border border-gray-400 p-3 rounded-md"
+                                      />
+
+                                      <ErrorMessage
+                                        name="CVFOO12MR"
+                                        component="p"
+                                        className="text-red-500"
+                                      />
+                                    </div>
+                                  </>
+                                )}
+                              </div>
                             </>
                           )}
-                      
+                        </>
+                      )}
                     </div>
-
-                   
                   </>
                 )}
               </div>
@@ -6657,20 +6789,33 @@ const EyeSpecificForm = ({ nextStep, id, currentStep }) => {
 
             <div className="mt-20">
               <div className="flex-col md:flex-row w-full">
-                {(values.SLT2ML === "failed (repeat SLT)" || values.SLT2ML === "IOP reduced post SLT but needs to repeat SLT" || values.SLT2MR === "failed (repeat SLT)" || values.SLT2MR === "IOP reduced post SLT but needs to repeat SLT") ? (<div
-                  onClick={() => end(values)}
-                  className="bg-green-600 w-full text-white p-2 mb-2 rounded-md h-[50px] cursor-pointer text-center"
-
-                >
-                  Repeat
-                </div>):
-                (<button
-                type="submit"
-                className="bg-green-600 w-full text-white p-2 mb-2 rounded-md h-[50px] "
-                disabled={isSubmitting}
-              >
-                Next
-              </button>)}
+                {values.SLT2ML === "failed (repeat SLT)" ||
+                values.SLT2ML ===
+                  "IOP reduced post SLT but needs to repeat SLT" ||
+                values.SLT2MR === "failed (repeat SLT)" ||
+                values.SLT2MR ===
+                  "IOP reduced post SLT but needs to repeat SLT" ||
+                values.SLT3ML === "failed (repeat SLT)" ||
+                values.SLT3ML ===
+                  "IOP reduced post SLT but needs to repeat SLT" ||
+                values.SLT3MR === "failed (repeat SLT)" ||
+                values.SLT3MR ===
+                  "IOP reduced post SLT but needs to repeat SLT" ? (
+                  <div
+                    onClick={() => end(values)}
+                    className="bg-green-600 w-full text-white p-2 mb-2 rounded-md h-[50px] cursor-pointer text-center"
+                  >
+                    Repeat
+                  </div>
+                ) : (
+                  <button
+                    type="submit"
+                    className="bg-green-600 w-full text-white p-2 mb-2 rounded-md h-[50px] "
+                    disabled={isSubmitting}
+                  >
+                    Next
+                  </button>
+                )}
               </div>
             </div>
           </Form>

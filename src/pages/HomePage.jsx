@@ -7,27 +7,6 @@ import { deleteUser, getUser } from "../actions/userAction";
 
 import { exportToExcel } from "../utils/helpers";
 
-// const data = [
-//   {
-//     key: "1",
-//     _id: 1,
-//     number: "1",
-//     name: "John Brown",
-//   },
-//   {
-//     key: 2,
-//     _id: 2,
-//     number: "2",
-//     name: "Jim Green",
-//   },
-//   {
-//     key: 3,
-//     _id: 3,
-//     number: "3",
-//     name: "Joe Black",
-//   },
-// ];
-
 const HomePage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -82,15 +61,24 @@ const HomePage = () => {
           >
             Stage 2
           </Button>
-          {(record.SLT2ML === "failed (repeat SLT)" || record.SLT2ML === "IOP reduced post SLT but needs to repeat SLT" || record.SLT2MR === "failed (repeat SLT)" || record.SLT2MR === "IOP reduced post SLT but needs to repeat SLT") &&
-          <Button
-          size="sm"
-          onClick={() => navigate(`repeat/${record._id}`)}
-         
-        >
-          Repeat Stage
-        </Button>
-          }
+          {(record.SLT2ML === "failed (repeat SLT)" ||
+            record.SLT2ML === "IOP reduced post SLT but needs to repeat SLT" ||
+            record.SLT2MR === "failed (repeat SLT)" ||
+            record.SLT2MR ===
+              "IOP reduced post SLT but needs to repeat SLT") && (
+            <Button size="sm" onClick={() => navigate(`repeat/${record._id}`)}>
+              Repeat Stage 2M
+            </Button>
+          )}
+          {(record.SLT3ML === "failed (repeat SLT)" ||
+            record.SLT3ML === "IOP reduced post SLT but needs to repeat SLT" ||
+            record.SLT3MR === "failed (repeat SLT)" ||
+            record.SLT3MR ===
+              "IOP reduced post SLT but needs to repeat SLT") && (
+            <Button size="sm" onClick={() => navigate(`repeat/${record._id}`)}>
+              Repeat Stage 3M
+            </Button>
+          )}
           <Button
             size="sm"
             onClick={() => navigate(`edit_user/${record._id}/3`)}
